@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>daiMaruyama Portfolio</title>
+
+  <!-- 🎨 フォント & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Poppins', 'Helvetica Neue', sans-serif;
@@ -59,8 +64,9 @@
     }
   </style>
 </head>
+
 <body>
-  <header>
+  <header data-aos="fade-down">
     <h1>Hello, I'm D. Maruyama 👋</h1>
     <p>Unity / C# Developer</p>
     <p>
@@ -69,25 +75,35 @@
     </p>
   </header>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I'm a Unity and C# developer focusing on creative gameplay and stylish UI design.  
+    <p>I'm a Unity and C# developer focusing on creative gameplay and stylish UI design.<br>
     I enjoy building small, expressive projects that combine physics, timing, and humor.</p>
   </section>
 
-  <section id="projects">
+  <section id="projects" data-aos="fade-up" data-aos-delay="150">
     <h2>Projects</h2>
     <p><strong>Coding（Daily Practice）</strong><br>
     A continuous project where I push small Unity or C# samples to GitHub every day.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" data-aos="fade-up" data-aos-delay="300">
     <h2>Skills</h2>
     <p>Unity / C# / DOTween / Firebase / Git / Rider / Visual Studio</p>
   </section>
 
-  <footer>
+  <footer data-aos="fade-up" data-aos-delay="450">
     <p>© 2025 daiMaruyama. All rights reserved.</p>
   </footer>
+
+  <!-- ✨ AOS.js 読み込み & 初期化 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true,
+    });
+  </script>
 </body>
 </html>

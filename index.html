@@ -113,7 +113,7 @@
     .sub-project {
       display: flex;
       background-color: #0f131a;
-      border-radius: 10px;
+      border-radius: 12px; /* カード丸角 */
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.4);
       transition: transform 0.2s ease;
@@ -125,8 +125,10 @@
 
     .sub-project img {
       width: 120px;
-      height: 120px;
+      height: auto;       /* 縦横比を維持 */
       object-fit: cover;
+      border-radius: 8px; /* 画像丸角 */
+      flex-shrink: 0;     /* 縮まない */
     }
 
     .sub-info {
@@ -163,7 +165,7 @@
 
     .sub-info .links a:hover {
       text-decoration: underline;
-    }
+    }  
   </style>
 </head>
 <body>
@@ -225,6 +227,7 @@
           </div>
         </div>
       </div>
+      
       <div class="sub-project" data-aos="fade-up" data-aos-delay="100">
         <img src="https://unityroom.com/assets/img/ogp_default.png" alt="つっぱって！">
         <div class="sub-info">

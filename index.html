@@ -103,14 +103,13 @@
       color: #cdd9e5;
     }
 
-       /* サブ作品 */
+    /* サブ作品 */
     .sub-projects {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      justify-content: center;
     }
-    
+
     .sub-project {
       display: flex;
       background-color: #0f131a;
@@ -118,57 +117,55 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.4);
       transition: transform 0.2s ease;
-      width: 350px;      /* 横長カード幅 */
     }
-    
+
     .sub-project:hover {
       transform: translateY(-3px);
     }
-    
+
     .sub-project img {
-      width: 140px;       /* 左側画像の横幅 */
-      height: auto;       /* 高さは自動で横長比率維持 */
-      object-fit: cover;
+      width: 160px;               /* 横幅固定 */
+      aspect-ratio: 16 / 9;       /* 横長比率固定 */
+      object-fit: cover;          /* 枠内で切り抜き */
       flex-shrink: 0;
-      border-radius: 0;   /* 左画像は角丸なしでカードと接続 */
+      border-radius: 8px;
     }
-    
+
     .sub-info {
-      padding: 12px;
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    
+
     .sub-info h4 {
       margin: 0 0 6px 0;
       font-size: 1.1rem;
       color: #58a6ff;
     }
-    
+
     .sub-info .date {
       font-size: 0.8rem;
       color: #8b949e;
       margin-bottom: 6px;
     }
-    
+
     .sub-info .description {
       font-size: 0.9rem;
       color: #cdd9e5;
       margin-bottom: 6px;
     }
-    
+
     .sub-info .links a {
       font-size: 0.85rem;
       color: #58a6ff;
       text-decoration: none;
       margin-right: 8px;
     }
-    
+
     .sub-info .links a:hover {
       text-decoration: underline;
-    }
-
+    }  
   </style>
 </head>
 <body>
@@ -213,7 +210,7 @@
         <div class="sub-info">
           <h4>Front Slimers</h4>
           <div class="date">2025年05月制作</div>
-          <div class="description">初ゲームジャムで作ったタワーディフェンスゲーム</div>
+          <div class="description">Unity / 初参加ゲームジャムで作ったタワーディフェンスゲーム</div>
           <div class="links">
             <a href="https://unityroom.com/games/frontslimers">UnityRoom</a>
           </div>
@@ -230,7 +227,6 @@
           </div>
         </div>
       </div>
-      
       <div class="sub-project" data-aos="fade-up" data-aos-delay="100">
         <img src="https://unityroom.com/assets/img/ogp_default.png" alt="つっぱって！">
         <div class="sub-info">

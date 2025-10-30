@@ -103,69 +103,68 @@
       color: #cdd9e5;
     }
 
-    /* サブ作品 */
+    /* サブ作品も横長カードに */
     .sub-projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin-bottom: 60px;
     }
 
     .sub-project {
-      display: flex;
-      background-color: #0f131a;
+      background-color: #161b22;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease;
+      width: 350px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .sub-project:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.6);
     }
 
     .sub-project img {
-      width: 160px;               /* 横幅固定 */
-      aspect-ratio: 16 / 9;       /* 横長比率固定 */
-      object-fit: cover;          /* 枠内で切り抜き */
-      flex-shrink: 0;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
       border-radius: 8px;
+      margin-bottom: 12px;
     }
 
-    .sub-info {
-      padding: 10px 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .sub-info h4 {
-      margin: 0 0 6px 0;
-      font-size: 1.1rem;
+    .sub-project h4 {
+      margin: 8px 0 4px;
+      font-size: 1.2rem;
       color: #58a6ff;
     }
 
-    .sub-info .date {
+    .sub-project .date {
       font-size: 0.8rem;
       color: #8b949e;
       margin-bottom: 6px;
     }
 
-    .sub-info .description {
-      font-size: 0.9rem;
+    .sub-project .description {
+      font-size: 0.95rem;
       color: #cdd9e5;
       margin-bottom: 6px;
     }
 
-    .sub-info .links a {
+    .sub-project .links a {
       font-size: 0.85rem;
       color: #58a6ff;
       text-decoration: none;
       margin-right: 8px;
     }
 
-    .sub-info .links a:hover {
+    .sub-project .links a:hover {
       text-decoration: underline;
-    }  
+    }
+
   </style>
 </head>
 <body>
@@ -207,36 +206,24 @@
     <div class="sub-projects">
       <div class="sub-project" data-aos="fade-up" data-aos-delay="0">
         <img src="https://unityroom.com/assets/img/ogp_default.png" alt="Front Slimers">
-        <div class="sub-info">
-          <h4>Front Slimers</h4>
-          <div class="date">2025年05月制作</div>
-          <div class="description">Unity / 初参加ゲームジャムで作ったタワーディフェンスゲーム</div>
-          <div class="links">
-            <a href="https://unityroom.com/games/frontslimers">UnityRoom</a>
-          </div>
-        </div>
+        <h4>Front Slimers</h4>
+        <p class="date">2025年05月制作</p>
+        <p class="description">Unity / 初参加ゲームジャムで作ったタワーディフェンスゲーム</p>
+        <p class="links"><a href="https://unityroom.com/games/frontslimers">UnityRoom</a></p>
       </div>
       <div class="sub-project" data-aos="fade-up" data-aos-delay="50">
         <img src="images/2025.07.03.png" alt="Virus">
-        <div class="sub-info">
-          <h4>Virus</h4>
-          <div class="date">2025年07月制作</div>
-          <div class="description">体内タワーディフェンス風ゲーム</div>
-          <div class="links">
-            <a href="https://unityroom.com/games/myfirsttd_0627">UnityRoom</a>
-          </div>
-        </div>
+        <h4>Virus</h4>
+        <p class="date">2025年07月制作</p>
+        <p class="description">体内タワーディフェンス風ゲーム</p>
+        <p class="links"><a href="https://unityroom.com/games/myfirsttd_0627">UnityRoom</a></p>
       </div>
       <div class="sub-project" data-aos="fade-up" data-aos-delay="100">
         <img src="https://unityroom.com/assets/img/ogp_default.png" alt="つっぱって！">
-        <div class="sub-info">
-          <h4>つっぱって！</h4>
-          <div class="date">2025年08月制作</div>
-          <div class="description">2日間ゲームジャムで作ったシンプルな連打ゲー</div>
-          <div class="links">
-            <a href="https://unityroom.com/games/tsuppatte">UnityRoom</a>
-          </div>
-        </div>
+        <h4>つっぱって！</h4>
+        <p class="date">2025年08月制作</p>
+        <p class="description">2日間ゲームジャムで作ったシンプルな連打ゲー</p>
+        <p class="links"><a href="https://unityroom.com/games/tsuppatte">UnityRoom</a></p>
       </div>
     </div>
   </section>

@@ -103,67 +103,59 @@
       color: #cdd9e5;
     }
 
-    /* サブ作品も横長カードに */
-    .sub-projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-      margin-bottom: 60px;
-    }
+/* サブ作品を横スクロールに変更 */
+.sub-projects {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 20px 20px;
+  margin-bottom: 60px;
+  scrollbar-width: thin;
+  scrollbar-color: #58a6ff #0d1117;
+  -webkit-overflow-scrolling: touch; /* ← スマホのスムーズスクロール */
+}
 
-    .sub-project {
-      background-color: #161b22;
-      border-radius: 12px;
-      overflow: hidden;
-      width: 350px;
-      text-align: center;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+/* スクロールバーの見た目（Chrome系） */
+.sub-projects::-webkit-scrollbar {
+  height: 8px;
+}
+.sub-projects::-webkit-scrollbar-track {
+  background: #0d1117;
+  border-radius: 4px;
+}
+.sub-projects::-webkit-scrollbar-thumb {
+  background-color: #58a6ff;
+  border-radius: 4px;
+}
 
-    .sub-project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.6);
-    }
+/* 各カードをスナップで整列 */
+.sub-project {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 300px;
+  background-color: #161b22;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .sub-project img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
+.sub-project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+}
 
-    .sub-project h4 {
-      margin: 8px 0 4px;
-      font-size: 1.2rem;
-      color: #58a6ff;
-    }
-
-    .sub-project .date {
-      font-size: 0.8rem;
-      color: #8b949e;
-      margin-bottom: 6px;
-    }
-
-    .sub-project .description {
-      font-size: 0.95rem;
-      color: #cdd9e5;
-      margin-bottom: 6px;
-    }
-
-    .sub-project .links a {
-      font-size: 0.85rem;
-      color: #58a6ff;
-      text-decoration: none;
-      margin-right: 8px;
-    }
-
-    .sub-project .links a:hover {
-      text-decoration: underline;
-    }
+/* 画像や文字に軽く整列感 */
+.sub-project img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
 
   </style>
 </head>

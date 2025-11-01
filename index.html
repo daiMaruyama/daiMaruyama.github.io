@@ -103,59 +103,69 @@
       color: #cdd9e5;
     }
 
-/* サブ作品を横スクロールに変更 */
-.sub-projects {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 10px 20px 20px;
-  margin-bottom: 60px;
-  scrollbar-width: thin;
-  scrollbar-color: #58a6ff #0d1117;
-  -webkit-overflow-scrolling: touch; /* ← スマホのスムーズスクロール */
-}
+    /* === サブ作品スライダー === */
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
 
-/* スクロールバーの見た目（Chrome系） */
-.sub-projects::-webkit-scrollbar {
-  height: 8px;
-}
-.sub-projects::-webkit-scrollbar-track {
-  background: #0d1117;
-  border-radius: 4px;
-}
-.sub-projects::-webkit-scrollbar-thumb {
-  background-color: #58a6ff;
-  border-radius: 4px;
-}
+    .sub-projects {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
 
-/* 各カードをスナップで整列 */
-.sub-project {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 300px;
-  background-color: #161b22;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .sub-project {
+      flex: 0 0 300px;
+      margin: 0 10px;
+      background-color: #161b22;
+      border-radius: 12px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.sub-project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.6);
-}
+    .sub-project img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
 
-/* 画像や文字に軽く整列感 */
-.sub-project img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
+    .sub-project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+    }
+
+    /* スライドボタン */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .slider-container:hover .slider-btn {
+      opacity: 1;
+    }
+
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    .slider-btn:hover {
+      background: rgba(88,166,255,0.8);
+    }
 
   </style>
 </head>
@@ -195,28 +205,32 @@
     </div>
 
     <h2>その他の作品</h2>
-    <div class="sub-projects">
-      <div class="sub-project" data-aos="fade-up" data-aos-delay="0">
-        <img src="https://unityroom.com/assets/img/ogp_default.png" alt="Front Slimers">
-        <h4>Front Slimers</h4>
-        <p class="date">2025年05月制作</p>
-        <p class="description">Unity / 初参加ゲームジャムで作ったタワーディフェンスゲーム</p>
-        <p class="links"><a href="https://unityroom.com/games/frontslimers">UnityRoom</a></p>
+    <div class="slider-container" data-aos="fade-up">
+      <button class="slider-btn prev-btn">‹</button>
+      <div class="sub-projects">
+        <div class="sub-project">
+          <img src="https://unityroom.com/assets/img/ogp_default.png" alt="Front Slimers">
+          <h4>Front Slimers</h4>
+          <p class="date">2025年05月制作</p>
+          <p class="description">Unity / 初参加ゲームジャムで作ったタワーディフェンスゲーム</p>
+          <p class="links"><a href="https://unityroom.com/games/frontslimers">UnityRoom</a></p>
+        </div>
+        <div class="sub-project">
+          <img src="images/2025.07.03.png" alt="Virus">
+          <h4>Virus</h4>
+          <p class="date">2025年07月制作</p>
+          <p class="description">体内タワーディフェンス風ゲーム</p>
+          <p class="links"><a href="https://unityroom.com/games/myfirsttd_0627">UnityRoom</a></p>
+        </div>
+        <div class="sub-project">
+          <img src="https://unityroom.com/assets/img/ogp_default.png" alt="つっぱって！">
+          <h4>つっぱって！</h4>
+          <p class="date">2025年08月制作</p>
+          <p class="description">2日間ゲームジャムで作ったシンプルな連打ゲー</p>
+          <p class="links"><a href="https://unityroom.com/games/tsuppatte">UnityRoom</a></p>
+        </div>
       </div>
-      <div class="sub-project" data-aos="fade-up" data-aos-delay="50">
-        <img src="images/2025.07.03.png" alt="Virus">
-        <h4>Virus</h4>
-        <p class="date">2025年07月制作</p>
-        <p class="description">体内タワーディフェンス風ゲーム</p>
-        <p class="links"><a href="https://unityroom.com/games/myfirsttd_0627">UnityRoom</a></p>
-      </div>
-      <div class="sub-project" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://unityroom.com/assets/img/ogp_default.png" alt="つっぱって！">
-        <h4>つっぱって！</h4>
-        <p class="date">2025年08月制作</p>
-        <p class="description">2日間ゲームジャムで作ったシンプルな連打ゲー</p>
-        <p class="links"><a href="https://unityroom.com/games/tsuppatte">UnityRoom</a></p>
-      </div>
+      <button class="slider-btn next-btn">›</button>
     </div>
   </section>
 
@@ -229,14 +243,38 @@
     <p>© 2025 daiMaruyama. All rights reserved.</p>
   </footer>
 
-  <!-- AOS.js 読み込み & 初期化 -->
+  <!-- AOS.js & スライダー制御 -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 600,
-      easing: 'ease-out',
-      once: true,
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+
+    const slider = document.querySelector('.sub-projects');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const slides = document.querySelectorAll('.sub-project');
+    let index = 0;
+    const slideWidth = 320; // 各カード幅＋余白
+    const total = slides.length;
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % total;
+      updateSlide();
     });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + total) % total;
+      updateSlide();
+    });
+
+    // 自動スライド
+    setInterval(() => {
+      index = (index + 1) % total;
+      updateSlide();
+    }, 5000);
   </script>
 </body>
 </html>

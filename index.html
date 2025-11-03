@@ -150,6 +150,36 @@
       background: #58a6ff;
       transform: scale(1.1);
     }
+    /* スライダーの重なり修正 */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 60px;
+  padding: 0 50px; /* ボタン分の余白確保 */
+}
+
+/* ボタンを最前面に */
+.slider-btn {
+  z-index: 5;
+  pointer-events: auto; /* ボタンはクリック可 */
+}
+
+/* スライダー内のカードはボタンより後ろに */
+.sub-projects {
+  position: relative;
+  z-index: 1;
+}
+
+/* はみ出した部分はクリック無効にしておく */
+.sub-projects::before,
+.sub-projects::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  pointer-events: none;
+}
 
     .prev-btn { left: 5px; }
     .next-btn { right: 5px; }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>発揮よいよい つっぱって！ | 詳細</title>
+    <link href="../style.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 詳細ページ用の追加スタイル */
+        .detail-section {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px 40px;
+            background-color: #161b22;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .detail-section h3 {
+            border-left: 4px solid #58a6ff;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .info-table th, .info-table td {
+            padding: 10px;
+            border-bottom: 1px solid #30363d;
+            text-align: left;
+        }
+        .info-table th {
+            width: 35%;
+            color: #8b949e;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding-top: 40px; padding-bottom: 20px;">
+        <div style="max-width: 800px; margin: auto; padding: 0 20px;">
+            <a href="../index.html" class="back-link">&lt; ポートフォリオ一覧に戻る</a>
+            <h1>発揮よいよい つっぱって！</h1>
+        </div>
+    </header>
+
+    <div class="detail-section" data-aos="fade-up">
+        
+        <h2>基本情報</h2>
+        <table class="info-table">
+            <tr><th>制作期間</th><td>2日間（ゲームジャム）</td></tr>
+            <tr><th>制作形式</th><td>チーム制作</td></tr>
+            <tr><th>使用エンジン</th><td>Unity</td></tr>
+            <tr><th>主要言語</th><td>C#</td></tr>
+        </table>
+        
+        <img src="../images/2025.08.08.png" alt="つっぱって！のスクリーンショット" style="width: 100%; border-radius: 8px; margin-bottom: 30px;">
+        
+        <h2>🎯 技術的貢献と実装内容</h2>
+        
+        <p>
+            この作品では、とゲームバランスの調整**を意識しました。短期間での開発において、最大の「面白さ」を引き出すことに注力しました。
+        </p>
+
+        <h3>担当した主な機能</h3>
+        <ul>
+            <li>**入力回数と距離の変換関数の作成:**
+                連打回数（入力）を、キャラクターの移動距離（ゲームの勝敗判定）に変換するためのC#関数を設計・実装しました。これにより、**プレイヤーの操作が結果に直結する**シンプルなロジックを確立しました。
+            </li>
+            <li>**ゲームバランス調整への貢献:**
+                連打数調整など、プレイヤー体験を左右する**主要パラメータの調整**を担当。シンプルなゲームデザインの中で、繰り返し遊びたくなるようなバランスを追求しました。
+            </li>
+        </ul>
+
+        <h2 style="margin-top: 50px;">🔗 プレイリンク</h2>
+        <p><a href="https://unityroom.com/games/tsuppatte" target="_blank" style="font-size: 1.2rem; font-weight: bold;">UnityRoomで遊ぶ</a></p>
+        
+    </div>
+
+    <footer>
+        <p>© 2025 daiMaruyama. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 600, easing: 'ease-out', once: true });</script>
+</body>
+</html>

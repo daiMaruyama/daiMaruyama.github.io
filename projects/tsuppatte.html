@@ -1,93 +1,156 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>発揮よいよい つっぱって！ | 詳細</title>
-    <link href="../style.css" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* 詳細ページ用の追加スタイル */
-        .detail-section {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 20px 40px;
-            background-color: #161b22;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .detail-section h3 {
-            border-left: 4px solid #58a6ff;
-            padding-left: 10px;
-            margin-top: 30px;
-        }
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-        .info-table th, .info-table td {
-            padding: 10px;
-            border-bottom: 1px solid #30363d;
-            text-align: left;
-        }
-        .info-table th {
-            width: 35%;
-            color: #8b949e;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>発揮よいよい つっぱって！ | 詳細</title>
+  <link href="../style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #58a6ff;
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #58a6ff;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: #79c0ff;
+    }
+
+    .detail-section {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 40px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      border-left: 5px solid #58a6ff;
+      padding-left: 12px;
+      margin: 40px 0 20px;
+      color: #fff;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    .info-table th, .info-table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .info-table th {
+      width: 35%;
+      color: #8b949e;
+      font-weight: 600;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 30px 0;
+      border: 1px solid #30363d;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #79c0ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.9rem;
+      color: #8b949e;
+      border-top: 1px solid #30363d;
+      margin-top: 80px;
+    }
+  </style>
 </head>
 <body>
-    <header style="padding-top: 40px; padding-bottom: 20px;">
-        <div style="max-width: 800px; margin: auto; padding: 0 20px;">
-            <a href="../index.html" class="back-link">&lt; ポートフォリオ一覧に戻る</a>
-            <h1>発揮よいよい つっぱって！</h1>
-        </div>
-    </header>
+  <header data-aos="fade-down">
+    <a href="../index.html" class="back-link">&lt; ポートフォリオ一覧に戻る</a>
+    <h1>発揮よいよい つっぱって！</h1>
+  </header>
 
-    <div class="detail-section" data-aos="fade-up">
-        
-        <h2>基本情報</h2>
-        <table class="info-table">
-            <tr><th>制作期間</th><td>2日間（ゲームジャム）</td></tr>
-            <tr><th>制作形式</th><td>チーム制作</td></tr>
-            <tr><th>使用エンジン</th><td>Unity</td></tr>
-            <tr><th>主要言語</th><td>C#</td></tr>
-        </table>
-        
-        <img src="../images/2025.08.08.png" alt="つっぱって！のスクリーンショット" style="width: 100%; border-radius: 8px; margin-bottom: 30px;">
-        
-        <h2>🎯 技術的貢献と実装内容</h2>
-        
-        <p>
-            この作品では、とゲームバランスの調整**を意識しました。短期間での開発において、最大の「面白さ」を引き出すことに注力しました。
-        </p>
+  <div class="detail-section" data-aos="fade-up">
+    <h2>基本情報</h2>
+    <table class="info-table">
+      <tr><th>制作期間</th><td>2日間（ゲームジャム）</td></tr>
+      <tr><th>制作形式</th><td>チーム制作</td></tr>
+      <tr><th>使用エンジン</th><td>Unity</td></tr>
+      <tr><th>主要言語</th><td>C#</td></tr>
+    </table>
 
-        <h3>担当した主な機能</h3>
-        <ul>
-            <li>**入力回数と距離の変換関数の作成:**
-                連打回数（入力）を、キャラクターの移動距離（ゲームの勝敗判定）に変換するためのC#関数を設計・実装しました。これにより、**プレイヤーの操作が結果に直結する**シンプルなロジックを確立しました。
-            </li>
-            <li>**ゲームバランス調整への貢献:**
-                連打数調整など、プレイヤー体験を左右する**主要パラメータの調整**を担当。シンプルなゲームデザインの中で、繰り返し遊びたくなるようなバランスを追求しました。
-            </li>
-        </ul>
+    <img src="../images/2025.08.08.png" alt="つっぱって！のスクリーンショット">
 
-        <h2 style="margin-top: 50px;">🔗 プレイリンク</h2>
-        <p><a href="https://unityroom.com/games/tsuppatte" target="_blank" style="font-size: 1.2rem; font-weight: bold;">UnityRoomで遊ぶ</a></p>
-        
-    </div>
+    <h2>🎯 技術的貢献と実装内容</h2>
+    <p>
+      この作品では、短期間開発における<strong>ゲームバランスの設計</strong>と<strong>操作の気持ちよさ</strong>を重視しました。  
+      チーム開発ながら個々の役割を明確にし、プレイヤーが「もう一回やりたい」と思えるテンポを追求しました。
+    </p>
 
-    <footer>
-        <p>© 2025 daiMaruyama. All rights reserved.</p>
-    </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 600, easing: 'ease-out', once: true });</script>
+    <h3>担当した主な機能</h3>
+    <ul>
+      <li><strong>入力回数と距離の変換関数:</strong>  
+        プレイヤーの連打入力を距離に変換するC#ロジックを設計。  
+        操作結果が即座にゲームの勝敗に反映される設計を実現しました。
+      </li>
+      <li><strong>バランス調整:</strong>  
+        短時間でもプレイヤーの熱量が上がるようにパラメータ調整を行い、  
+        「競技性×バカバカしさ」のちょうど良いラインを探りました。
+      </li>
+    </ul>
+
+    <h2>🔗 プレイリンク</h2>
+    <p>
+      <a href="https://unityroom.com/games/tsuppatte" target="_blank"><strong>UnityRoomで遊ぶ</strong></a>
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 daiMaruyama. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, easing: 'ease-out', once: true });</script>
 </body>
 </html>

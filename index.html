@@ -225,7 +225,7 @@
       <h4>はっきよいよい　つっぱって！</h4>
       <p class="date">2025年08月制作</p>
   
-      <p>制作形式: チーム制作（ゲームジャム）</p>
+      <p>制作形式: チーム制作(ゲームジャム)</p>
       <p>主要ツール: Unity / C#</p>
   
       <p><a href="projects/tsuppatte.html" class="detail-link">詳細を見る</a></p>
@@ -253,13 +253,17 @@
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const slides = document.querySelectorAll('.sub-project');
-    const slideWidth = 320;
+    const container = document.querySelector('.slider-container');
+    const slideWidth = 320; // カード幅(300px) + マージン(20px)
     const total = slides.length;
     let index = 0;
     let autoScroll;
 
     function updateSlide() {
-      slider.style.transform = `translateX(-${index * slideWidth}px)`;
+      // コンテナの中央にカードを配置する計算
+      const containerWidth = container.offsetWidth;
+      const offset = (containerWidth - 300) / 2; // カードを中央に配置
+      slider.style.transform = `translateX(calc(${offset}px - ${index * slideWidth}px))`;
     }
 
     function startAutoScroll() {
@@ -286,6 +290,9 @@
     document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoScroll);
     document.querySelector('.slider-container').addEventListener('mouseleave', startAutoScroll);
 
+    // 初期表示とリサイズ時の対応
+    updateSlide();
+    window.addEventListener('resize', updateSlide);
     startAutoScroll();
   </script>
 </body>

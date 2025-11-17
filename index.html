@@ -99,9 +99,13 @@
       overflow: hidden;
       margin-bottom: 60px;
       padding: 0 50px;
+    }
+
+    .slider-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
     }
 
     .sub-projects {
@@ -199,40 +203,56 @@
 
     <h2>その他の作品</h2>
     <div class="slider-container">
-    <button class="slider-btn prev-btn">‹</button>
-    <div class="sub-projects">
-      
-    <div class="sub-project">
-      <img src="images/2025.05.22.png" alt="Front Slimers">
-      <h4>Front Slimers</h4>
-      <p class="date">2025年05月制作</p>
-      
-      <p>制作形式: チーム制作</p>
-      <p>主要ツール: Unity / C#</p>
-      
-      <p><a href="projects/frontslimers.html" class="detail-link">詳細を見る</a></p>
-    </div>
+      <button class="slider-btn prev-btn">‹</button>
+      <div class="slider-wrapper">
+        <div class="sub-projects">
+          
+          <div class="sub-project">
+            <img src="images/2025.05.22.png" alt="Front Slimers">
+            <h4>Front Slimers</h4>
+            <p class="date">2025年05月制作</p>
+            <p>制作形式: チーム制作</p>
+            <p>主要ツール: Unity / C#</p>
+            <p><a href="projects/frontslimers.html" class="detail-link">詳細を見る</a></p>
+          </div>
 
-    <div class="sub-project">
-      <img src="images/2025.07.03.png" alt="Virus">
-      <h4>Virus</h4>
-      <p class="date">2025年06月制作</p>
+          <div class="sub-project">
+            <img src="images/2025.07.03.png" alt="Virus">
+            <h4>Virus</h4>
+            <p class="date">2025年06月制作</p>
+            <p>制作形式: 個人制作</p>
+            <p>主要ツール: Unity / C#</p>
+            <p><a href="projects/virus.html" class="detail-link">詳細を見る</a></p>
+          </div>
 
-      <p>制作形式: 個人制作</p>
-      <p>主要ツール: Unity / C#</p>
-      
-      <p><a href="projects/virus.html" class="detail-link">詳細を見る</a></p>
-    </div>
-    <div class="sub-project">
-      <img src="images/2025.08.08.png" alt="つっぱって！">
-      <h4>はっきよいよい　つっぱって！</h4>
-      <p class="date">2025年08月制作</p>
-  
-      <p>制作形式: チーム制作(ゲームジャム)</p>
-      <p>主要ツール: Unity / C#</p>
-  
-      <p><a href="projects/tsuppatte.html" class="detail-link">詳細を見る</a></p>
-    </div>
+          <div class="sub-project">
+            <img src="images/2025.08.08.png" alt="つっぱって！">
+            <h4>はっきよいよい　つっぱって！</h4>
+            <p class="date">2025年08月制作</p>
+            <p>制作形式: チーム制作(ゲームジャム)</p>
+            <p>主要ツール: Unity / C#</p>
+            <p><a href="projects/tsuppatte.html" class="detail-link">詳細を見る</a></p>
+          </div>
+
+          <div class="sub-project">
+            <img src="images/placeholder1.png" alt="Project 4">
+            <h4>プロジェクト 4</h4>
+            <p class="date">2025年09月制作</p>
+            <p>制作形式: 個人制作</p>
+            <p>主要ツール: Unity / C#</p>
+            <p><a href="projects/project4.html" class="detail-link">詳細を見る</a></p>
+          </div>
+
+          <div class="sub-project">
+            <img src="images/placeholder2.png" alt="Project 5">
+            <h4>プロジェクト 5</h4>
+            <p class="date">2025年10月制作</p>
+            <p>制作形式: チーム制作</p>
+            <p>主要ツール: Unity / C#</p>
+            <p><a href="projects/project5.html" class="detail-link">詳細を見る</a></p>
+          </div>
+
+        </div>
       </div>
       <button class="slider-btn next-btn">›</button>
     </div>
@@ -252,6 +272,7 @@
   <script>
     AOS.init({ duration: 600, easing: 'ease-out', once: true });
 
+    const sliderWrapper = document.querySelector('.slider-wrapper');
     const slider = document.querySelector('.sub-projects');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -263,8 +284,10 @@
     function updateSlide() {
       const cardWidth = 300;
       const gap = 20;
+      const wrapperWidth = sliderWrapper.offsetWidth;
+      const centerOffset = (wrapperWidth - cardWidth) / 2;
       const moveDistance = (cardWidth + gap) * index;
-      slider.style.transform = `translateX(-${moveDistance}px)`;
+      slider.style.transform = `translateX(${centerOffset - moveDistance}px)`;
     }
 
     function startAutoScroll() {
@@ -291,6 +314,8 @@
     document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoScroll);
     document.querySelector('.slider-container').addEventListener('mouseleave', startAutoScroll);
 
+    window.addEventListener('resize', updateSlide);
+    updateSlide();
     startAutoScroll();
   </script>
 </body>

@@ -96,32 +96,36 @@
     /* === サブ作品スライダー === */
     .slider-container {
       position: relative;
-      overflow: hidden;
-      margin-bottom: 60px;
-      padding: 0 50px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 60px;
+      overflow: visible;
     }
 
-    .slider-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .slider-track {
+      position: relative;
       width: 100%;
+      height: 500px;
+      overflow: hidden;
     }
 
     .sub-projects {
       display: flex;
+      position: absolute;
+      left: 50%;
       transition: transform 1s ease-in-out;
     }
 
     .sub-project {
-      flex: 0 0 300px;
-      margin: 0 10px;
+      flex: 0 0 340px;
+      width: 340px;
       background-color: #161b22;
       border-radius: 12px;
       text-align: center;
       padding: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 0 20px;
     }
 
     .sub-project:hover {
@@ -158,13 +162,15 @@
       background: #58a6ff;
     } 
 
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
+    .prev-btn { left: -60px; }
+    .next-btn { right: -60px; }
 
     @media (max-width: 768px) {
-      .slider-container { padding: 0 30px; }
+      .slider-container { max-width: 300px; }
       .slider-btn { width: 35px; height: 35px; font-size: 1.2rem; }
-      .sub-project { flex: 0 0 260px; }
+      .prev-btn { left: -40px; }
+      .next-btn { right: -40px; }
+      .sub-project { flex: 0 0 260px; width: 260px; }
     }
   </style>
 </head>
@@ -204,7 +210,7 @@
     <h2>その他の作品</h2>
     <div class="slider-container">
       <button class="slider-btn prev-btn">‹</button>
-      <div class="slider-wrapper">
+      <div class="slider-track">
         <div class="sub-projects">
           
           <div class="sub-project">
@@ -272,7 +278,6 @@
   <script>
     AOS.init({ duration: 600, easing: 'ease-out', once: true });
 
-    const sliderWrapper = document.querySelector('.slider-wrapper');
     const slider = document.querySelector('.sub-projects');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -282,12 +287,10 @@
     let autoScroll;
 
     function updateSlide() {
-      const cardWidth = 300;
-      const gap = 20;
-      const wrapperWidth = sliderWrapper.offsetWidth;
-      const centerOffset = (wrapperWidth - cardWidth) / 2;
-      const moveDistance = (cardWidth + gap) * index;
-      slider.style.transform = `translateX(${centerOffset - moveDistance}px)`;
+      const cardWidth = 340;
+      const gap = 40;
+      const offset = (cardWidth + gap) * index + (cardWidth / 2);
+      slider.style.transform = `translateX(-${offset}px)`;
     }
 
     function startAutoScroll() {

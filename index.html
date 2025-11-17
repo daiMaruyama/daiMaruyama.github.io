@@ -99,6 +99,9 @@
       overflow: hidden;
       margin-bottom: 60px;
       padding: 0 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .sub-projects {
@@ -253,24 +256,22 @@
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const slides = document.querySelectorAll('.sub-project');
-    const container = document.querySelector('.slider-container');
-    const slideWidth = 320; // カード幅(300px) + マージン(20px)
     const total = slides.length;
     let index = 0;
     let autoScroll;
 
     function updateSlide() {
-      // コンテナの中央にカードを配置する計算
-      const containerWidth = container.offsetWidth;
-      const offset = (containerWidth - 300) / 2; // カードを中央に配置
-      slider.style.transform = `translateX(calc(${offset}px - ${index * slideWidth}px))`;
+      const cardWidth = 300;
+      const gap = 20;
+      const moveDistance = (cardWidth + gap) * index;
+      slider.style.transform = `translateX(-${moveDistance}px)`;
     }
 
     function startAutoScroll() {
       autoScroll = setInterval(() => {
         index = (index + 1) % total;
         updateSlide();
-      }, 4000); // ← ゆっくり4秒ごとにスライド
+      }, 4000);
     }
 
     function stopAutoScroll() {
@@ -290,9 +291,6 @@
     document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoScroll);
     document.querySelector('.slider-container').addEventListener('mouseleave', startAutoScroll);
 
-    // 初期表示とリサイズ時の対応
-    updateSlide();
-    window.addEventListener('resize', updateSlide);
     startAutoScroll();
   </script>
 </body>

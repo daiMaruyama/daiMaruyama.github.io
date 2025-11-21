@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>daiMaruyama Portfolio</title>
 
-  <!-- フォント & AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -63,7 +62,6 @@
       font-size: 0.9rem;
     }
 
-    /* === ピックアップ作品 === */
     .highlight-projects {
       display: flex;
       flex-wrap: wrap;
@@ -93,44 +91,42 @@
       margin-bottom: 12px;
     }
 
-    /* === サブ作品スライダー === */
+    /* === 修正箇所: スライダー === */
     .slider-container {
       position: relative;
       width: 100%;
-      max-width: 400px;
+      max-width: 1100px; /* 3枚入る幅 */
       margin: 0 auto 60px;
-      overflow: visible;
+      padding: 0 50px;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .slider-track {
-      position: relative;
       width: 100%;
-      height: 500px;
       overflow: hidden;
     }
 
     .sub-projects {
       display: flex;
-      position: absolute;
-      left: 50%;
-      transition: transform 1s ease-in-out;
+      gap: 20px;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
     }
 
     .sub-project {
-      flex: 0 0 340px;
-      width: 340px;
+      flex: 0 0 calc((100% - 40px) / 3); /* 3枚表示の計算 */
       background-color: #161b22;
       border-radius: 12px;
       text-align: center;
       padding: 20px;
+      box-sizing: border-box;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin: 0 20px;
+      transition: transform 0.3s ease;
     }
 
     .sub-project:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.6);
     }
 
     .sub-project img {
@@ -141,36 +137,50 @@
       margin-bottom: 12px;
     }
 
-    /* === スライドボタン === */
     .slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(20, 20, 20, 0.7);
+      background: rgba(20, 20, 20, 0.8);
       color: #fff;
       border: 2px solid #58a6ff;
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       cursor: pointer;
-      font-size: 2.2rem;
-      transition: background 0.3s, transform 0.2s;
-      z-index: 5;
+      font-size: 1.5rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
     }
 
-     .slider-btn:hover {
+    .slider-btn:hover {
       background: #58a6ff;
-    } 
+    }
+    
+    .slider-btn:disabled {
+      opacity: 0.3;
+      cursor: default;
+      border-color: #8b949e;
+      background: transparent;
+    }
 
-    .prev-btn { left: -60px; }
-    .next-btn { right: -60px; }
+    .prev-btn { left: 0; }
+    .next-btn { right: 0; }
+
+    @media (max-width: 1024px) {
+      .sub-project {
+        flex: 0 0 calc((100% - 20px) / 2); /* 2枚表示 */
+      }
+    }
 
     @media (max-width: 768px) {
-      .slider-container { max-width: 300px; }
-      .slider-btn { width: 35px; height: 35px; font-size: 1.2rem; }
-      .prev-btn { left: -40px; }
-      .next-btn { right: -40px; }
-      .sub-project { flex: 0 0 260px; width: 260px; }
+      .slider-container { padding: 0 40px; }
+      .sub-project {
+        flex: 0 0 100%; /* 1枚表示 */
+      }
     }
   </style>
 </head>
@@ -219,7 +229,7 @@
             <p class="date">2025年05月制作</p>
             <p>制作形式: チーム制作</p>
             <p>主要ツール: Unity / C#</p>
-            <p><a href="projects/frontslimers.html" class="detail-link">詳細を見る</a></p>
+            <p><a href="projects/frontslimers.html">詳細を見る</a></p>
           </div>
 
           <div class="sub-project">
@@ -228,16 +238,16 @@
             <p class="date">2025年06月制作</p>
             <p>制作形式: 個人制作</p>
             <p>主要ツール: Unity / C#</p>
-            <p><a href="projects/virus.html" class="detail-link">詳細を見る</a></p>
+            <p><a href="projects/virus.html">詳細を見る</a></p>
           </div>
 
           <div class="sub-project">
             <img src="images/2025.08.08.png" alt="つっぱって！">
-            <h4>はっきよいよい　つっぱって！</h4>
+            <h4>はっきよいよい つっぱって！</h4>
             <p class="date">2025年08月制作</p>
-            <p>制作形式: チーム制作(ゲームジャム)</p>
+            <p>制作形式: チーム制作</p>
             <p>主要ツール: Unity / C#</p>
-            <p><a href="projects/tsuppatte.html" class="detail-link">詳細を見る</a></p>
+            <p><a href="projects/tsuppatte.html">詳細を見る</a></p>
           </div>
 
           <div class="sub-project">
@@ -246,7 +256,7 @@
             <p class="date">2025年09月制作</p>
             <p>制作形式: 個人制作</p>
             <p>主要ツール: Unity / C#</p>
-            <p><a href="projects/project4.html" class="detail-link">詳細を見る</a></p>
+            <p><a href="projects/project4.html">詳細を見る</a></p>
           </div>
 
           <div class="sub-project">
@@ -255,7 +265,7 @@
             <p class="date">2025年10月制作</p>
             <p>制作形式: チーム制作</p>
             <p>主要ツール: Unity / C#</p>
-            <p><a href="projects/project5.html" class="detail-link">詳細を見る</a></p>
+            <p><a href="projects/project5.html">詳細を見る</a></p>
           </div>
 
         </div>
@@ -273,7 +283,6 @@
     <p>© 2025 daiMaruyama. All rights reserved.</p>
   </footer>
 
-  <!-- AOS & スライダー制御 -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 600, easing: 'ease-out', once: true });
@@ -282,44 +291,43 @@
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const slides = document.querySelectorAll('.sub-project');
-    const total = slides.length;
+    
     let index = 0;
-    let autoScroll;
+
+    function getVisibleCount() {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 3;
+    }
 
     function updateSlide() {
-      const cardWidth = 340;
-      const gap = 40;
-      const offset = (cardWidth + gap) * index + (cardWidth / 2);
-      slider.style.transform = `translateX(-${offset}px)`;
-    }
+      const visibleCount = getVisibleCount();
+      const slideWidth = slider.offsetWidth / visibleCount; 
+      
+      // インデックスの範囲制限
+      const maxIndex = slides.length - visibleCount;
+      if (index > maxIndex) index = maxIndex;
+      if (index < 0) index = 0;
 
-    function startAutoScroll() {
-      autoScroll = setInterval(() => {
-        index = (index + 1) % total;
-        updateSlide();
-      }, 4000);
-    }
+      slider.style.transform = `translateX(-${index * slideWidth}px)`;
 
-    function stopAutoScroll() {
-      clearInterval(autoScroll);
+      // ボタン制御
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index >= maxIndex;
     }
 
     nextBtn.addEventListener('click', () => {
-      index = (index + 1) % total;
+      index++;
       updateSlide();
     });
 
     prevBtn.addEventListener('click', () => {
-      index = (index - 1 + total) % total;
+      index--;
       updateSlide();
     });
 
-    document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoScroll);
-    document.querySelector('.slider-container').addEventListener('mouseleave', startAutoScroll);
-
     window.addEventListener('resize', updateSlide);
-    updateSlide();
-    startAutoScroll();
+    updateSlide(); 
   </script>
 </body>
 </html>

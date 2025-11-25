@@ -1,2 +1,2 @@
-# 自作ポートフォリオ(作成中)
+# 自作ポートフォリオ
 https://daiMaruyama.github.io

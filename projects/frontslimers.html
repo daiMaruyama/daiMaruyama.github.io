@@ -1,152 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Front Slimers | 詳細</title>
-  <link href="../style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Slimers | Project Detail</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-      line-height: 1.7;
-    }
-
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      color: #58a6ff;
-      margin-bottom: 10px;
-    }
-
-    .back-link {
-      display: inline-block;
-      color: #58a6ff;
-      text-decoration: none;
-      margin-bottom: 20px;
-      transition: color 0.3s;
-    }
-
-    .back-link:hover {
-      color: #79c0ff;
-    }
-
-    .detail-section {
-      max-width: 900px;
-      margin: 0 auto 100px;
-      padding: 40px;
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      border-left: 5px solid #58a6ff;
-      padding-left: 12px;
-      margin: 40px 0 20px;
-      color: #fff;
-    }
-
-    .info-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 30px;
-    }
-
-    .info-table th, .info-table td {
-      padding: 12px 8px;
-      border-bottom: 1px solid #30363d;
-    }
-
-    .info-table th {
-      width: 35%;
-      color: #8b949e;
-      font-weight: 600;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 12px;
-      margin: 30px 0;
-      border: 1px solid #30363d;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-      line-height: 1.8;
-    }
-
-    a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #79c0ff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.9rem;
-      color: #8b949e;
-      border-top: 1px solid #30363d;
-      margin-top: 80px;
-    }
-  </style>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header data-aos="fade-down">
-    <a href="../index.html" class="back-link">&lt; ポートフォリオ一覧に戻る</a>
-    <h1>Front Slimers</h1>
-  </header>
 
-  <div class="detail-section" data-aos="fade-up">
-    <h2>基本情報</h2>
-    <table class="info-table">
-      <tr><th>制作期間</th><td>2日間（ゲームジャム）</td></tr>
-      <tr><th>制作形式</th><td>チーム制作</td></tr>
-      <tr><th>使用エンジン</th><td>Unity</td></tr>
-      <tr><th>主要言語</th><td>C#</td></tr>
-    </table>
+    <nav>
+        <div class="logo">Daisuke Maruyama</div>
+        <a href="../index.html" class="back-btn">← Back to Top</a>
+    </nav>
 
-    <img src="../images/2025.05.22.png" alt="Front Slimersのスクリーンショット">
+    <section class="angled-section bg-red hero">
+        <div class="content-wrapper" data-aos="fade-up">
+            <h1>Front<br>Slimers</h1>
+            <div class="hero-tags">
+                <span class="hero-tag">Unity</span>
+                <span class="hero-tag">C#</span>
+                <span class="hero-tag">Team Dev</span>
+            </div>
+        </div>
+    </section>
 
-    <h2>🎯 技術的貢献と実装内容</h2>
-    <p>
-      「Front Slimers」は初めてのゲームジャム参加作品です。  
-      ジャンルはタワーディフェンスゲームです。
-      ゲーム制作の難しさを目の当たりにしました。
-    </p>
+    <section class="angled-section bg-white">
+        <div class="content-wrapper" data-aos="fade-up">
+            
+            <h2 class="section-title">Project Overview</h2>
+            
+            <table class="info-table">
+                <tr><th>制作期間</th><td>2日間（ゲームジャム）</td></tr>
+                <tr><th>チーム構成</th><td>チーム制作</td></tr>
+                <tr><th>使用技術</th><td>Unity (C#)</td></tr>
+            </table>
 
-    <h3>担当した主な機能</h3>
-    <ul>
-      <li><strong>ボマースライムの機能を作成:</strong>  
-        コルーチンを用いて数秒後に爆弾が爆発する敵の作成
-      </li>
-    </ul>
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                初めて参加したゲームジャムで制作した、タワーディフェンスゲームです。<br>
+                「2日間」という極めて短い期間の中で、チームで協力して一つのゲームを完成させる難しさと楽しさを経験しました。
+            </p>
 
-    <h2>🔗 プレイリンク</h2>
-    <p>
-      <a href="https://unityroom.com/games/frontslimers" target="_blank"><strong>UnityRoomで遊ぶ</strong></a>
-    </p>
-  </div>
+            <img src="../images/2025.05.22.png" alt="Front Slimersのスクリーンショット" class="project-img">
 
-  <footer>
-    <p>© 2025 daiMaruyama. All rights reserved.</p>
-  </footer>
+        </div>
+    </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 700, easing: 'ease-out', once: true });</script>
+    <section class="angled-section bg-dark">
+        <div class="content-wrapper" data-aos="fade-up">
+            
+            <h2 class="section-title">Technical Highlights</h2>
+
+            <h3>01. 敵キャラクターの実装</h3>
+            <p>担当範囲として、特殊な敵キャラクター（ボマースライム）の挙動を実装しました。</p>
+            <ul class="tech-list">
+                <li><strong>コルーチン (Coroutine) の活用:</strong><br>
+                「死亡してから数秒後に爆発する」という時間差処理を、Unityのコルーチン機能を用いて作成し、ゲームプレイに緊張感を追加しようと意識しました。</li>
+            </ul>
+
+            <div class="link-area">
+                <a href="https://unityroom.com/games/frontslimers" target="_blank" class="btn btn-white">
+                    ► Play Demo
+                </a>
+                <a href="https://github.com/GotouTamaki/GameJam20250522" target="_blank" class="btn btn-white">
+                    ► View GitHub
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Daisuke Maruyama</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
+    </script>
 </body>
 </html>

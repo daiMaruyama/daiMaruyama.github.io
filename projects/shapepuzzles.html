@@ -8,169 +8,144 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* === ペルソナ風 === */
+    /* === ベースデザイン: ダーク＆シャープ === */
     body {
-      background-color: #0a0a0a;
+      background-color: #121212; /* 完全な黒ではなく少し明るくして目に優しく */
+      /* 背景パターンを控えめにして文字を見やすく */
       background-image: 
-        linear-gradient(135deg, rgba(220, 20, 60, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.05) 0%, transparent 50%);
-      color: #e8e8e8;
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      color: #e0e0e0; /* 真っ白(#fff)だと眩しいので少し落とす */
       font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-      line-height: 1.8;
+      line-height: 1.9; /* 行間を広げて読みやすく */
       margin: 0;
     }
 
     /* === ヘッダー === */
     header {
       text-align: center;
-      padding: 80px 20px 40px;
-      position: relative;
-    }
-
-    /* ヘッダーの装飾的ライン */
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #dc143c, transparent);
+      padding: 80px 20px 50px;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
-      color: #dc143c;
+      color: #fff;
       margin-bottom: 10px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+      /* 赤い影で光らせる演出 */
+      text-shadow: 4px 4px 0px #dc143c; 
     }
 
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      color: #999;
+      display: inline-block;
+      color: #aaa;
       text-decoration: none;
       margin-bottom: 20px;
       font-size: 0.9rem;
-      transition: all 0.3s ease;
+      border: 1px solid #444;
       padding: 8px 16px;
-      border: 1px solid #333;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.02);
+      background: #000;
+      transition: all 0.3s ease;
     }
 
     .back-link:hover {
-      color: #dc143c;
+      background: #dc143c;
+      color: #fff;
       border-color: #dc143c;
-      background: rgba(220, 20, 60, 0.1);
-      transform: translateX(-5px);
+      transform: translateY(-2px);
     }
 
-    /* === メインカード === */
+    /* === メインカード: 読みやすさの要 === */
     .detail-section {
       max-width: 900px;
       margin: 0 auto 100px;
-      padding: 50px;
+      padding: 60px; /* 余白を増やして窮屈さを解消 */
       background: #1a1a1a;
-      border: 2px solid #2a2a2a;
-      border-left: 4px solid #dc143c;
-      border-radius: 8px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      /* 左側に太い赤ラインを入れてアクセント */
+      border-left: 6px solid #dc143c; 
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
       position: relative;
     }
 
-    /* カード右上の装飾 */
-    .detail-section::before {
+    /* 右上の装飾（斜めカット風） */
+    .detail-section::after {
       content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, transparent 50%, rgba(220, 20, 60, 0.1) 50%);
-      border-radius: 0 8px 0 0;
+      top: -10px;
+      right: -10px;
+      width: 40px;
+      height: 40px;
+      border-top: 4px solid #dc143c;
+      border-right: 4px solid #dc143c;
     }
 
-    /* === 見出し === */
+    /* === 見出しデザイン === */
     h2 {
       font-size: 1.8rem;
       color: #fff;
-      margin: 50px 0 25px;
-      padding-bottom: 15px;
-      border-bottom: 3px solid #dc143c;
-      position: relative;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin: 60px 0 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #333;
+      display: flex;
+      align-items: center;
     }
-
-    h2::after {
+    
+    /* 見出しの前に赤い四角 */
+    h2::before {
       content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: #fff;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #dc143c;
+      margin-right: 15px;
+      transform: rotate(45deg); /* ダイヤ型に */
     }
 
     h3 {
-      font-size: 1.3rem;
-      color: #dc143c;
-      margin: 40px 0 15px;
-      padding-left: 20px;
-      border-left: 4px solid #dc143c;
-      background: linear-gradient(90deg, rgba(220, 20, 60, 0.1) 0%, transparent 100%);
-      padding-top: 8px;
-      padding-bottom: 8px;
+      font-size: 1.4rem;
+      color: #ff4d6a; /* 読みやすい明るめの赤 */
+      margin: 40px 0 20px;
     }
 
-    /* === テーブル === */
+    /* === テーブルデザイン === */
     .info-table {
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
+      border-collapse: collapse;
       margin-bottom: 40px;
       border: 1px solid #333;
-      overflow: hidden;
     }
 
     .info-table th, .info-table td {
-      padding: 15px 20px;
+      padding: 16px 24px;
       border-bottom: 1px solid #333;
-    }
-
-    .info-table tr:last-child th, 
-    .info-table tr:last-child td {
-      border-bottom: none;
     }
 
     .info-table th {
       width: 30%;
-      color: #999;
-      background: #0a0a0a;
+      color: #aaa;
+      background: #111;
       font-weight: 600;
-      white-space: nowrap;
-      border-right: 2px solid #dc143c;
+      border-right: 1px solid #333;
     }
     
     .info-table td {
-      background: #1a1a1a;
-    }
-
-    .info-table tr:hover td {
-      background: rgba(220, 20, 60, 0.05);
+      background: #222;
     }
 
     img {
       width: 100%;
-      border-radius: 4px;
-      margin: 30px 0;
-      border: 2px solid #333;
-      box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
+      margin: 40px 0;
+      border: 1px solid #333;
+      /* 画像にスタイリッシュなフィルターをかける（ホバーで解除） */
+      filter: grayscale(30%) contrast(110%);
+      transition: filter 0.3s;
+    }
+    
+    img:hover {
+      filter: grayscale(0%) contrast(100%);
     }
 
     ul {
@@ -178,56 +153,47 @@
     }
 
     ul li {
-      margin-bottom: 12px;
-      line-height: 1.8;
+      margin-bottom: 15px;
       position: relative;
-      padding-left: 10px;
+      list-style: none; /* デフォルトの点を消す */
     }
 
+    /* リストマーカーをカスタム */
     ul li::before {
-      content: '▸';
+      content: '>';
       position: absolute;
-      left: -15px;
+      left: -20px;
       color: #dc143c;
       font-weight: bold;
     }
 
     /* === リンク === */
     a {
-      color: #dc143c;
+      color: #ff4d6a;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s;
+      border-bottom: 1px solid transparent;
     }
 
     a:hover {
-      color: #ff4458;
-      text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+      color: #fff;
+      border-bottom: 1px solid #dc143c;
     }
 
-    /* === 技術セクション === */
+    /* === 技術セクション: コマンドライン風 === */
     .tech-section {
-      background: #0a0a0a;
-      padding: 25px;
-      margin: 25px 0;
+      background: #111;
+      padding: 30px;
+      border-radius: 4px;
+      margin: 30px 0;
       border: 1px solid #333;
-      border-left: 4px solid #dc143c;
-      position: relative;
+      font-family: 'Courier New', monospace; /* 等幅フォントでテック感を演出 */
     }
     
-    .tech-section::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 30px;
-      height: 30px;
-      background: linear-gradient(135deg, transparent 50%, rgba(220, 20, 60, 0.2) 50%);
-    }
-
-    .tech-section ul {
-      margin: 0;
-      padding-left: 20px;
+    .tech-section ul li::before {
+      content: '$'; /* リストマーカーを$マークに */
+      color: #28a745; /* 緑色にしてターミナルっぽく */
     }
 
     footer {
@@ -239,29 +205,11 @@
       margin-top: 80px;
     }
     
-    /* スマホ対応 */
     @media (max-width: 768px) {
-      .detail-section {
-        padding: 25px;
-        margin: 0 15px 60px;
-      }
-      header h1 {
-        font-size: 2rem;
-      }
-      .info-table th, .info-table td {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .info-table th {
-        border-right: none;
-        border-bottom: 2px solid #dc143c;
-        padding-bottom: 5px;
-      }
-      .info-table td {
-        padding-top: 0;
-        padding-bottom: 20px;
-      }
+      .detail-section { padding: 30px; }
+      header h1 { font-size: 2rem; }
+      .info-table th, .info-table td { display: block; width: 100%; }
+      .info-table th { border-right: none; border-bottom: none; color: #dc143c; }
     }
   </style>
 </head>
@@ -272,7 +220,7 @@
   </header>
 
   <div class="detail-section" data-aos="fade-up">
-    <h2>🎮 Basic Information</h2>
+    <h2>BASIC INFO</h2>
     <table class="info-table">
       <tr><th>制作期間</th><td>約1か月</td></tr>
       <tr><th>制作形式</th><td>チーム制作（3名）</td></tr>
@@ -284,13 +232,13 @@
 
     <img src="../images/2025.11.22.png" alt="Shape Puzzlesのスクリーンショット">
 
-    <h2>🎮 Project Overview</h2>
+    <h2>PROJECT OVERVIEW</h2>
     <p>
       図形を回転・配置してパズルを解くゲームです。自主制作プロジェクトとして、3名のプログラマーチームで企画から実装まで行いました。
       シンプルながら奥深いゲーム性を目指し、直感的な操作感とリアルタイムの視覚的フィードバックを重視して設計しました。
     </p>
 
-    <h2>🎯 Project Management</h2>
+    <h2>PROJECT MANAGEMENT</h2>
     <p>
       このプロジェクトでは、リードプログラマーとして技術面だけでなく、チーム全体のマネジメントも担当しました。
     </p>
@@ -301,12 +249,12 @@
       <li><strong>チーム連携の促進：</strong>定期的な技術相談やタスク調整を通じて、メンバーが気持ちよく開発できる環境づくりを心がけました。</li>
     </ul>
 
-    <h2>💻 Technical Implementation</h2>
+    <h2>TECHNICAL IMPLEMENTATION</h2>
 
     <h3>図形生成システム</h3>
     <div class="tech-section">
       <ul>
-        <li><strong>Physics2D.OverlapBoxAll</strong>を使用した衝突判定により、既存の図形と重なる位置には新しい図形を生成しない制御を実装</li>
+        <li>Physics2D.OverlapBoxAllを使用した衝突判定により、既存の図形と重なる位置には新しい図形を生成しない制御を実装</li>
         <li>ステージ内での生成位置、図形の種類、サイズを管理するシステムを構築</li>
       </ul>
     </div>
@@ -314,14 +262,8 @@
     <h3>ドラッグ&ドロップシステム</h3>
     <div class="tech-section">
       <ul>
-        <li><strong>Unity EventSystem</strong>のインターフェース（IBeginDragHandler、IDragHandler、IEndDragHandler）を活用</li>
-        <li>ドラッグ中にリアルタイムで配置可否を判定し、視覚的フィードバックを実装：
-          <ul>
-            <li>白：配置可能</li>
-            <li>灰色：配置不可</li>
-            <li>赤：ゴミ箱上（削除対象）</li>
-          </ul>
-        </li>
+        <li>Unity EventSystemのインターフェース（IBeginDragHandlerなど）を活用</li>
+        <li>ドラッグ中にリアルタイムで配置可否を判定し、視覚的フィードバックを実装</li>
         <li>ドラッグ中は描画順序を最前面に変更し、操作感を向上</li>
       </ul>
     </div>
@@ -337,41 +279,32 @@
     <h3>シーン遷移演出</h3>
     <div class="tech-section">
       <ul>
-        <li><strong>シングルトンパターン</strong>（DontDestroyOnLoad使用）で統一されたFadeパネルを作成</li>
-        <li>全シーンで同じ演出を適用し、UXの一貫性を確保</li>
-        <li><strong>DOTween</strong>を使用したUI演出（ホバーやフェード）を実装し、チームメンバーへの技術共有も実現</li>
+        <li>シングルトンパターン（DontDestroyOnLoad使用）で統一されたFadeパネルを作成</li>
+        <li>DOTweenを使用したUI演出（ホバーやフェード）を実装</li>
       </ul>
     </div>
 
-    <h3>UX向上の工夫</h3>
-    <div class="tech-section">
-      <ul>
-        <li><strong>Physics2DRaycaster制御：</strong>Placing状態のときのみクリック判定を有効化し、誤操作を防止</li>
-        <li>無駄な判定回数を削減し、パフォーマンスを向上</li>
-      </ul>
-    </div>
-
-    <h2>🔧 Code Management</h2>
+    <h2>CODE MANAGEMENT</h2>
     <ul>
       <li>全体のコードレビューを実施し、保守性・可読性を向上</li>
       <li>冗長なロジックの整理、共通関数化、命名規則の統一を推進</li>
       <li>チームメンバーとの技術相談を通じて、より良い実装方法を模索</li>
     </ul>
 
-    <h2>📚 Learning & Growth</h2>
+    <h2>LEARNING & GROWTH</h2>
     <p>
       このプロジェクトを通じて、技術面だけでなくマネジメント面でも大きく成長できました。
     </p>
     <ul>
       <li><strong>技術共有の重要性：</strong>メンバー間で実装手法を共有し、互いのスキルを高め合う環境を作ることの価値を実感</li>
       <li><strong>実践的なチーム開発：</strong>タスク管理、進捗共有、コードレビューなど、企業開発で必要なワークフローを経験</li>
-      <li><strong>リーダーシップ：</strong>「どうすればメンバーが気持ちよく開発できるか」「無理のないスケジュールとは何か」を常に考え、マネジメント面への興味が深まりました</li>
+      <li><strong>リーダーシップ：</strong>「どうすればメンバーが気持ちよく開発できるか」を常に考え、マネジメント面への興味が深まりました</li>
     </ul>
 
-    <h2>🔗 Links</h2>
-    <p>
-      <a href="https://unityroom.com/games/shapepuzzles" target="_blank"><strong>► PLAY ON UNITYROOM</strong></a> | 
-      <a href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank"><strong>► VIEW ON GITHUB</strong></a>
+    <h2>LINKS</h2>
+    <p style="text-align: center; margin-top: 40px;">
+      <a href="https://unityroom.com/games/shapepuzzles" target="_blank" style="font-size: 1.2rem; margin: 0 15px;">▶ PLAY ON UNITYROOM</a>
+      <a href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank" style="font-size: 1.2rem; margin: 0 15px;">▶ VIEW ON GITHUB</a>
     </p>
   </div>
 

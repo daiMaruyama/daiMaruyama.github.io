@@ -5,93 +5,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shape Puzzles | 詳細</title>
   <link href="../style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* === ベースデザイン: 開発者好みのダークテーマ === */
     body {
       background-color: #0d1117;
+      background-image: radial-gradient(circle at 50% 0%, #1f2937 0%, #0d1117 70%); /* ほんのり上から光が差す演出 */
       color: #c9d1d9;
       font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-      line-height: 1.7;
+      line-height: 1.8;
+      margin: 0;
     }
+
+    /* === ヘッダーまわり === */
     header {
       text-align: center;
       padding: 80px 20px 40px;
     }
+
     header h1 {
-      font-size: 2rem;
-      color: #58a6ff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      /* テキストに少しグラデーションをかけてリッチに */
+      background: linear-gradient(135deg, #58a6ff 0%, #a371f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
+      letter-spacing: 1px;
     }
+
     .back-link {
-      display: inline-block;
-      color: #58a6ff;
+      display: inline-flex;
+      align-items: center;
+      color: #8b949e;
       text-decoration: none;
       margin-bottom: 20px;
-      transition: color 0.3s;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 6px;
     }
+
     .back-link:hover {
-      color: #79c0ff;
+      color: #58a6ff;
+      background: rgba(88, 166, 255, 0.1); /* ホバー時にうっすら青く光る */
+      transform: translateX(-5px);
     }
+
+    /* === メインカード: 浮遊感のあるモダンなコンテナ === */
     .detail-section {
       max-width: 900px;
       margin: 0 auto 100px;
-      padding: 40px;
+      padding: 50px;
       background: #161b22;
       border: 1px solid #30363d;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      /* 影を強くして浮き上がらせる */
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(88, 166, 255, 0.1) inset;
     }
+
+    /* === 見出しのデザイン === */
     h2 {
       font-size: 1.6rem;
       border-left: 5px solid #58a6ff;
-      padding-left: 12px;
-      margin: 40px 0 20px;
+      padding-left: 15px;
+      margin: 50px 0 25px;
       color: #fff;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg, rgba(88, 166, 255, 0.1) 0%, transparent 100%); /* 見出しの背景に薄い流線 */
+      border-radius: 0 4px 4px 0;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
+
     h3 {
       font-size: 1.3rem;
       color: #79c0ff;
-      margin: 30px 0 15px;
+      margin: 40px 0 15px;
+      display: flex;
+      align-items: center;
     }
+    
+    /* H3の前に小さなアクセントをつける */
+    h3::before {
+      content: '>';
+      margin-right: 10px;
+      color: #58a6ff;
+      font-weight: bold;
+    }
+
+    /* === テーブルデザイン: データっぽく === */
     .info-table {
       width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 30px;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-bottom: 40px;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
     }
+
     .info-table th, .info-table td {
-      padding: 12px 8px;
+      padding: 15px 20px;
       border-bottom: 1px solid #30363d;
     }
-    .info-table th {
-      width: 35%;
-      color: #8b949e;
-      font-weight: 600;
+
+    .info-table tr:last-child th, 
+    .info-table tr:last-child td {
+      border-bottom: none;
     }
+
+    .info-table th {
+      width: 30%;
+      color: #8b949e;
+      background: #0d1117; /* ヘッダーを少し暗く */
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .info-table td {
+      background: #161b22;
+    }
+
     img {
       width: 100%;
       border-radius: 12px;
       margin: 30px 0;
       border: 1px solid #30363d;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* 画像にも強い影 */
     }
+
+    ul {
+      padding-left: 20px;
+    }
+
     ul li {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       line-height: 1.8;
+      position: relative;
     }
+
+    /* === リンクのデザイン === */
     a {
       color: #58a6ff;
       text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
     }
+
+    /* リンクの下線アニメーション */
+    a:not(.back-link)::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #58a6ff;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+
+    a:not(.back-link):hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
     a:hover {
       color: #79c0ff;
     }
+
+    /* === 技術セクション: ターミナル/コードブロック風 === */
     .tech-section {
-      background: #0d1117;
-      padding: 20px;
+      background: #0d1117; /* 背景を一段暗く */
+      padding: 25px;
       border-radius: 8px;
-      margin: 20px 0;
-      border-left: 3px solid #58a6ff;
+      margin: 25px 0;
+      border: 1px solid #30363d;
+      border-left: 4px solid #238636; /* 成功色（Gitの草色）に変更してアクセント */
+      font-family: 'Poppins', monospace; /* 少し等幅フォントっぽさを意識 */
     }
+    
+    .tech-section ul {
+      margin: 0;
+      padding-left: 20px;
+      list-style-type: disc; /* デフォルトの丸ポチに戻すか、四角にする */
+    }
+    
+    .tech-section li::marker {
+      color: #238636; /* リストマーカーを緑に */
+    }
+
     footer {
       text-align: center;
       padding: 40px 0;
@@ -99,6 +207,31 @@
       color: #8b949e;
       border-top: 1px solid #30363d;
       margin-top: 80px;
+    }
+    
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+      .detail-section {
+        padding: 25px;
+        margin: 0 15px 60px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .info-table th, .info-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .info-table th {
+        border-bottom: none;
+        padding-bottom: 5px;
+        color: #58a6ff;
+      }
+      .info-table td {
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
     }
   </style>
 </head>

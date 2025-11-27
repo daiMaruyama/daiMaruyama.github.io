@@ -14,100 +14,30 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === 1. ナビゲーション修正 === */
-        nav {
-            justify-content: space-between;
-        }
-        .logo-btn {
-            font-weight: 900; 
-            font-size: 1.2rem; 
-            letter-spacing: 1px; 
-            color: #fff; 
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .logo-btn:hover {
-            color: var(--color-red);
-        }
+        /* === 1. ナビゲーション === */
+        nav { justify-content: space-between; }
+        .logo-btn { font-weight: 900; font-size: 1.2rem; letter-spacing: 1px; color: #fff; text-decoration: none; cursor: pointer; transition: 0.3s; }
+        .logo-btn:hover { color: var(--color-red); }
 
-        /* === 2. 強みセクション (Strengths) === */
-        .strengths-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            text-align: center;
-        }
-        .strength-item {
-            padding: 20px;
-        }
-        .strength-icon {
-            font-size: 3rem;
-            color: var(--color-red);
-            margin-bottom: 20px;
-        }
-        .strength-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            display: block;
-        }
+        /* === 2. 強みセクション === */
+        .strengths-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; text-align: center; }
+        .strength-item { padding: 20px; }
+        .strength-icon { font-size: 3rem; color: var(--color-red); margin-bottom: 20px; }
+        .strength-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; display: block; }
 
-        /* === 3. 経歴セクション (Biography) === */
-        .timeline {
-            border-left: 2px solid var(--color-red);
-            padding-left: 30px;
-            margin-left: 10px;
-            margin-top: 40px;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -36px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: var(--color-red);
-            border-radius: 50%;
-        }
-        .timeline-year {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            color: var(--color-red);
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            display: block;
-        }
-        .timeline-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #fff;
-        }
+        /* === 3. 経歴セクション === */
+        .timeline { border-left: 2px solid var(--color-red); padding-left: 30px; margin-left: 10px; margin-top: 40px; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ""; position: absolute; left: -36px; top: 5px; width: 10px; height: 10px; background: var(--color-red); border-radius: 50%; }
+        .timeline-year { font-family: 'Montserrat', sans-serif; font-weight: bold; color: var(--color-red); font-size: 1.1rem; margin-bottom: 5px; display: block; }
+        .timeline-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; color: #fff; }
         .bg-white .timeline-title { color: #000; }
-        
-        .timeline-desc {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
+        .timeline-desc { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; }
 
-        /* === 共通: Feature/Archiveのデザイン === */
-        .feature-item {
-            display: flex; align-items: center; gap: 50px; margin-bottom: 100px;
-            background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+        /* === 共通: Feature/Archive === */
+        .feature-item { display: flex; align-items: center; gap: 50px; margin-bottom: 100px; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
         .feature-item:nth-child(even) { flex-direction: row-reverse; }
-        .feature-img-box {
-            flex: 1; position: relative; overflow: hidden; border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
+        .feature-img-box { flex: 1; position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .feature-img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
         .feature-item:hover .feature-img { transform: scale(1.05); }
         .feature-content { flex: 1; }
@@ -122,7 +52,7 @@
         .archive-content { padding: 20px; }
         .archive-title { font-size: 1.1rem; margin: 0 0 10px 0; color: #fff; }
         
-        .btn-view { display: inline-block; padding: 10px 30px; background: var(--color-red); color: #fff; text-decoration: none; font-weight: bold; border-radius: 4px; transition: 0.3s; }
+        .btn-view { display: inline-block; padding: 10px 30px; background: var(--color-red); color: #fff; text-decoration: none; font-weight: bold; border-radius: 4px; transition: 0.3s; cursor: pointer; border:none;}
         .btn-view:hover { background: #ff4458; box-shadow: 0 0 15px rgba(220, 20, 60, 0.5); }
         .hero-btn { color: #fff; text-decoration: none; font-weight: bold; border: 2px solid #fff; padding: 10px 25px; transition: 0.3s; }
         .hero-btn:hover { background: #fff; color: var(--color-red); }
@@ -309,7 +239,7 @@
         </div>
     </section>
 
-    <section id="skills" class="angled-section bg-red" style="z-index: 3; margin-top: -100px; padding: 60px 0 150px 0;">
+    <section id="skills" class="angled-section bg-red" style="z-index: 3; margin-top: -100px; padding: 60px 0 100px 0;">
         <div class="content-wrapper" data-aos="fade-up">
             <h2 class="section-title" style="border-bottom-color: #fff;">Skills</h2>
             <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
@@ -327,12 +257,12 @@
             <h2 class="section-title">Contact</h2>
             <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">
                 ポートフォリオをご覧いただきありがとうございます。<br>
-                ゲーム開発に関するお問い合わせや、面接のご依頼はメールにて受け付けております。<br>
+                ゲーム開発に関するお問い合わせや、面接のご依頼は、以下のGoogleフォームよりお願いいたします。<br>
                 お気軽にご連絡ください。
             </p>
             <div style="text-align: center;">
-                <a href="mailto:daisuke.maruyama2000@gmail.com" class="btn-view" style="font-size: 1.2rem; padding: 15px 50px;">
-                    <i class="far fa-envelope"></i> Send Email
+                <a href="https://forms.gle/Jb7Jcvjh76Bgqcqs5" target="_blank" class="btn-view" style="font-size: 1.2rem; padding: 15px 50px;">
+                    お問い合わせフォームへ <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
         </div>

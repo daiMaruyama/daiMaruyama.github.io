@@ -7,143 +7,144 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === 1. メイン作品用の特別レイアウト (Feature) === */
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 100px;
-            background: rgba(255,255,255,0.05); /* ほんのり背景を入れて視認性アップ */
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+        /* === 1. ナビゲーション修正 === */
+        nav {
+            /* スクロールしても追従させるか、固定するかはお好みですが、今回は固定のまま */
+            justify-content: space-between;
         }
-
-        /* 偶数番目は左右反転（ジグザグレイアウト） */
-        .feature-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .feature-img-box {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .feature-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s;
-        }
-        
-        .feature-item:hover .feature-img {
-            transform: scale(1.05); /* ホバーでズーム */
-        }
-
-        .feature-content {
-            flex: 1;
-        }
-
-        .feature-label {
-            color: var(--color-red);
-            font-weight: bold;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .feature-title {
-            font-size: 2.5rem;
-            line-height: 1.1;
-            margin: 0 0 20px 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .feature-desc {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        /* === 2. その他の作品 (Grid) === */
-        .archive-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .archive-card {
-            background: #222;
-            border-radius: 8px;
-            overflow: hidden;
+        /* ロゴをボタン化 */
+        .logo-btn {
+            font-weight: 900; 
+            font-size: 1.2rem; 
+            letter-spacing: 1px; 
+            color: #fff; 
+            text-decoration: none;
+            cursor: pointer;
             transition: 0.3s;
-            border: 1px solid #333;
         }
-        .archive-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--color-red);
+        .logo-btn:hover {
+            color: var(--color-red);
         }
-        .archive-img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
+
+        /* === 2. 強みセクション (Strengths) === */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: center;
         }
-        .archive-content {
+        .strength-item {
             padding: 20px;
         }
-        .archive-title {
-            font-size: 1.1rem;
-            margin: 0 0 10px 0;
-            color: #fff;
+        .strength-icon {
+            font-size: 3rem;
+            color: var(--color-red);
+            margin-bottom: 20px;
         }
-
-        /* リンクボタン */
-        .btn-view {
-            display: inline-block;
-            padding: 10px 30px;
-            background: var(--color-red);
-            color: #fff;
-            text-decoration: none;
+        .strength-title {
+            font-size: 1.2rem;
             font-weight: bold;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .btn-view:hover {
-            background: #ff4458;
-            box-shadow: 0 0 15px rgba(220, 20, 60, 0.5);
+            margin-bottom: 15px;
+            display: block;
         }
 
-        /* === スマホ対応 === */
+        /* === 3. 経歴セクション (Biography) === */
+        /* タイムライン風のデザイン */
+        .timeline {
+            border-left: 2px solid var(--color-red);
+            padding-left: 30px;
+            margin-left: 10px;
+            margin-top: 40px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--color-red);
+            border-radius: 50%;
+        }
+        .timeline-year {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: var(--color-red);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .bg-white .timeline-title { color: #000; }
+        
+        .timeline-desc {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* === 共通: Feature/Archiveのデザイン (前回のまま維持) === */
+        .feature-item {
+            display: flex; align-items: center; gap: 50px; margin-bottom: 100px;
+            background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .feature-item:nth-child(even) { flex-direction: row-reverse; }
+        .feature-img-box {
+            flex: 1; position: relative; overflow: hidden; border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .feature-img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
+        .feature-item:hover .feature-img { transform: scale(1.05); }
+        .feature-content { flex: 1; }
+        .feature-label { color: var(--color-red); font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        .feature-title { font-size: 2.5rem; line-height: 1.1; margin: 0 0 20px 0; font-family: 'Montserrat', sans-serif; }
+        .feature-desc { font-size: 1rem; opacity: 0.8; margin-bottom: 30px; line-height: 1.8; }
+        
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .archive-card { background: #222; border-radius: 8px; overflow: hidden; transition: 0.3s; border: 1px solid #333; }
+        .archive-card:hover { transform: translateY(-5px); border-color: var(--color-red); }
+        .archive-img { width: 100%; height: 160px; object-fit: cover; }
+        .archive-content { padding: 20px; }
+        .archive-title { font-size: 1.1rem; margin: 0 0 10px 0; color: #fff; }
+        
+        .btn-view { display: inline-block; padding: 10px 30px; background: var(--color-red); color: #fff; text-decoration: none; font-weight: bold; border-radius: 4px; transition: 0.3s; }
+        .btn-view:hover { background: #ff4458; box-shadow: 0 0 15px rgba(220, 20, 60, 0.5); }
+        .hero-btn { color: #fff; text-decoration: none; font-weight: bold; border: 2px solid #fff; padding: 10px 25px; transition: 0.3s; }
+        .hero-btn:hover { background: #fff; color: var(--color-red); }
+
         @media (max-width: 768px) {
-            .feature-item, .feature-item:nth-child(even) {
-                flex-direction: column; /* スマホは全部縦積み */
-                gap: 20px;
-                padding: 20px;
-            }
+            .feature-item, .feature-item:nth-child(even) { flex-direction: column; gap: 20px; padding: 20px; }
             .feature-title { font-size: 1.8rem; }
+            .strengths-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Daisuke Maruyama</div>
+        <a href="#" class="logo-btn">Daisuke Maruyama</a>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#featured">Featured</a>
-            <a href="#archives">Archives</a>
+            <a href="#featured">Works</a>
+            <a href="#biography">Biography</a>
         </div>
     </nav>
 
@@ -152,8 +153,8 @@
             <h1>Daisuke<br>Maruyama</h1>
             <p style="font-size: 1.5rem; font-weight: 700;">Unity / C# Developer</p>
             <div style="margin-top: 30px; display:flex; gap:15px;">
-                <a href="https://github.com/daiMaruyama" target="_blank" class="btn-white btn">GitHub</a>
-                <a href="https://unityroom.com/users/5xq346fcro1km89a2zi0" target="_blank" class="btn-white btn">UnityRoom</a>
+                <a href="https://github.com/daiMaruyama" target="_blank" class="hero-btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://unityroom.com/users/5xq346fcro1km89a2zi0" target="_blank" class="hero-btn"><i class="fas fa-gamepad"></i> UnityRoom</a>
             </div>
         </div>
     </section>
@@ -163,8 +164,27 @@
             <h2 class="section-title">About Me</h2>
             <p style="font-size: 1.1rem; max-width: 800px; margin-bottom: 30px;">
                 ユーザーの「感情」を動かすゲーム作りを目指すエンジニアです。<br>
-                Unity/C#を用いた実装力に加え、チーム開発における円滑なコミュニケーションと設計力を重視しています。
+                単に動くものを作るだけでなく、プレイヤーにどのような体験を届けたいかを常に考え、<br>
+                ロジックとエモーションの両面からアプローチします。
             </p>
+
+            <div class="strengths-grid">
+                <div class="strength-item">
+                    <i class="fas fa-code strength-icon"></i>
+                    <span class="strength-title">Clean Code</span>
+                    <p>保守性と可読性を意識したコーディング。<br>チーム全員が理解しやすい設計を心がけます。</p>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-users strength-icon"></i>
+                    <span class="strength-title">Team Work</span>
+                    <p>Git/GitHubを用いたチーム開発。<br>円滑なコミュニケーションで開発を加速させます。</p>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-heart strength-icon"></i>
+                    <span class="strength-title">UX Focus</span>
+                    <p>操作感へのこだわり。<br>触っていて気持ちの良いインタラクションを追求します。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -177,7 +197,7 @@
                     <img src="images/2025.11.22.png" alt="Shape Puzzles" class="feature-img">
                 </div>
                 <div class="feature-content">
-                    <span class="feature-label">LEAD PROGRAMMER / TEAM DEV</span>
+                    <span class="feature-label">LEAD PROGRAMMER / TEAM </span>
                     <h3 class="feature-title">Shape Puzzles</h3>
                     <p class="feature-desc">
                         「気持ちいい操作感」を追求したパズルゲーム。<br>
@@ -192,7 +212,7 @@
                     <img src="images/anaai.png" alt="いますぐあなたに会いたいの" class="feature-img">
                 </div>
                 <div class="feature-content">
-                    <span class="feature-label">SOLO DEV / UNITY1WEEK</span>
+                    <span class="feature-label">SOLO </span>
                     <h3 class="feature-title">Imasugu Anatani<br>Aitaino</h3>
                     <p class="feature-desc">
                         心理描写とゲームシステムを融合させた連打ゲーム。<br>
@@ -201,7 +221,6 @@
                     <a href="https://unityroom.com/games/anaai_0919" target="_blank" class="btn-view">Play on UnityRoom</a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -209,52 +228,84 @@
         <div class="content-wrapper">
             <h2 class="section-title">Archives</h2>
             <div class="archive-grid">
-
                 <div class="archive-card" data-aos="fade-up">
                     <img src="images/2025.08.04.png" alt="Shooting Twinkle" class="archive-img">
                     <div class="archive-content">
                         <h4 class="archive-title">Shooting Twinkle</h4>
-                        <p style="font-size:0.9rem; color:#ccc;">2人対戦弾幕シューティング</p>
+                        <p style="font-size:0.9rem; color:#666;">2人対戦弾幕シューティング</p>
                         <a href="https://play.unity.com/ja/games/abf19ef4-bef8-4bdf-a1ef-c1d47a7020f5/shootingtwinkle" target="_blank" style="color:var(--color-red); font-weight:bold; font-size:0.9rem;">Play Demo</a>
                     </div>
                 </div>
-
                 <div class="archive-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="images/2025.08.08.png" alt="つっぱって！" class="archive-img">
                     <div class="archive-content">
                         <h4 class="archive-title">はっきよいよい つっぱって！</h4>
-                        <p style="font-size:0.9rem; color:#ccc;">2025.08 / Team Dev</p>
+                        <p style="font-size:0.9rem; color:#666;">2025.08 / Team Dev</p>
                         <a href="projects/tsuppatte.html" style="color:var(--color-red); font-weight:bold; font-size:0.9rem;">View Details</a>
                     </div>
                 </div>
-
                 <div class="archive-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="images/2025.07.03.png" alt="Virus" class="archive-img">
                     <div class="archive-content">
                         <h4 class="archive-title">Virus</h4>
-                        <p style="font-size:0.9rem; color:#ccc;">2025.06 / Solo Dev</p>
+                        <p style="font-size:0.9rem; color:#666;">2025.06 / Solo Dev</p>
                         <a href="projects/virus.html" style="color:var(--color-red); font-weight:bold; font-size:0.9rem;">View Details</a>
                     </div>
                 </div>
-
                 <div class="archive-card" data-aos="fade-up" data-aos-delay="300">
                     <img src="images/2025.05.22.png" alt="Front Slimers" class="archive-img">
                     <div class="archive-content">
                         <h4 class="archive-title">Front Slimers</h4>
-                        <p style="font-size:0.9rem; color:#ccc;">2025.05 / Team Dev</p>
+                        <p style="font-size:0.9rem; color:#666;">2025.05 / Team Dev</p>
                         <a href="projects/frontslimers.html" style="color:var(--color-red); font-weight:bold; font-size:0.9rem;">View Details</a>
                     </div>
                 </div>
-
                 <div class="archive-card" data-aos="fade-up" data-aos-delay="400">
                     <img src="images/placeholder2.png" alt="Project 5" class="archive-img">
                     <div class="archive-content">
                         <h4 class="archive-title">Project 5</h4>
-                        <p style="font-size:0.9rem; color:#ccc;">2025.10 / Solo Dev</p>
+                        <p style="font-size:0.9rem; color:#666;">2025.10 / Solo Dev</p>
                         <a href="projects/project5.html" style="color:var(--color-red); font-weight:bold; font-size:0.9rem;">View Details</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="biography" class="angled-section bg-dark">
+        <div class="content-wrapper" data-aos="fade-up">
+            <h2 class="section-title">Biography</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">2025.04</span>
+                    <h3 class="timeline-title">ゲーム開発開始</h3>
+                    <p class="timeline-desc">
+                        ゲームプログラミングの学習を開始。C#、C++、アルゴリズムの基礎を勉強中。<br>
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025.05 - 08</span>
+                    <h3 class="timeline-title">チーム制作への挑戦</h3>
+                    <p class="timeline-desc">
+                        「Front Slimers」「はっきよいよい つっぱって！」など複数のチーム制作に参加。<br>
+                        Gitでのコンフリクト解消や、他職種との連携の難しさと面白さを学ぶ。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2025.11</span>
+                    <h3 class="timeline-title">Shape Puzzles 制作 / リードエンジニア</h3>
+                    <p class="timeline-desc">
+                        3名のチームでリードエンジニアを担当。<br>
+                        技術選定からスケジュール管理まで行い、チームを牽引する経験を得る。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Future</span>
+                    <h3 class="timeline-title">目指すエンジニア像</h3>
+                    <p class="timeline-desc">
+                        技術力だけでなく、チーム全体の生産性を最大化できるエンジニアへ。<br>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -265,6 +316,7 @@
             <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
                 <span class="hero-tag" style="border:1px solid #fff;">Unity</span>
                 <span class="hero-tag" style="border:1px solid #fff;">C#</span>
+                <span class="hero-tag" style="border:1px solid #fff;">C++</span>
                 <span class="hero-tag" style="border:1px solid #fff;">DOTween</span>
                 <span class="hero-tag" style="border:1px solid #fff;">Firebase</span>
                 <span class="hero-tag" style="border:1px solid #fff;">Git / GitHub</span>

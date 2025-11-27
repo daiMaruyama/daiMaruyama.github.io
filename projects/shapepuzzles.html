@@ -8,108 +8,139 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* === ベースデザイン: 開発者好みのダークテーマ === */
+    /* === ペルソナ風 === */
     body {
-      background-color: #0d1117;
-      background-image: radial-gradient(circle at 50% 0%, #1f2937 0%, #0d1117 70%); /* ほんのり上から光が差す演出 */
-      color: #c9d1d9;
+      background-color: #0a0a0a;
+      background-image: 
+        linear-gradient(135deg, rgba(220, 20, 60, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.05) 0%, transparent 50%);
+      color: #e8e8e8;
       font-family: 'Poppins', 'Noto Sans JP', sans-serif;
       line-height: 1.8;
       margin: 0;
     }
 
-    /* === ヘッダーまわり === */
+    /* === ヘッダー === */
     header {
       text-align: center;
       padding: 80px 20px 40px;
+      position: relative;
+    }
+
+    /* ヘッダーの装飾的ライン */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #dc143c, transparent);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      /* テキストに少しグラデーションをかけてリッチに */
-      background: linear-gradient(135deg, #58a6ff 0%, #a371f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #dc143c;
       margin-bottom: 10px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
-      color: #8b949e;
+      color: #999;
       text-decoration: none;
       margin-bottom: 20px;
       font-size: 0.9rem;
       transition: all 0.3s ease;
-      padding: 5px 10px;
-      border-radius: 6px;
+      padding: 8px 16px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .back-link:hover {
-      color: #58a6ff;
-      background: rgba(88, 166, 255, 0.1); /* ホバー時にうっすら青く光る */
+      color: #dc143c;
+      border-color: #dc143c;
+      background: rgba(220, 20, 60, 0.1);
       transform: translateX(-5px);
     }
 
-    /* === メインカード: 浮遊感のあるモダンなコンテナ === */
+    /* === メインカード === */
     .detail-section {
       max-width: 900px;
       margin: 0 auto 100px;
       padding: 50px;
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 20px;
-      /* 影を強くして浮き上がらせる */
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(88, 166, 255, 0.1) inset;
+      background: #1a1a1a;
+      border: 2px solid #2a2a2a;
+      border-left: 4px solid #dc143c;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      position: relative;
     }
 
-    /* === 見出しのデザイン === */
+    /* カード右上の装飾 */
+    .detail-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, transparent 50%, rgba(220, 20, 60, 0.1) 50%);
+      border-radius: 0 8px 0 0;
+    }
+
+    /* === 見出し === */
     h2 {
-      font-size: 1.6rem;
-      border-left: 5px solid #58a6ff;
-      padding-left: 15px;
-      margin: 50px 0 25px;
+      font-size: 1.8rem;
       color: #fff;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(90deg, rgba(88, 166, 255, 0.1) 0%, transparent 100%); /* 見出しの背景に薄い流線 */
-      border-radius: 0 4px 4px 0;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      margin: 50px 0 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #dc143c;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #fff;
     }
 
     h3 {
       font-size: 1.3rem;
-      color: #79c0ff;
+      color: #dc143c;
       margin: 40px 0 15px;
-      display: flex;
-      align-items: center;
-    }
-    
-    /* H3の前に小さなアクセントをつける */
-    h3::before {
-      content: '>';
-      margin-right: 10px;
-      color: #58a6ff;
-      font-weight: bold;
+      padding-left: 20px;
+      border-left: 4px solid #dc143c;
+      background: linear-gradient(90deg, rgba(220, 20, 60, 0.1) 0%, transparent 100%);
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
 
-    /* === テーブルデザイン: データっぽく === */
+    /* === テーブル === */
     .info-table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
       margin-bottom: 40px;
-      border: 1px solid #30363d;
-      border-radius: 8px;
+      border: 1px solid #333;
       overflow: hidden;
     }
 
     .info-table th, .info-table td {
       padding: 15px 20px;
-      border-bottom: 1px solid #30363d;
+      border-bottom: 1px solid #333;
     }
 
     .info-table tr:last-child th, 
@@ -119,22 +150,27 @@
 
     .info-table th {
       width: 30%;
-      color: #8b949e;
-      background: #0d1117; /* ヘッダーを少し暗く */
+      color: #999;
+      background: #0a0a0a;
       font-weight: 600;
       white-space: nowrap;
+      border-right: 2px solid #dc143c;
     }
     
     .info-table td {
-      background: #161b22;
+      background: #1a1a1a;
+    }
+
+    .info-table tr:hover td {
+      background: rgba(220, 20, 60, 0.05);
     }
 
     img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 4px;
       margin: 30px 0;
-      border: 1px solid #30363d;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* 画像にも強い影 */
+      border: 2px solid #333;
+      box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
     }
 
     ul {
@@ -145,67 +181,61 @@
       margin-bottom: 12px;
       line-height: 1.8;
       position: relative;
+      padding-left: 10px;
     }
 
-    /* === リンクのデザイン === */
+    ul li::before {
+      content: '▸';
+      position: absolute;
+      left: -15px;
+      color: #dc143c;
+      font-weight: bold;
+    }
+
+    /* === リンク === */
     a {
-      color: #58a6ff;
+      color: #dc143c;
       text-decoration: none;
       font-weight: 600;
-      position: relative;
-      transition: color 0.3s;
-    }
-
-    /* リンクの下線アニメーション */
-    a:not(.back-link)::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: #58a6ff;
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.3s ease-out;
-    }
-
-    a:not(.back-link):hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
+      transition: all 0.3s;
     }
 
     a:hover {
-      color: #79c0ff;
+      color: #ff4458;
+      text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
     }
 
-    /* === 技術セクション: ターミナル/コードブロック風 === */
+    /* === 技術セクション === */
     .tech-section {
-      background: #0d1117; /* 背景を一段暗く */
+      background: #0a0a0a;
       padding: 25px;
-      border-radius: 8px;
       margin: 25px 0;
-      border: 1px solid #30363d;
-      border-left: 4px solid #238636; /* 成功色（Gitの草色）に変更してアクセント */
-      font-family: 'Poppins', monospace; /* 少し等幅フォントっぽさを意識 */
+      border: 1px solid #333;
+      border-left: 4px solid #dc143c;
+      position: relative;
     }
     
+    .tech-section::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, transparent 50%, rgba(220, 20, 60, 0.2) 50%);
+    }
+
     .tech-section ul {
       margin: 0;
       padding-left: 20px;
-      list-style-type: disc; /* デフォルトの丸ポチに戻すか、四角にする */
-    }
-    
-    .tech-section li::marker {
-      color: #238636; /* リストマーカーを緑に */
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
       font-size: 0.9rem;
-      color: #8b949e;
-      border-top: 1px solid #30363d;
+      color: #666;
+      border-top: 1px solid #333;
       margin-top: 80px;
     }
     
@@ -224,9 +254,9 @@
         box-sizing: border-box;
       }
       .info-table th {
-        border-bottom: none;
+        border-right: none;
+        border-bottom: 2px solid #dc143c;
         padding-bottom: 5px;
-        color: #58a6ff;
       }
       .info-table td {
         padding-top: 0;
@@ -237,12 +267,12 @@
 </head>
 <body>
   <header data-aos="fade-down">
-    <a href="../index.html" class="back-link">&lt; ポートフォリオ一覧に戻る</a>
+    <a href="../index.html" class="back-link">← BACK TO PORTFOLIO</a>
     <h1>Shape Puzzles</h1>
   </header>
 
   <div class="detail-section" data-aos="fade-up">
-    <h2>基本情報</h2>
+    <h2>🎮 Basic Information</h2>
     <table class="info-table">
       <tr><th>制作期間</th><td>約1か月</td></tr>
       <tr><th>制作形式</th><td>チーム制作（3名）</td></tr>
@@ -254,13 +284,13 @@
 
     <img src="../images/2025.11.22.png" alt="Shape Puzzlesのスクリーンショット">
 
-    <h2>🎮 プロジェクト概要</h2>
+    <h2>🎮 Project Overview</h2>
     <p>
       図形を回転・配置してパズルを解くゲームです。自主制作プロジェクトとして、3名のプログラマーチームで企画から実装まで行いました。
       シンプルながら奥深いゲーム性を目指し、直感的な操作感とリアルタイムの視覚的フィードバックを重視して設計しました。
     </p>
 
-    <h2>🎯 プロジェクト管理とリーダーシップ</h2>
+    <h2>🎯 Project Management</h2>
     <p>
       このプロジェクトでは、リードプログラマーとして技術面だけでなく、チーム全体のマネジメントも担当しました。
     </p>
@@ -271,7 +301,7 @@
       <li><strong>チーム連携の促進：</strong>定期的な技術相談やタスク調整を通じて、メンバーが気持ちよく開発できる環境づくりを心がけました。</li>
     </ul>
 
-    <h2>💻 技術実装の詳細</h2>
+    <h2>💻 Technical Implementation</h2>
 
     <h3>図形生成システム</h3>
     <div class="tech-section">
@@ -321,14 +351,14 @@
       </ul>
     </div>
 
-    <h2>🔧 コード管理とリファクタリング</h2>
+    <h2>🔧 Code Management</h2>
     <ul>
       <li>全体のコードレビューを実施し、保守性・可読性を向上</li>
       <li>冗長なロジックの整理、共通関数化、命名規則の統一を推進</li>
       <li>チームメンバーとの技術相談を通じて、より良い実装方法を模索</li>
     </ul>
 
-    <h2>📚 学んだことと成長</h2>
+    <h2>📚 Learning & Growth</h2>
     <p>
       このプロジェクトを通じて、技術面だけでなくマネジメント面でも大きく成長できました。
     </p>
@@ -338,10 +368,10 @@
       <li><strong>リーダーシップ：</strong>「どうすればメンバーが気持ちよく開発できるか」「無理のないスケジュールとは何か」を常に考え、マネジメント面への興味が深まりました</li>
     </ul>
 
-    <h2>🔗 リンク</h2>
+    <h2>🔗 Links</h2>
     <p>
-      <a href="https://unityroom.com/games/shapepuzzles" target="_blank"><strong>UnityRoomで遊ぶ</strong></a> | 
-      <a href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank"><strong>GitHubリポジトリ</strong></a>
+      <a href="https://unityroom.com/games/shapepuzzles" target="_blank"><strong>► PLAY ON UNITYROOM</strong></a> | 
+      <a href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank"><strong>► VIEW ON GITHUB</strong></a>
     </p>
   </div>
 

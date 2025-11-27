@@ -16,10 +16,8 @@
     <style>
         /* === 1. ナビゲーション修正 === */
         nav {
-            /* スクロールしても追従させるか、固定するかはお好みですが、今回は固定のまま */
             justify-content: space-between;
         }
-        /* ロゴをボタン化 */
         .logo-btn {
             font-weight: 900; 
             font-size: 1.2rem; 
@@ -57,7 +55,6 @@
         }
 
         /* === 3. 経歴セクション (Biography) === */
-        /* タイムライン風のデザイン */
         .timeline {
             border-left: 2px solid var(--color-red);
             padding-left: 30px;
@@ -100,7 +97,7 @@
             line-height: 1.6;
         }
 
-        /* === 共通: Feature/Archiveのデザイン (前回のまま維持) === */
+        /* === 共通: Feature/Archiveのデザイン === */
         .feature-item {
             display: flex; align-items: center; gap: 50px; margin-bottom: 100px;
             background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px;
@@ -197,7 +194,7 @@
                     <img src="images/2025.11.22.png" alt="Shape Puzzles" class="feature-img">
                 </div>
                 <div class="feature-content">
-                    <span class="feature-label">LEAD PROGRAMMER / TEAM </span>
+                    <span class="feature-label">LEAD PROGRAMMER / TEAM DEV</span>
                     <h3 class="feature-title">Shape Puzzles</h3>
                     <p class="feature-desc">
                         「気持ちいい操作感」を追求したパズルゲーム。<br>
@@ -212,7 +209,7 @@
                     <img src="images/anaai.png" alt="いますぐあなたに会いたいの" class="feature-img">
                 </div>
                 <div class="feature-content">
-                    <span class="feature-label">SOLO </span>
+                    <span class="feature-label">SOLO DEV / UNITY1WEEK</span>
                     <h3 class="feature-title">Imasugu Anatani<br>Aitaino</h3>
                     <p class="feature-desc">
                         心理描写とゲームシステムを融合させた連打ゲーム。<br>
@@ -272,7 +269,7 @@
         </div>
     </section>
 
-    <section id="biography" class="angled-section bg-dark">
+    <section id="biography" class="angled-section bg-dark" style="z-index: 2;">
         <div class="content-wrapper" data-aos="fade-up">
             <h2 class="section-title">Biography</h2>
             <div class="timeline">
@@ -280,7 +277,7 @@
                     <span class="timeline-year">2025.04</span>
                     <h3 class="timeline-title">ゲーム開発開始</h3>
                     <p class="timeline-desc">
-                        ゲームプログラミングの学習を開始。C#、C++、アルゴリズムの基礎を勉強中。<br>
+                        ゲームプログラミングの学習を開始。C#、アルゴリズムの基礎を勉強中。<br>
                     </p>
                 </div>
                 <div class="timeline-item">
@@ -303,21 +300,19 @@
                     <span class="timeline-year">Future</span>
                     <h3 class="timeline-title">目指すエンジニア像</h3>
                     <p class="timeline-desc">
-                        技術力だけでなく、チーム全体の生産性を最大化できるエンジニアへ。
-                        <br>
+                        技術力だけでなく、チーム全体の生産性を最大化できるエンジニアへ。<br>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="angled-section bg-red">
+    <section id="skills" class="angled-section bg-red" style="z-index: 3;">
         <div class="content-wrapper" data-aos="fade-up">
             <h2 class="section-title" style="border-bottom-color: #fff;">Skills</h2>
             <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
                 <span class="hero-tag" style="border:1px solid #fff;">Unity</span>
                 <span class="hero-tag" style="border:1px solid #fff;">C#</span>
-                <span class="hero-tag" style="border:1px solid #fff;">C++</span>
                 <span class="hero-tag" style="border:1px solid #fff;">DOTween</span>
                 <span class="hero-tag" style="border:1px solid #fff;">Firebase</span>
                 <span class="hero-tag" style="border:1px solid #fff;">Git / GitHub</span>
@@ -325,7 +320,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer style="z-index: 4; position: relative;">
         <p>© 2025 Daisuke Maruyama. All rights reserved.</p>
     </footer>
 

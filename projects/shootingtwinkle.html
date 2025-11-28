@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting Twinkle | Project Detail</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Daisuke Maruyama</div>
+        <a href="../index.html" class="back-btn">← Back to Top</a>
+    </nav>
+
+    <section class="angled-section bg-red hero">
+        <div class="content-wrapper" data-aos="fade-up">
+            <h1>Shooting<br>Twinkle</h1>
+            <div class="hero-tags">
+                <span class="hero-tag">Unity</span>
+                <span class="hero-tag">C#</span>
+                <span class="hero-tag">Game Jam</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="angled-section bg-white">
+        <div class="content-wrapper" data-aos="fade-up">
+            
+            <h2 class="section-title">Project Overview</h2>
+            
+            <table class="info-table">
+                <tr><th>制作期間</th><td>2日間（学内ゲームジャム）</td></tr>
+                <tr><th>チーム構成</th><td>チーム制作</td></tr>
+                <tr><th>使用技術</th><td>Unity (C#)</td></tr>
+            </table>
+
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                学内ゲームジャムにて2日間で制作した、2人対戦型の弾幕シューティングゲームです。<br>
+                短期間での開発において、インゲームの爽快感と、リトライ性の高いUI遷移の実装に注力しました。
+            </p>
+
+            <img src="../images/2025.08.04.png" alt="Shooting Twinkleのスクリーンショット" class="project-img">
+
+        </div>
+    </section>
+
+    <section class="angled-section bg-dark">
+        <div class="content-wrapper" data-aos="fade-up">
+            
+            <h2 class="section-title">Technical Highlights</h2>
+
+            <h3>01. UI演出とシーン遷移の実装</h3>
+            <p>プレイヤーの操作感を損なわない、スムーズかつ直感的な画面遷移を実装しました。</p>
+            <ul class="tech-list">
+                <li><strong>長押しゲージによる遷移制御:</strong><br>
+                リザルト画面からタイトルやリトライへ進む際、単なるクリックではなく「長押し」による確定操作を採用。<br>
+                <code>Image.fillAmount</code> を動的に制御することで、ゲージが溜まる演出と遷移ロジックを連動させ、誤操作防止と没入感の向上を図りました。</li>
+            </ul>
+
+            <h3>02. 弾幕攻撃パターンの構築</h3>
+            <p>シューティングゲームの核となる攻撃システムの実装を担当しました。</p>
+            <ul class="tech-list">
+                <li><strong>360度弾幕攻撃:</strong><br>
+                全方位に展開する弾幕攻撃のロジックを実装。対戦相手を追い詰めるための攻撃パターンを構築し、ゲームの競技性を高める要素として機能させました。</li>
+            </ul>
+
+            <div class="link-area">
+                <a href="https://play.unity.com/ja/games/abf19ef4-bef8-4bdf-a1ef-c1d47a7020f5/shootingtwinkle" target="_blank" class="btn btn-white">
+                    ► Play on Unity Play
+                </a>
+                <a href="https://github.com/HIBIKI5201/GameJam2025-Magenta" target="_blank" class="btn btn-white">
+                    ► View GitHub
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Daisuke Maruyama</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
+    </script>
+</body>
+</html>

@@ -31,6 +31,7 @@ daiMaruyama.github.io/
 ├── index.html          # トップページ（作品一覧・経歴）
 ├── style.css           # サイト全体の共通デザイン定義
 ├── projects/           # 各作品の詳細ページ
+│   ├── anaai.html
 │   ├── shapepuzzles.html
 │   ├── shootingtwinkle.html
 │   ├── virus.html

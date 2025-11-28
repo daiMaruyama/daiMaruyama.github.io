@@ -32,6 +32,7 @@ daiMaruyama.github.io/
 ├── style.css           # サイト全体の共通デザイン定義
 ├── projects/           # 各作品の詳細ページ
 │   ├── shapepuzzles.html
+│   ├── shootingtwinkle.html
 │   ├── virus.html
 │   ├── tsuppatte.html
 │   └── frontslimers.html

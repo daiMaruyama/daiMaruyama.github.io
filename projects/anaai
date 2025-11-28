@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imasugu Anatani Aitaino | Project Detail</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Daisuke Maruyama</div>
+        <a href="../index.html" class="back-btn">← Back to Top</a>
+    </nav>
+
+    <section class="angled-section bg-red hero">
+        <div class="content-wrapper" data-aos="fade-up">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 5rem);">Imasugu Anatani<br>Aitaino</h1>
+            <div class="hero-tags">
+                <span class="hero-tag">Unity</span>
+                <span class="hero-tag">C#</span>
+                <span class="hero-tag">DOTween</span>
+                <span class="hero-tag">Solo Dev</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="angled-section bg-white">
+        <div class="content-wrapper" data-aos="fade-up">
+            
+            <h2 class="section-title">Project Overview</h2>
+            
+            <table class="info-table">
+                <tr><th>制作期間</th><td>約2週間</td></tr>
+                <tr><th>制作形式</th><td>個人制作</td></tr>
+                <tr><th>使用技術</th><td>Unity (C#), DOTween</td></tr>
+            </table>
+
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                心理描写とゲームシステムを融合させた連打ゲームです。<br>
+                1人プレイ（対AI）と2人プレイの両方に対応し、ゲームの合間にノベルパートを挟むことで、単なる連打ゲーに留まらない「物語体験」としての強化を図りました。
+            </p>
+
+            <img src="../images/anaai.png" alt="いますぐあなたに会いたいの スクリーンショット" class="project-img">
+
+        </div>
+    </section>
+
+    <section class="angled-section bg-dark">
+        <div class="content-wrapper" data-aos="fade-up">
+            
+            <h2 class="section-title">Technical Highlights</h2>
+
+            <h3>01. DOTweenによるUI演出の強化</h3>
+            <p>カジュアルゲームにおいて重要な「触り心地」や「視覚的な気持ちよさ」を追求しました。</p>
+            <ul class="tech-list">
+                <li><strong>Sequenceによる演出制御:</strong><br>
+                タイトルロゴの拡大や文字のフェードインなど、複数のアニメーションを <code>Sequence</code> で連結し、ストーリー性を感じる演出を実装しました。</li>
+                <li><strong>Ease設定のこだわり:</strong><br>
+                単調な動きにならないようイージング（Ease）を細かく調整。UIのフェード、移動、拡縮において「自然で気持ち良い動き」を再現することに注力しました。</li>
+            </ul>
+
+            <h3>02. ゲームシステムとAIの実装</h3>
+            <p>個人制作として、企画から実装まで幅広い領域を担当しました。</p>
+            <ul class="tech-list">
+                <li><strong>敵AIの実装:</strong><br>
+                1人プレイ時に対戦相手となるAIロジックを構築。プレイヤーに程よい緊張感を与えるバランスを目指しました。</li>
+                <li><strong>ノベルパートの統合:</strong><br>
+                ゲームループの中に会話劇（ノベルパート）を組み込み、プレイヤーのモチベーションを維持する設計を行いました。</li>
+            </ul>
+
+            <div class="link-area">
+                <a href="https://unityroom.com/games/anaai_0919" target="_blank" class="btn btn-white">
+                    ► Play on UnityRoom
+                </a>
+                <a href="https://github.com/daiMaruyama/Making2nd/tree/main" target="_blank" class="btn btn-white">
+                    ► View GitHub
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Daisuke Maruyama</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
+    </script>
+</body>
+</html>

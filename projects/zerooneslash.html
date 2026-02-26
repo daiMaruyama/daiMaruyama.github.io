@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroOneSlash | Project Detail</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <nav>
+    <div class="logo">Daisuke Maruyama</div>
+    <a href="../index.html" class="back-btn">← Back to Top</a>
+    </nav>
+
+    <section class="angled-section bg-red hero">
+        <div class="content-wrapper" data-aos="fade-up">
+            <h1>Zero One<br>Slash</h1>
+            <div class="hero-tags">
+                <span class="hero-tag">Unity</span>
+                <span class="hero-tag">C#</span>
+                <span class="hero-tag">Firebase</span>
+                <span class="hero-tag">Solo Dev</span>
+                <span class="hero-tag">🏆 審査会優勝</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="angled-section bg-white">
+        <div class="content-wrapper" data-aos="fade-up">
+
+            <h2 class="section-title">Project Overview</h2>
+
+            <table class="info-table">
+                <tr><th>制作期間</th><td>約2か月</td></tr>
+                <tr><th>チーム構成</th><td>1名（個人開発）</td></tr>
+                <tr><th>使用技術</th><td>Unity (C#), Firebase, DOTween, GitHub</td></tr>
+                <tr><th>受賞</th><td>🏆 バンタン審査会 優勝（2026.02.17）</td></tr>
+            </table>
+
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                ダーツの要素を取り入れたスラッシュアクションゲームです。<br>
+                ネオンレッドで統一されたビジュアルと、直感的なスラッシュ操作で「気持ちいい」体験を追求しました。<br>
+                企画・設計・実装・UI/UXデザインまで全工程を一人で担当し、審査会で優勝を獲得しました。
+            </p>
+
+            <!-- TODO: スクリーンショットを追加 -->
+            <!-- <img src="../images/zerooneslash.png" alt="ZeroOneSlashのスクリーンショット" class="project-img"> -->
+
+        </div>
+    </section>
+
+    <section class="angled-section bg-dark">
+        <div class="content-wrapper" data-aos="fade-up">
+
+            <h2 class="section-title">Technical Highlights</h2>
+
+            <h3>01. Builderパターンによる動的UI生成</h3>
+            <p>遊び方パネル、ランキング、リザルト画面などをBuilderパターンで設計しました。</p>
+            <ul class="tech-list">
+                <li><code>[DefaultExecutionOrder(-5)]</code> + <code>Awake()</code> でランタイム時に自動生成</li>
+                <li>HowToPlayBuilder, RankingPanelBuilder, NewRecordPanelBuilder, ResultPanelBuilder を実装</li>
+                <li>UIの追加・変更がコードの修正だけで完結する保守性の高い設計</li>
+            </ul>
+
+            <h3>02. ネオンレッドテーマによるUI/UX統一</h3>
+            <p>ゲーム全体をネオンレッドのカラーテーマで統一し、没入感のあるビジュアルを実現しました。</p>
+            <ul class="tech-list">
+                <li>カラーパレットを一元管理し、全UIに適用</li>
+                <li>遊び方パネルは4ページスライド形式で、初見プレイヤーにも分かりやすい導線</li>
+                <li>DOTweenによるスムーズなアニメーション演出</li>
+            </ul>
+
+            <h3>03. Firebaseによるオンラインランキング</h3>
+            <p>Firebase Realtime Databaseを使用し、リアルタイムのスコアランキング機能を実装しました。</p>
+            <ul class="tech-list">
+                <li>スコア送信・取得の非同期処理</li>
+                <li>ニューレコード検知とパネル表示の連携</li>
+            </ul>
+
+            <div class="link-area">
+                <a href="https://github.com/daiMaruyama/zero-one-slash" target="_blank" class="btn btn-white">
+                    ► View GitHub
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Daisuke Maruyama</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
+    </script>
+</body>
+</html>

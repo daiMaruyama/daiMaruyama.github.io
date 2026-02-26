@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
 
@@ -81,8 +81,8 @@
             <h1>Daisuke<br>Maruyama</h1>
             <p style="font-size: 1.5rem; font-weight: 700;">Unity / C# Developer</p>
             <div style="margin-top: 30px; display:flex; gap:15px;">
-                <a href="https://github.com/daiMaruyama" target="_blank" class="hero-btn"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://unityroom.com/users/5xq346fcro1km89a2zi0" target="_blank" class="hero-btn"><i class="fas fa-gamepad"></i> UnityRoom</a>
+                <a href="https://github.com/daiMaruyama" target="_blank" rel="noopener noreferrer" class="hero-btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://unityroom.com/users/5xq346fcro1km89a2zi0" target="_blank" rel="noopener noreferrer" class="hero-btn"><i class="fas fa-gamepad"></i> UnityRoom</a>
             </div>
         </div>
     </section>
@@ -121,10 +121,8 @@
             <h2 class="section-title">Featured Works</h2>
             
             <div class="feature-item" data-aos="fade-up">
-                <div class="feature-img-box" style="background:#0a0315; display:flex; align-items:center; justify-content:center; min-height:300px;">
-                    <!-- TODO: 画像追加後に差し替え -->
-                    <!-- <img src="images/zerooneslash.png" alt="ZeroOneSlash" class="feature-img"> -->
-                    <span style="font-family:'Montserrat',sans-serif; font-size:3rem; font-weight:900; color:#ff3223; text-shadow:0 0 20px rgba(255,50,35,0.5);">ZERO ONE<br>SLASH</span>
+                <div class="feature-img-box">
+                    <img src="images/zerooneslash.png" alt="ZeroOneSlash" class="feature-img">
                 </div>
                 <div class="feature-content">
                     <span class="feature-label">🏆 2026.02 / SOLO DEV / 審査会優勝</span>
@@ -285,7 +283,7 @@
                 お気軽にご連絡ください。
             </p>
             <div style="text-align: center;">
-                <a href="https://forms.gle/Jb7Jcvjh76Bgqcqs5" target="_blank" class="btn-view" style="font-size: 1.2rem; padding: 15px 50px;">
+                <a href="https://forms.gle/Jb7Jcvjh76Bgqcqs5" target="_blank" rel="noopener noreferrer" class="btn-view" style="font-size: 1.2rem; padding: 15px 50px;">
                     お問い合わせフォームへ <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
@@ -296,7 +294,7 @@
         <p>© 2026 Daisuke Maruyama. All rights reserved.</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous"></script>
     <script>
         AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
     </script>

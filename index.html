@@ -120,18 +120,18 @@
         }
 
         .splat-works {
-            width: clamp(110px, 16vw, 210px);
-            top: 5%;
-            right: 7%;
-            transform: rotate(-14deg);
+            width: clamp(120px, 17vw, 220px);
+            bottom: 9%;
+            left: 2%;
+            transform: rotate(16deg);
             opacity: .9;
         }
 
         .splat-skills {
-            width: clamp(90px, 14vw, 180px);
-            bottom: 10%;
-            right: 9%;
-            transform: rotate(28deg);
+            width: clamp(70px, 11vw, 140px);
+            top: 26%;
+            right: 12%;
+            transform: rotate(-24deg);
             opacity: .9;
         }
 
@@ -561,36 +561,6 @@
             transform: rotate(8deg);
         }
 
-        .hero::after {
-            content: "PLAYER 1";
-            position: absolute;
-            top: 50%;
-            right: 14px;
-            transform: translateY(-50%);
-            writing-mode: vertical-rl;
-            font-family: var(--disp);
-            font-size: clamp(2.5rem, 8vh, 5.5rem);
-            letter-spacing: .06em;
-            color: transparent;
-            -webkit-text-stroke: 2px rgba(255, 255, 255, .18);
-            pointer-events: none;
-            white-space: nowrap;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            font-family: var(--mono);
-            font-weight: 700;
-            font-size: .95rem;
-            letter-spacing: .2em;
-            background: var(--blk);
-            color: #fff;
-            padding: 6px 16px;
-            transform: rotate(-3deg);
-            box-shadow: 5px 5px 0 #fff;
-            margin-bottom: 26px;
-        }
-
         .hero-name {
             font-family: var(--disp);
             font-size: clamp(3.2rem, 12.5vw, 9.4rem);
@@ -827,14 +797,31 @@
         }
 
         .perk {
-            background: var(--blk);
             color: #fff;
             padding: 36px 26px 28px;
             position: relative;
             transform: rotate(var(--tilt, -2deg));
-            transition: transform .22s var(--snap), box-shadow .22s var(--snap);
-            box-shadow: 7px 7px 0 var(--main);
+            transition: transform .22s var(--snap);
+        }
+
+        /* 破れ紙の本体と色影を疑似要素に分離（カード本体をclipすると星が切れるため） */
+        .perk::before,
+        .perk::after {
+            content: "";
+            position: absolute;
+            inset: 0;
             clip-path: polygon(0 6%, 4% 0, 100% 2%, 98% 94%, 96% 100%, 2% 98%);
+        }
+
+        .perk::before {
+            background: var(--blk);
+            z-index: -1;
+        }
+
+        .perk::after {
+            background: var(--main);
+            transform: translate(7px, 7px);
+            z-index: -2;
         }
 
         .perk:nth-child(2) {
@@ -1343,10 +1330,6 @@
                 left: 12px;
             }
 
-            .hero::after {
-                display: none;
-            }
-
             .splat-hero {
                 width: 180px;
                 bottom: -3%;
@@ -1408,6 +1391,14 @@
                 <circle cx="14" cy="178" r="6" />
                 <circle cx="198" cy="150" r="5" />
             </g>
+            <g id="ink-splat-2">
+                <path
+                    d="M30 96 C12 78 28 52 52 56 C60 30 100 24 118 44 C138 28 174 42 170 70 C194 80 198 114 176 126 C188 150 162 174 138 162 C128 186 90 188 78 164 C52 178 24 158 34 134 C14 128 14 108 30 96 Z" />
+                <circle cx="192" cy="42" r="7" />
+                <circle cx="18" cy="58" r="5" />
+                <circle cx="178" cy="180" r="9" />
+                <circle cx="60" cy="14" r="6" />
+            </g>
         </defs>
     </svg>
 
@@ -1439,7 +1430,6 @@
             <use href="#ink-splat" />
         </svg>
         <div class="wrap">
-            <span class="hero-tag">// 28卒 GAME PROGRAMMER</span>
             <h1 class="hero-name">
                 <span class="tilt">Daisuke</span><br>
                 <em>Maruyama</em>
@@ -1468,7 +1458,7 @@
     <!-- ============ STATUS / ABOUT (white) ============ -->
     <section id="about" class="band bg-w jag-b on-white halftone z8">
         <svg class="splat splat-about" viewBox="0 0 210 200" fill="var(--main)" aria-hidden="true">
-            <use href="#ink-splat" />
+            <use href="#ink-splat-2" />
         </svg>
         <div class="wrap">
             <h2 class="scream rv" data-jp="自己紹介">Status</h2>
@@ -1479,7 +1469,7 @@
                     <img src="images/profile.jpg" alt="丸山大輔" onerror="this.remove()">
                 </div>
                 <div>
-                    <h3 class="pf-name">丸山 大輔<small>DAISUKE MARUYAMA / PLAYER 1</small></h3>
+                    <h3 class="pf-name">丸山 大輔<small>DAISUKE MARUYAMA</small></h3>
                     <div class="pf-rows">
                         <div><b>SCHOOL</b>バンタンゲームアカデミー ゲーム学部 3年制ゲームプログラマー専攻 2年次</div>
                         <div><b>GRAD</b>2028年3月 卒業見込み（28卒）</div>
@@ -1524,7 +1514,7 @@
     <!-- ============ MISSION SELECT / WORKS (black) ============ -->
     <section id="featured" class="band bg-k jag-b jag-t stripes z7">
         <svg class="splat splat-works" viewBox="0 0 210 200" fill="var(--acc2)" aria-hidden="true">
-            <use href="#ink-splat" /></svg>
+            <use href="#ink-splat-2" /></svg>
         <div class="wrap">
             <h2 class="scream rv" data-jp="代表作">Works</h2>
 
@@ -1665,7 +1655,7 @@
     <!-- ============ LOADOUT / SKILLS (black) ============ -->
     <section id="skills" class="band bg-k jag-b jag-t stripes z4">
         <svg class="splat splat-skills" viewBox="0 0 210 200" fill="var(--acc)" aria-hidden="true">
-            <use href="#ink-splat" /></svg>
+            <use href="#ink-splat-2" /></svg>
         <div class="wrap">
             <h2 class="scream rv" data-jp="スキル">Loadout</h2>
             <div class="loadout rv">

@@ -119,6 +119,22 @@
             opacity: .92;
         }
 
+        .splat-works {
+            width: clamp(110px, 16vw, 210px);
+            top: 5%;
+            right: 7%;
+            transform: rotate(-14deg);
+            opacity: .9;
+        }
+
+        .splat-skills {
+            width: clamp(90px, 14vw, 180px);
+            bottom: 10%;
+            right: 9%;
+            transform: rotate(28deg);
+            opacity: .9;
+        }
+
         .band>.wrap {
             position: relative;
             z-index: 2;
@@ -548,14 +564,15 @@
         .hero::after {
             content: "PLAYER 1";
             position: absolute;
-            top: 12vh;
-            right: -2vw;
+            top: 50%;
+            right: 14px;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
             font-family: var(--disp);
-            font-size: clamp(4rem, 13vw, 10rem);
+            font-size: clamp(2.5rem, 8vh, 5.5rem);
+            letter-spacing: .06em;
             color: transparent;
             -webkit-text-stroke: 2px rgba(255, 255, 255, .18);
-            transform: rotate(90deg);
-            transform-origin: top right;
             pointer-events: none;
             white-space: nowrap;
         }
@@ -646,7 +663,7 @@
         }
 
         .pbtn--ghost {
-            background: transparent;
+            background: var(--blk);
             color: #fff;
             border-color: #fff;
             box-shadow: 6px 6px 0 rgba(0, 0, 0, .45);
@@ -1041,7 +1058,7 @@
 
         .arc-card:hover {
             transform: rotate(0) translateY(-7px);
-            border-color: var(--blk);
+            border-color: var(--acc);
             box-shadow: 10px 12px 0 var(--blk);
         }
 
@@ -1337,7 +1354,9 @@
             }
 
             .splat-about,
-            .splat-contact {
+            .splat-contact,
+            .splat-works,
+            .splat-skills {
                 display: none;
             }
 
@@ -1420,7 +1439,7 @@
             <use href="#ink-splat" />
         </svg>
         <div class="wrap">
-            <span class="hero-tag">// READY ?</span>
+            <span class="hero-tag">// 28卒 GAME PROGRAMMER</span>
             <h1 class="hero-name">
                 <span class="tilt">Daisuke</span><br>
                 <em>Maruyama</em>
@@ -1504,6 +1523,8 @@
 
     <!-- ============ MISSION SELECT / WORKS (black) ============ -->
     <section id="featured" class="band bg-k jag-b jag-t stripes z7">
+        <svg class="splat splat-works" viewBox="0 0 210 200" fill="var(--acc2)" aria-hidden="true">
+            <use href="#ink-splat" /></svg>
         <div class="wrap">
             <h2 class="scream rv" data-jp="代表作">Works</h2>
 
@@ -1643,6 +1664,8 @@
 
     <!-- ============ LOADOUT / SKILLS (black) ============ -->
     <section id="skills" class="band bg-k jag-b jag-t stripes z4">
+        <svg class="splat splat-skills" viewBox="0 0 210 200" fill="var(--acc)" aria-hidden="true">
+            <use href="#ink-splat" /></svg>
         <div class="wrap">
             <h2 class="scream rv" data-jp="スキル">Loadout</h2>
             <div class="loadout rv">

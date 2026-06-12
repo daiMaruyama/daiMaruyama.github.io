@@ -592,7 +592,6 @@
             color: var(--blk);
             padding: 8px 22px;
             transform: skewX(-10deg) rotate(-1.5deg);
-            box-shadow: 6px 6px 0 var(--blk);
         }
 
         .hero-role span {
@@ -736,14 +735,6 @@
             line-height: 2;
         }
 
-        .pf-rows b {
-            font-family: var(--mono);
-            font-size: .72rem;
-            letter-spacing: .12em;
-            color: rgba(255, 255, 255, .55);
-            margin-right: 10px;
-        }
-
         .pf-links {
             margin-top: 16px;
             display: flex;
@@ -855,10 +846,10 @@
         }
 
         .perk-title {
-            font-family: var(--disp2);
-            font-size: 1.5rem;
-            letter-spacing: .05em;
-            text-transform: uppercase;
+            font-family: var(--jp2);
+            font-weight: 400;
+            font-size: 1.35rem;
+            letter-spacing: .08em;
             display: block;
             margin-bottom: 12px;
         }
@@ -969,7 +960,6 @@
             line-height: 1;
             text-transform: uppercase;
             margin-bottom: 16px;
-            text-shadow: 3px 3px 0 var(--main);
             transform: rotate(-1deg);
             width: fit-content;
         }
@@ -983,9 +973,9 @@
 
         .mission-go {
             display: inline-block;
-            font-family: var(--disp2);
-            font-size: 1.05rem;
-            text-transform: uppercase;
+            font-family: var(--jp2);
+            font-weight: 400;
+            font-size: 1rem;
             letter-spacing: .08em;
             background: var(--main);
             color: #fff;
@@ -1075,9 +1065,9 @@
         }
 
         .arc-link {
-            font-family: var(--mono);
-            font-weight: 700;
-            font-size: .8rem;
+            font-family: var(--jp);
+            font-weight: 900;
+            font-size: .82rem;
             letter-spacing: .06em;
             color: var(--acc);
             text-decoration: none;
@@ -1183,12 +1173,6 @@
             --r: 2.2deg;
         }
 
-        .chip:hover {
-            transform: rotate(0) skewX(-8deg) translateY(-5px) scale(1.06);
-            background: #fff;
-            color: var(--main);
-        }
-
         /* ============================================================
    CONTACT — red band
    ============================================================ */
@@ -1210,9 +1194,9 @@
         .contact-cta {
             display: inline-block;
             position: relative;
-            font-family: var(--disp);
-            font-size: clamp(1.3rem, 3.6vw, 2rem);
-            text-transform: uppercase;
+            font-family: var(--jp2);
+            font-weight: 400;
+            font-size: clamp(1.2rem, 3.2vw, 1.8rem);
             color: var(--blk);
             background: var(--wht);
             text-decoration: none;
@@ -1416,7 +1400,7 @@
         <p class="intro-press">▶ PRESS ANY KEY / TAP TO START</p>
     </div>
 
-    <a href="#" class="nav-logo">Daisuke Maruyama</a>
+    <a href="#" class="nav-logo">▲ TOP</a>
     <nav>
         <a href="#about"><span>Status</span></a>
         <a href="#featured"><span>Works</span></a>
@@ -1437,9 +1421,9 @@
             <p class="hero-role"><span>Unity / UE5 Game Programmer</span></p>
             <div class="hero-actions">
                 <a href="https://github.com/daiMaruyama" target="_blank" rel="noopener noreferrer"
-                    class="pbtn">GitHub</a>
+                    class="pbtn">GitHub ↗</a>
                 <a href="https://unityroom.com/users/daimaruyama" target="_blank" rel="noopener noreferrer"
-                    class="pbtn pbtn--ghost">UnityRoom</a>
+                    class="pbtn pbtn--ghost">UnityRoom ↗</a>
             </div>
         </div>
         <p class="hero-scroll">▼ SCROLL</p>
@@ -1471,17 +1455,17 @@
                 <div>
                     <h3 class="pf-name">丸山 大輔<small>DAISUKE MARUYAMA</small></h3>
                     <div class="pf-rows">
-                        <div><b>SCHOOL</b>バンタンゲームアカデミー ゲーム学部 3年制ゲームプログラマー専攻 2年次</div>
-                        <div><b>GRAD</b>2028年3月 卒業見込み（28卒）</div>
+                        <div>バンタンゲームアカデミー ゲーム学部<br>ゲームプログラマー専攻（3年制）2年次</div>
+                        <div>2028年3月卒業見込み（28卒）</div>
                     </div>
                     <div class="pf-links">
                         <a href="https://github.com/daiMaruyama" target="_blank"
-                            rel="noopener noreferrer"><span>GitHub</span></a>
+                            rel="noopener noreferrer"><span>GitHub ↗</span></a>
                         <a href="https://unityroom.com/users/daimaruyama" target="_blank"
-                            rel="noopener noreferrer"><span>UnityRoom</span></a>
+                            rel="noopener noreferrer"><span>UnityRoom ↗</span></a>
                         <a href="https://zenn.dev/daimaruyama" target="_blank"
-                            rel="noopener noreferrer"><span>Zenn</span></a>
-                        <a href="https://x.com/daiMaruyama" target="_blank" rel="noopener noreferrer"><span>X</span></a>
+                            rel="noopener noreferrer"><span>Zenn ↗</span></a>
+                        <a href="https://x.com/daiMaruyama" target="_blank" rel="noopener noreferrer"><span>X ↗</span></a>
                     </div>
                 </div>
             </div>
@@ -1494,17 +1478,17 @@
             <div class="perks">
                 <div class="perk rv">
                     <span class="perk-star">&lt;/&gt;</span>
-                    <span class="perk-title">Clean Code</span>
+                    <span class="perk-title">設計力</span>
                     <p>保守性と可読性を意識したコーディング。チーム全員が理解しやすい設計を心がけます。</p>
                 </div>
                 <div class="perk rv">
                     <span class="perk-star">&amp;&amp;</span>
-                    <span class="perk-title">Team Work</span>
+                    <span class="perk-title">チーム開発</span>
                     <p>Git/GitHubを用いたチーム開発。円滑なコミュニケーションで開発を加速させます。</p>
                 </div>
                 <div class="perk rv">
                     <span class="perk-star">++</span>
-                    <span class="perk-title">UX Focus</span>
+                    <span class="perk-title">操作感</span>
                     <p>操作感へのこだわり。触っていて気持ちの良いインタラクションを追求します。</p>
                 </div>
             </div>
@@ -1530,7 +1514,7 @@
                         Builderパターンによる動的UI生成、UGS連携ランキング機能を実装。
                         企画から実装まで全工程を一人で担当し、学内審査会で優秀賞を受賞。
                     </p>
-                    <a href="projects/zerooneslash.html" class="mission-go"><span>View Details ▶</span></a>
+                    <a href="projects/zerooneslash.html" class="mission-go"><span>詳細を見る ▶</span></a>
                 </div>
             </div>
 
@@ -1545,7 +1529,7 @@
                         「気持ちいい操作感」を追求したパズルゲーム。
                         3人のチーム開発でリードプログラマーを担当し、設計から実装、タスク管理まで主導しました。
                     </p>
-                    <a href="projects/shapepuzzles.html" class="mission-go"><span>View Details ▶</span></a>
+                    <a href="projects/shapepuzzles.html" class="mission-go"><span>詳細を見る ▶</span></a>
                 </div>
             </div>
 
@@ -1560,7 +1544,7 @@
                         心理描写とゲームシステムを融合させた連打ゲーム。
                         「焦り」や「必死さ」をプレイングを通じて体験させることをテーマに制作しました。
                     </p>
-                    <a href="projects/anaai.html" class="mission-go"><span>View Details ▶</span></a>
+                    <a href="projects/anaai.html" class="mission-go"><span>詳細を見る ▶</span></a>
                 </div>
             </div>
         </div>
@@ -1576,7 +1560,7 @@
                     <div class="arc-body">
                         <h4 class="arc-title">Shooting Twinkle</h4>
                         <p class="arc-meta">2025.08 / TEAM DEV</p>
-                        <a href="projects/shootingtwinkle.html" class="arc-link">VIEW ▶</a>
+                        <a href="projects/shootingtwinkle.html" class="arc-link">詳細 ▶</a>
                     </div>
                 </div>
                 <div class="arc-card rv">
@@ -1584,7 +1568,7 @@
                     <div class="arc-body">
                         <h4 class="arc-title">はっきよいよい つっぱって！</h4>
                         <p class="arc-meta">2025.08 / TEAM DEV</p>
-                        <a href="projects/tsuppatte.html" class="arc-link">VIEW ▶</a>
+                        <a href="projects/tsuppatte.html" class="arc-link">詳細 ▶</a>
                     </div>
                 </div>
                 <div class="arc-card rv">
@@ -1592,7 +1576,7 @@
                     <div class="arc-body">
                         <h4 class="arc-title">Virus</h4>
                         <p class="arc-meta">2025.06 / SOLO DEV</p>
-                        <a href="projects/virus.html" class="arc-link">VIEW ▶</a>
+                        <a href="projects/virus.html" class="arc-link">詳細 ▶</a>
                     </div>
                 </div>
                 <div class="arc-card rv">
@@ -1600,7 +1584,7 @@
                     <div class="arc-body">
                         <h4 class="arc-title">Front Slimers</h4>
                         <p class="arc-meta">2025.05 / TEAM DEV</p>
-                        <a href="projects/frontslimers.html" class="arc-link">VIEW ▶</a>
+                        <a href="projects/frontslimers.html" class="arc-link">詳細 ▶</a>
                     </div>
                 </div>
             </div>
@@ -1683,7 +1667,7 @@
                 お気軽にご連絡ください。
             </p>
             <a href="https://forms.gle/Jb7Jcvjh76Bgqcqs5" target="_blank" rel="noopener noreferrer"
-                class="contact-cta rv">Send Message</a>
+                class="contact-cta rv">メッセージを送る ▶</a>
         </div>
     </section>
 

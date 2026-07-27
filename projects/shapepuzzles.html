@@ -1,98 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shape Puzzles | Project Detail</title>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shape Puzzles｜丸山大輔</title>
+    <meta name="description" content="3人チームでリードプログラマーを担当したパズルゲーム「Shape Puzzles」のケーススタディ。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="project-page">
+    <header class="project-header">
+        <a href="../index.html#works">← SELECTED WORKS</a>
+        <span class="project-name">DAISUKE MARUYAMA / CASE 03</span>
+    </header>
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-top">
+                <div>
+                    <p class="project-index">CASE STUDY 03 / TEAM DEVELOPMENT</p>
+                    <h1 class="project-title">Shape<br>Puzzles</h1>
+                    <p class="project-dek">
+                        図形を回転・配置して解くパズルゲーム。
+                        リードプログラマーとして、操作感の実装と、3人が迷わず作業できる開発環境の両方を担当しました。
+                    </p>
+                    <div class="project-actions">
+                        <a class="button button--primary" href="https://unityroom.com/games/shapepuzzles" target="_blank" rel="noopener noreferrer">Play Demo ↗</a>
+                        <a class="button button--secondary" href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>PERIOD</dt><dd>約1か月</dd></div>
+                    <div><dt>TEAM</dt><dd>3名</dd></div>
+                    <div><dt>ROLE</dt><dd>リードプログラマー</dd></div>
+                    <div><dt>TECH</dt><dd>Unity / C# / DOTween / GitHub</dd></div>
+                    <div><dt>MANAGE</dt><dd>Notion / コード規約 / タスク管理</dd></div>
+                </dl>
+            </div>
+            <figure class="project-media">
+                <img src="../images/2025.11.22.png" alt="Shape Puzzlesのタイトル画面">
+                <figcaption>TITLE SCREEN / TEAM OF THREE</figcaption>
+            </figure>
+        </section>
 
-    <nav>
-    <div class="logo">Daisuke Maruyama</div>
-    <a href="../index.html" class="back-btn">← Back to Top</a>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading">
+                    <span>01 / INTERACTION</span>
+                    <h2>置けるかどうかを、<br>触る前に伝える。</h2>
+                </div>
+                <div class="case-copy">
+                    <p>パズルの難しさと操作の分かりにくさを混同させないよう、ドラッグ中のフィードバックを細かく設計しました。</p>
+                    <p>
+                        Unity EventSystemとPhysics2Dを使い、配置可能・不可能・削除の状態をリアルタイムに表示。
+                        ピースの描画順もドラッグ中だけ変更し、指や他のピースに隠れて操作を見失わないようにしました。
+                    </p>
+                    <div class="decision-list">
+                        <article class="decision">
+                            <span>STATE</span>
+                            <h3>色で配置状態を知らせる</h3>
+                            <p>白・灰・赤へ変化させ、ドロップ後の結果を操作中に予測できるようにしました。</p>
+                        </article>
+                        <article class="decision">
+                            <span>LAYER</span>
+                            <h3>操作対象を常に前面へ</h3>
+                            <p>ドラッグ開始時に描画順を上げ、終了時に戻すことで視認性を保ちました。</p>
+                        </article>
+                        <article class="decision">
+                            <span>COLLISION</span>
+                            <h3>重なりをPhysics2Dで判定</h3>
+                            <p>見た目と判定の差を抑え、置けた・置けないの納得感を優先しました。</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section case-section--dark">
+            <div class="case-grid">
+                <div class="case-heading">
+                    <span>02 / LEAD ROLE</span>
+                    <h2>コードだけでなく、<br>作り方を揃える。</h2>
+                </div>
+                <div class="case-copy">
+                    <p>メンバーが共通機能を毎回作り直さず、担当部分へ集中できる状態を目指しました。</p>
+                    <p>
+                        GitHubの運用方法とコード規約を決め、Notionで担当と進捗を可視化。
+                        シーン遷移やフェードを共通コンポーネントにし、誰でも同じ手順で利用できるようにしました。
+                    </p>
+                    <ul class="detail-list">
+                        <li><strong>FLOW</strong><span>GitHubを使った変更共有と競合解消の手順を整備</span></li>
+                        <li><strong>RULES</strong><span>命名と記述方法を揃え、レビュー時の認識差を削減</span></li>
+                        <li><strong>COMMON</strong><span>シーン遷移・フェード演出を再利用可能なコンポーネントへ</span></li>
+                        <li><strong>TRACKING</strong><span>Notionでタスク・担当・進捗を共有し、遅れを早期に確認</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading">
+                    <span>03 / LEARNING</span>
+                    <h2>リードの役割は、<br>判断を速くすること。</h2>
+                </div>
+                <div class="case-copy">
+                    <p>細かな実装まで一人で抱えるのではなく、他のメンバーが判断できる材料を揃えることの重要性を学びました。</p>
+                    <p>
+                        次のチーム制作では、タスクの完了条件とレビュー基準を最初に文章化し、
+                        進捗だけでなく品質の認識も揃える運用へ発展させます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-links-panel">
+            <h2>チームの成果を見る</h2>
+            <p>WebGL版と共同リポジトリを公開しています。</p>
+            <div class="project-actions">
+                <a class="button button--dark" href="https://unityroom.com/games/shapepuzzles" target="_blank" rel="noopener noreferrer">Play Demo ↗</a>
+                <a class="button button--plain" href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+            </div>
+        </section>
+    </main>
+    <nav class="project-next" aria-label="作品間ナビゲーション">
+        <a href="zerooneslash.html">← PREV: ZERO ONE SLASH</a>
+        <a href="../index.html#works">PORTFOLIO →</a>
     </nav>
-
-    <section class="angled-section bg-red hero">
-        <div class="content-wrapper" data-aos="fade-up">
-            <h1>Shape<br>Puzzles</h1>
-            <div class="hero-tags">
-                <span class="hero-tag">Unity</span>
-                <span class="hero-tag">C#</span>
-                <span class="hero-tag">Team Dev</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="angled-section bg-white">
-        <div class="content-wrapper" data-aos="fade-up">
-            
-            <h2 class="section-title">Project Overview</h2>
-            
-            <table class="info-table">
-                <tr><th>制作期間</th><td>約1か月</td></tr>
-                <tr><th>チーム構成</th><td>3名（リードプログラマー担当）</td></tr>
-                <tr><th>使用技術</th><td>Unity (C#), DOTween, GitHub, Notion</td></tr>
-            </table>
-
-            <p style="line-height: 1.8; font-size: 1.1rem;">
-                図形を回転・配置してパズルを解くゲームです。
-                「直感的な操作感」と「気持ちの良いフィードバック」を最優先に設計しました。<br>
-                リードプログラマーとして、コア機能の実装だけでなく、GitHubを用いたチーム開発のフロー構築やタスク管理も担当しました。
-            </p>
-
-            <img src="../images/2025.11.22.png" alt="Shape Puzzlesのスクリーンショット" class="project-img">
-
-        </div>
-    </section>
-
-    <section class="angled-section bg-dark">
-        <div class="content-wrapper" data-aos="fade-up">
-            
-            <h2 class="section-title">Technical Highlights</h2>
-
-            <h3>01. ドラッグ&ドロップの操作感</h3>
-            <p>Unity EventSystemを活用し、ストレスのない操作を実現しました。</p>
-            <ul class="tech-list">
-                <li>配置可能・不可能をリアルタイムで色変化（白→配置可、灰→不可、赤→削除）</li>
-                <li>ドラッグ中は描画順を最前面に変更し、指で隠れないように調整</li>
-                <li>Physics2Dを用いた判定で、既存のピースとの重なりを厳密に検知</li>
-            </ul>
-
-            <h3>02. チーム開発と設計</h3>
-            <p>3人のメンバーが迷わず開発できるよう、環境整備に注力しました。</p>
-            <ul class="tech-list">
-                <li><strong>Notionによるタスク管理:</strong> 進捗を可視化し、遅れが発生しないよう調整</li>
-                <li><strong>コード規約の統一:</strong> 可読性を高め、レビュー時間を短縮</li>
-                <li><strong>共通機能のコンポーネント化:</strong> シーン遷移やフェード演出を誰でも使えるように共通化</li>
-            </ul>
-
-            <div class="link-area">
-                <a href="https://unityroom.com/games/shapepuzzles" target="_blank" rel="noopener noreferrer" class="btn btn-white">
-                    ► Play Demo
-                </a>
-                <a href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank" rel="noopener noreferrer" class="btn btn-white">
-                    ► View GitHub
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Daisuke Maruyama</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous"></script>
-    <script>
-        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
-    </script>
 </body>
 </html>

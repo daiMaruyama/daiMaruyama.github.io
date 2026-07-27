@@ -1,90 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>はっきよいよい つっぱって！ | Project Detail</title>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>はっきよいよい つっぱって！｜丸山大輔</title>
+    <meta name="description" content="連打と相撲を組み合わせたゲームジャム作品「はっきよいよい つっぱって！」の制作記録。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-
-    <nav>
-        <div class="logo">Daisuke Maruyama</div>
-        <a href="../index.html" class="back-btn">← Back to Top</a>
-    </nav>
-
-    <section class="angled-section bg-red hero">
-        <div class="content-wrapper" data-aos="fade-up">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 5rem);">はっきよいよい<br>つっぱって！</h1>
-            <div class="hero-tags">
-                <span class="hero-tag">Unity</span>
-                <span class="hero-tag">C#</span>
-                <span class="hero-tag">Game Jam</span>
+<body class="project-page">
+    <header class="project-header"><a href="../index.html#works">← MORE WORKS</a><span class="project-name">DAISUKE MARUYAMA / ARCHIVE 04</span></header>
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-top">
+                <div>
+                    <p class="project-index">ARCHIVE 04 / GAME JAM</p>
+                    <h1 class="project-title">はっきよいよい<br>つっぱって！</h1>
+                    <p class="project-dek">連打の熱量を距離へ変換する相撲ゲーム。2日間で、競技性とバカバカしさの両立を目指しました。</p>
+                    <div class="project-actions">
+                        <a class="button button--primary" href="https://unityroom.com/games/tsuppatte" target="_blank" rel="noopener noreferrer">Play ↗</a>
+                        <a class="button button--secondary" href="https://github.com/M1zuki018/glab-jam25-b" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>PERIOD</dt><dd>2日間 / ゲームジャム</dd></div>
+                    <div><dt>TEAM</dt><dd>チーム制作</dd></div>
+                    <div><dt>ROLE</dt><dd>ゲームロジック / バランス</dd></div>
+                    <div><dt>TECH</dt><dd>Unity / C#</dd></div>
+                </dl>
             </div>
-        </div>
-    </section>
-
-    <section class="angled-section bg-white">
-        <div class="content-wrapper" data-aos="fade-up">
-            
-            <h2 class="section-title">Project Overview</h2>
-            
-            <table class="info-table">
-                <tr><th>制作期間</th><td>2日間（ゲームジャム）</td></tr>
-                <tr><th>チーム構成</th><td>チーム制作</td></tr>
-                <tr><th>使用技術</th><td>Unity (C#)</td></tr>
-            </table>
-
-            <p style="line-height: 1.8; font-size: 1.1rem;">
-                この作品では、短期間開発における<strong>ゲームバランスの設計</strong>と<strong>操作の気持ちよさ</strong>を重視しました。<br>
-                チーム開発ながら個々の役割を明確にし、プレイヤーが「もう一回やりたい」と思えるテンポを追求しました。
-            </p>
-
-            <img src="../images/2025.08.08.png" alt="つっぱって！のスクリーンショット" class="project-img">
-
-        </div>
-    </section>
-
-    <section class="angled-section bg-dark">
-        <div class="content-wrapper" data-aos="fade-up">
-            
-            <h2 class="section-title">Technical Highlights</h2>
-
-            <h3>01. ゲームロジックの実装</h3>
-            <p>プレイヤーの熱量をゲームに反映させるためのコアロジックを担当しました。</p>
-            <ul class="tech-list">
-                <li><strong>入力回数と距離の変換:</strong><br>
-                プレイヤーの連打入力を「距離」に変換する関数を設計。操作結果が即座に画面上の盛り上がりに反映されるよう調整しました。</li>
-                <li><strong>バランス調整:</strong><br>
-                短時間でもプレイヤーのボルテージが上がるようにパラメータ調整を行い、「競技性 × バカバカしさ」のちょうど良いラインを探りました。</li>
-            </ul>
-
-            <div class="link-area">
-                <a href="https://unityroom.com/games/tsuppatte" target="_blank" rel="noopener noreferrer" class="btn btn-white">
-                    ► Play on UnityRoom
-                </a>
-                <a href="https://github.com/M1zuki018/glab-jam25-b" target="_blank" rel="noopener noreferrer" class="btn btn-white">
-                    ► View GitHub
-                </a>
+            <figure class="project-media"><img src="../images/2025.08.08.png" alt="はっきよいよい つっぱって！のタイトル画面"><figcaption>GAME JAM / RAPID INPUT + SUMO</figcaption></figure>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><span>01 / CORE RULE</span><h2>押した分だけ、前へ出る。</h2></div>
+                <div class="case-copy">
+                    <p>入力と結果の関係を一文で説明できるコアルールに絞り、短時間でも盛り上がるパラメータを探りました。</p>
+                    <div class="decision-list">
+                        <article class="decision"><span>CONVERT</span><h3>入力回数を距離へ変換</h3><p>連打の結果を即座に移動へ反映し、自分の熱量が画面に出る仕組みを作りました。</p></article>
+                        <article class="decision"><span>BALANCE</span><h3>逆転できる範囲を調整</h3><p>序盤の差で勝敗が固定されないよう、入力と移動量の関係を繰り返し調整しました。</p></article>
+                        <article class="decision"><span>TEMPO</span><h3>もう一回までを短く</h3><p>ルール説明と一試合を短くし、対戦相手とすぐ交代・再戦できるテンポを優先しました。</p></article>
+                    </div>
+                </div>
             </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Daisuke Maruyama</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous"></script>
-    <script>
-        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
-    </script>
+        </section>
+        <section class="project-links-panel"><h2>連打で勝負する</h2><p>WebGL版と共同リポジトリを公開しています。</p><div class="project-actions"><a class="button button--dark" href="https://unityroom.com/games/tsuppatte" target="_blank" rel="noopener noreferrer">Play ↗</a><a class="button button--plain" href="https://github.com/M1zuki018/glab-jam25-b" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    </main>
+    <nav class="project-next"><a href="shootingtwinkle.html">← PREV: SHOOTING TWINKLE</a><a href="virus.html">NEXT: VIRUS →</a></nav>
 </body>
 </html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TurnOffTheLights｜丸山大輔</title>
+    <meta name="description" content="日常の電気消しをFPSと敵AIへ変換した3Dゲーム「TurnOffTheLights」の制作記録。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="project-page">
+    <header class="project-header">
+        <a href="../index.html#works">← MORE WORKS</a>
+        <span class="project-name">DAISUKE MARUYAMA / ARCHIVE 02</span>
+    </header>
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-top">
+                <div>
+                    <p class="project-index">ARCHIVE 02 / SOLO DEVELOPMENT</p>
+                    <h1 class="project-title">Turn Off<br>The Lights</h1>
+                    <p class="project-dek">
+                        消してもまた点けられる家庭の小さな攻防を、FPS視点と敵AIのゲームへ。
+                        初めて本格的に3D空間と経路探索へ取り組みました。
+                    </p>
+                    <div class="project-actions">
+                        <a class="button button--dark" href="https://github.com/daiMaruyama/TurnOffTheLights" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>PERIOD</dt><dd>2026.04–07</dd></div>
+                    <div><dt>TEAM</dt><dd>1名 / 個人制作</dd></div>
+                    <div><dt>ROLE</dt><dd>企画・3D設計・実装</dd></div>
+                    <div><dt>TECH</dt><dd>Unity 6 / C# / NavMesh / WebGL</dd></div>
+                    <div><dt>FOCUS</dt><dd>初の本格的な3D作品</dd></div>
+                </dl>
+            </div>
+            <figure class="project-media project-media--poster project-media--lights">
+                <strong>OFF?</strong>
+                <figcaption>スクリーンショット追加予定 / TYPOGRAPHIC PLACEHOLDER</figcaption>
+            </figure>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><span>01 / 3D + AI</span><h2>見えない相手を、音と光で読む。</h2></div>
+                <div class="case-copy">
+                    <p>プレイヤーは親となり、家中の照明を消します。子供のAIはNavMeshで移動し、消したそばからスイッチを入れ直します。</p>
+                    <p>単にAIを動かすだけでなく、別の部屋にいる相手を足音や明暗から想像できるよう、3D空間の視界と音をゲーム情報として扱いました。</p>
+                    <div class="decision-list">
+                        <article class="decision"><span>PATH</span><h3>NavMeshでスイッチを巡回</h3><p>目的地へ到達すると次の照明を選び直し、家の中を自律的に移動させました。</p></article>
+                        <article class="decision"><span>SPACE</span><h3>部屋を跨ぐ動線を設計</h3><p>FPS視点でも目的地を見失わないよう、間取りと照明の見え方を調整しました。</p></article>
+                        <article class="decision"><span>SCORE</span><h3>点灯時間を電気代へ変換</h3><p>照明が点いている時間を支出として加算し、プレイヤーの行動を数字へ直結させました。</p></article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="case-section case-section--dark">
+            <div class="case-grid">
+                <div class="case-heading"><span>02 / LEARNING</span><h2>2Dから3Dへ、設計範囲を広げる。</h2></div>
+                <div class="case-copy">
+                    <p>平面の座標だけでなく、視界、遮蔽物、距離、音の方向を同時に考える必要がありました。</p>
+                    <ul class="detail-list">
+                        <li><strong>AI</strong><span>NavMeshAgentによる経路探索と目的地の再選択</span></li>
+                        <li><strong>VIEW</strong><span>一人称移動と視点操作、部屋を跨ぐ空間設計</span></li>
+                        <li><strong>LIGHT</strong><span>照明のOn / Offとスコア、見通しの変化を連動</span></li>
+                        <li><strong>AUDIO</strong><span>スイッチ音と足音を、見えない相手の位置情報として利用</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="project-links-panel">
+            <h2>実装を見る</h2><p>3D空間とAIの実装をGitHubで公開しています。</p>
+            <div class="project-actions"><a class="button button--dark" href="https://github.com/daiMaruyama/TurnOffTheLights" target="_blank" rel="noopener noreferrer">View GitHub ↗</a></div>
+        </section>
+    </main>
+    <nav class="project-next"><a href="anaai.html">← PREV: 会いたいの</a><a href="shootingtwinkle.html">NEXT: SHOOTING TWINKLE →</a></nav>
+</body>
+</html>

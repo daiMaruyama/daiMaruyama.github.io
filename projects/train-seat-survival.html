@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>座れ！サラリーマン！｜丸山大輔</title>
+    <meta name="description" content="満員電車の日常を勝敗条件へ変換した一人称サバイバルゲーム「座れ！サラリーマン！」のケーススタディ。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="project-page">
+    <header class="project-header">
+        <a href="../index.html#works">← SELECTED WORKS</a>
+        <span class="project-name">DAISUKE MARUYAMA / CASE 01</span>
+    </header>
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-top">
+                <div>
+                    <p class="project-index">CASE STUDY 01 / SOLO DEVELOPMENT</p>
+                    <h1 class="project-title">座れ！<br>サラリーマン！</h1>
+                    <p class="project-dek">
+                        満員電車で座席を奪い合う一人称サバイバル。
+                        「座りたい」という日常の感情を、観察・判断・移動のゲームループへ変換しました。
+                    </p>
+                    <div class="project-actions">
+                        <a class="button button--dark" href="https://github.com/daiMaruyama/train-seat-survival" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>PERIOD</dt><dd>約3週間 / 2026.06.17–07.07</dd></div>
+                    <div><dt>TEAM</dt><dd>1名 / 個人開発</dd></div>
+                    <div><dt>ROLE</dt><dd>企画・設計・実装・UI・レベルデザイン</dd></div>
+                    <div><dt>TECH</dt><dd>Unity 6 / C# / URP / UGS</dd></div>
+                    <div><dt>SCALE</dt><dd>C# 40ファイル / 約10,000行</dd></div>
+                    <div><dt>RESULT</dt><dd>学内審査会 敢闘賞</dd></div>
+                </dl>
+            </div>
+            <figure class="project-media project-media--poster">
+                <strong>YOUR SEAT.<br>YOUR SALARY.</strong>
+                <figcaption>スクリーンショット追加予定 / TYPOGRAPHIC PLACEHOLDER</figcaption>
+            </figure>
+        </section>
+
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading">
+                    <span>01 / INTENT</span>
+                    <h2>日常の感情を、<br>勝敗条件へ。</h2>
+                </div>
+                <div class="case-copy">
+                    <p>題材を飾りにせず、満員電車そのものをゲームルールにすることから設計しました。</p>
+                    <p>
+                        立っている間は過労で体力が減り、降りる乗客を読み、空いた瞬間に席へ向かう。
+                        プレイヤーが普段感じる「座りたい」「先を越された」という感情が、そのままプレイ中にも起こる構造を目指しました。
+                    </p>
+                    <div class="decision-list">
+                        <article class="decision">
+                            <span>DECISION A</span>
+                            <h3>スコアを推定年収にする</h3>
+                            <p>座れた日数を人生の評価に変換し、会社員世界の皮肉とリザルトの分かりやすさを両立しました。</p>
+                        </article>
+                        <article class="decision">
+                            <span>DECISION B</span>
+                            <h3>説明を世界観の中へ置く</h3>
+                            <p>研修しおりや給与明細への署名を使い、チュートリアルをゲーム外の説明に見せないようにしました。</p>
+                        </article>
+                        <article class="decision">
+                            <span>DECISION C</span>
+                            <h3>毎日少しずつ地獄にする</h3>
+                            <p>消耗と混雑を段階的に強め、同じルールのまま判断の厳しさが増す難易度カーブを作りました。</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section case-section--dark">
+            <div class="case-grid">
+                <div class="case-heading">
+                    <span>02 / ENGINEERING</span>
+                    <h2>進行ルールを、<br>描画から分離する。</h2>
+                </div>
+                <div class="case-copy">
+                    <p>乗客の乗降シミュレーションをCore層へ分け、ゲーム画面に依存しない進行を設計しました。</p>
+                    <p>
+                        同じ条件で同じ結果を再現できるよう決定性乱数を採用。
+                        プレイヤー操作や着席判定、体力、演出をGame層に分けることで、ルールの確認と表示側の変更を切り離しています。
+                    </p>
+                    <ul class="detail-list">
+                        <li><strong>CORE</strong><span>駅の進行 / 乗客の乗降 / 席の状態 / 決定性乱数</span></li>
+                        <li><strong>GAME</strong><span>一人称操作 / 着席判定 / 体力 / アイテム / 演出</span></li>
+                        <li><strong>ITEMS</strong><span>回復・情報・機動力の3方向へ役割を分け、選択の意味を明確化</span></li>
+                        <li><strong>ONLINE</strong><span>UGS Leaderboardsで推定年収の全国ランキングを実装</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading">
+                    <span>03 / LEARNING</span>
+                    <h2>次に検証したいこと。</h2>
+                </div>
+                <div class="case-copy">
+                    <p>企画の独自性だけでなく、「どの乗客が降りるかを読む楽しさ」をさらに強くできる余地があります。</p>
+                    <p>
+                        次の改善では、乗客の視線・荷物・姿勢などから降車を予測できる情報を増やし、
+                        運ではなく観察によって成功率を上げられるかをプレイテストします。
+                        また、Core層の自動テストを追加し、日数が進んだ状態の再現と検証を高速化したいと考えています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-links-panel">
+            <h2>コードと制作物を見る</h2>
+            <p>実装の構成と更新履歴はGitHubで確認できます。</p>
+            <div class="project-actions">
+                <a class="button button--dark" href="https://github.com/daiMaruyama/train-seat-survival" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+                <a class="button button--plain" href="../index.html#works">作品一覧へ戻る</a>
+            </div>
+        </section>
+    </main>
+    <nav class="project-next" aria-label="作品間ナビゲーション">
+        <a href="../index.html#works">← PORTFOLIO</a>
+        <a href="zerooneslash.html">NEXT: ZERO ONE SLASH →</a>
+    </nav>
+</body>
+</html>

@@ -1,97 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virus | Project Detail</title>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virus｜丸山大輔</title>
+    <meta name="description" content="体内を舞台にしたタワーディフェンスゲーム「Virus」の制作記録。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-
-    <nav>
-        <div class="logo">Daisuke Maruyama</div>
-        <a href="../index.html" class="back-btn">← Back to Top</a>
-    </nav>
-
-    <section class="angled-section bg-red hero">
-        <div class="content-wrapper" data-aos="fade-up">
-            <h1>Virus</h1>
-            <div class="hero-tags">
-                <span class="hero-tag">Unity</span>
-                <span class="hero-tag">C#</span>
-                <span class="hero-tag">Solo Dev</span>
+<body class="project-page">
+    <header class="project-header"><a href="../index.html#works">← MORE WORKS</a><span class="project-name">DAISUKE MARUYAMA / ARCHIVE 05</span></header>
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-top">
+                <div>
+                    <p class="project-index">ARCHIVE 05 / SOLO DEVELOPMENT</p>
+                    <h1 class="project-title">Virus</h1>
+                    <p class="project-dek">風邪を引いた体験から発想した体内系タワーディフェンス。弱点を見抜き、一撃で倒す爽快感を設計しました。</p>
+                    <div class="project-actions">
+                        <a class="button button--primary" href="https://unityroom.com/games/myfirsttd_0627" target="_blank" rel="noopener noreferrer">Play ↗</a>
+                        <a class="button button--secondary" href="https://github.com/daiMaruyama/MyFirstTD" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>PERIOD</dt><dd>約2週間</dd></div>
+                    <div><dt>TEAM</dt><dd>1名 / 個人制作</dd></div>
+                    <div><dt>ROLE</dt><dd>企画・設計・実装</dd></div>
+                    <div><dt>TECH</dt><dd>Unity / C#</dd></div>
+                </dl>
             </div>
-        </div>
-    </section>
-
-    <section class="angled-section bg-white">
-        <div class="content-wrapper" data-aos="fade-up">
-            
-            <h2 class="section-title">Project Overview</h2>
-            
-            <table class="info-table">
-                <tr><th>制作期間</th><td>約2週間</td></tr>
-                <tr><th>制作形式</th><td>個人制作</td></tr>
-                <tr><th>使用技術</th><td>Unity (C#)</td></tr>
-            </table>
-
-            <p style="line-height: 1.8; font-size: 1.1rem;">
-                風邪を引いた体験をヒントに、<strong>「体内系タワーディフェンス」</strong>というユニークなテーマで制作しました。<br>
-                敵（ウイルス）の弱点に合わせて適切な弾を選択することで、一撃で倒せる「ワンパン」の爽快感をコア体験として設計しています。
-            </p>
-
-            <img src="../images/2025.07.03.png" alt="Virusのスクリーンショット" class="project-img">
-
-        </div>
-    </section>
-
-    <section class="angled-section bg-dark">
-        <div class="content-wrapper" data-aos="fade-up">
-            
-            <h2 class="section-title">Technical Highlights</h2>
-
-            <h3>01. 戦略性を高めるシステム設計</h3>
-            <p>プレイヤーに状況判断を迫るため、3種類の弾丸（通常・貫通・ホーミング）を使い分けるシステムを実装しました。</p>
-            <ul class="tech-list">
-                <li><strong>属性相性のロジック:</strong><br>
-                敵の種類と弾丸の種類のマッチング判定を行い、適切な組み合わせの時のみ即死判定を出すロジックを組み込みました。</li>
-            </ul>
-
-            <h3>02. 数学を用いた追尾アルゴリズム</h3>
-            <p>Unityの標準機能に頼りすぎず、計算による挙動制御に挑戦しました。</p>
-            <ul class="tech-list">
-                <li><strong>外積 (Cross Product) の活用:</strong><br>
-                自身の向きとターゲットの方向ベクトルから外積を計算し、<strong>「右に回るべきか、左に回るべきか」</strong>の回転方向を判定するロジックを実装しました。</li>
-                <li><strong>Quaternionによる2D回転制御:</strong><br>
-                Z軸を中心とした回転をQuaternionで計算し、フレームごとに滑らかにターゲットを追尾する挙動を実現しました。</li>
-            </ul>
-
-            <div class="link-area">
-                <a href="https://unityroom.com/games/myfirsttd_0627" target="_blank" rel="noopener noreferrer" class="btn btn-white">
-                    ► Play on UnityRoom
-                </a>
-                <a href="https://github.com/daiMaruyama/MyFirstTD" target="_blank" rel="noopener noreferrer" class="btn btn-white">
-                    ► View GitHub
-                </a>
+            <figure class="project-media"><img src="../images/2025.07.03.png" alt="Virusのゲーム画面"><figcaption>GAMEPLAY / BODY + TOWER DEFENSE</figcaption></figure>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><span>01 / SYSTEM</span><h2>弱点を見抜いて、一撃で倒す。</h2></div>
+                <div class="case-copy">
+                    <p>通常・貫通・ホーミングの3種類から敵に合う弾を選び、正しい組み合わせなら即死させるルールを実装しました。</p>
+                    <div class="decision-list">
+                        <article class="decision"><span>MATCH</span><h3>敵と弾の属性相性</h3><p>敵種と弾種を照合し、正解したときだけ大きな結果が返る判断ループを作りました。</p></article>
+                        <article class="decision"><span>MATH</span><h3>外積で回転方向を判断</h3><p>自身の向きと目標方向から外積を計算し、右・左どちらへ回るかを決定しました。</p></article>
+                        <article class="decision"><span>TRACK</span><h3>Quaternionで滑らかに追尾</h3><p>Z軸回転をフレームごとに更新し、ホーミング弾が不自然に折れない動きを目指しました。</p></article>
+                    </div>
+                </div>
             </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Daisuke Maruyama</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous"></script>
-    <script>
-        AOS.init({ offset: 100, duration: 800, easing: 'ease-out-cubic', once: true });
-    </script>
+        </section>
+        <section class="project-links-panel"><h2>体内を防衛する</h2><p>WebGL版とソースコードを公開しています。</p><div class="project-actions"><a class="button button--dark" href="https://unityroom.com/games/myfirsttd_0627" target="_blank" rel="noopener noreferrer">Play ↗</a><a class="button button--plain" href="https://github.com/daiMaruyama/MyFirstTD" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+    </main>
+    <nav class="project-next"><a href="tsuppatte.html">← PREV: つっぱって！</a><a href="frontslimers.html">NEXT: FRONT SLIMERS →</a></nav>
 </body>
 </html>

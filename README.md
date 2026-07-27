@@ -1,40 +1,42 @@
-# 📂 Daisuke Maruyama Portfolio
+# Daisuke Maruyama — Game Programmer Portfolio
 
-私の個人のポートフォリオサイトのリポジトリです。
-Unity / C# を用いたゲーム開発作品を中心に掲載しています。
+Unity / C# を中心にゲームを開発する、丸山大輔のポートフォリオサイトです。
 
-**🔗 公開URL:** [https://daiMaruyama.github.io/](https://daiMaruyama.github.io/)
+公開URL: [https://daiMaruyama.github.io/](https://daiMaruyama.github.io/)
 
----
+## Concept
 
-## 🎨 デザインコンセプト
-**"Logic & Emotion"**
-エンジニアとしての「論理的な構造」と、クリエイターとしての「情熱」を表現するため、以下のデザイン方針で設計しました。
+**「心を動かす理想を、遊べる形にする。」**
 
-* **ダイナミックなレイアウト:** `transform: skewY` を活用した斜めのラインで、動きと勢いを表現。
-* **カラーパレット:** 情熱を表す「赤」と、プロフェッショナルな「黒・白」を基調としたハイコントラストな配色。
-* **レスポンシブ対応:** PC、タブレット、スマートフォン、どのデバイスでも崩れないレイアウト設計。
+ゲームに救われた経験を原点に、企画意図を理解し、チームの理想をコードで成立させるゲームプログラマーとしての制作姿勢を伝えるサイトです。
 
-## 🛠 使用技術
-フレームワークやCMS（WordPress等）を使用せず、基礎的なWeb技術の理解を深めるためにHTML/CSSでスクラッチ開発しました。
+ポートフォリオ全体を「遊べる作品を収蔵する小さな博物館」として設計しています。
+入口の体験型展示でゲームシステム・UIフィードバック・チーム開発・商用コードの担当実績を切り替えて確認できます。
+常設展示で代表作、資料室で制作歴と証拠、技術展示で実装判断、制作室で開発プロセスを見せます。
 
-* **HTML5 / CSS3:** セマンティックなマークアップと、BEM設計を意識したCSS。
-* **JavaScript:** 動的なUI制御に使用。
-* **AOS (Animate On Scroll):** スクロール連動アニメーションの実装に使用。
-* **FontAwesome:** アイコンフォントの使用。
+中庭の `MUSEUM COURTYARD` は、訪問と館内操作で植物が育つゲーム的な試作です。現在の数値は `localStorage` に保存される端末内デモで、`DEBUG` パネルから任意の成長段階を確認できます。
 
-## 📂 ディレクトリ構成
-主要なファイルの構成は以下の通りです。
+## Structure
 
 ```text
-daiMaruyama.github.io/
-├── index.html          # トップページ（作品一覧・経歴）
-├── style.css           # サイト全体の共通デザイン定義
-├── projects/           # 各作品の詳細ページ
-│   ├── anaai.html
-│   ├── shapepuzzles.html
-│   ├── shootingtwinkle.html
-│   ├── virus.html
-│   ├── tsuppatte.html
-│   └── frontslimers.html
-└── images/             # 作品のスクリーンショットや素材
+.
+├── index.html       # 作品館 / 資料室 / 常設展示 / MUSEUM COURTYARD
+├── style.css        # トップと作品詳細の共通デザイン
+├── script.js        # 訪問・操作の記録と庭の成長
+├── projects/        # 各作品のケーススタディ
+└── images/          # 作品画像・プロフィール画像
+```
+
+## Implementation
+
+- HTML / CSS / Vanilla JavaScript
+- レスポンシブ対応
+- `localStorage` / `sessionStorage` を使ったローカル保存
+- `prefers-reduced-motion` 対応
+- フレームワークやビルド工程なしで GitHub Pages に配置可能
+
+## Selected Works
+
+- 座れ！サラリーマン！
+- ZeroOneSlash
+- Shape Puzzles

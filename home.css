@@ -242,12 +242,41 @@
     letter-spacing: .02em;
 }
 
+.home-stack {
+    margin: 20px 0 0;
+    color: var(--home-yellow);
+    font-size: .92rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
 .home-introduction {
     max-width: 620px;
     margin: 26px 0 0;
     color: #e1e2e4;
     font-size: 1.08rem;
     line-height: 1.9;
+}
+
+/* 核心のフレーズだけ、H1と同じ赤で塗る。
+   H1の下線は細い実線、こちらは太い半透明の帯にして、主従を保つ。 */
+.home-introduction em {
+    position: relative;
+    z-index: 0;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.home-introduction em::after {
+    content: "";
+    position: absolute;
+    right: -.06em;
+    bottom: .04em;
+    left: -.05em;
+    z-index: -1;
+    height: .42em;
+    background: rgba(255, 77, 98, .34);
+    transform: rotate(-.5deg);
 }
 
 .home-introduction--small {
@@ -260,6 +289,7 @@
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
 }
 
@@ -321,55 +351,143 @@
     transform: scale(.97);
 }
 
-/* 最優先の導線。画面内でこの色を持つのは常に1つだけ。 */
-.home-button--primary {
-    color: var(--home-bg) !important;
-    background: var(--home-yellow);
-}
-
-.home-button--primary::before {
-    background: var(--home-text);
-}
-
-.home-button--primary:hover {
-    color: var(--home-bg) !important;
-}
-
-/* 枠は「白100%・2.5px」。1px・45%では背景に沈んで押せると分からなかった。
-   ホバーで完全に反転させ、押せることを疑う余地をなくす。 */
-.home-button--secondary {
-    color: var(--home-text);
-    background: transparent;
-    box-shadow: inset 0 0 0 2.5px var(--home-text);
-}
-
-.home-button--secondary::before {
-    background: var(--home-text);
-}
-
-.home-button--secondary:hover {
-    color: var(--home-bg) !important;
-}
-
-.home-quick-facts {
-    margin: 38px 0 0;
-    padding-top: 19px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+/* 均等4分割の表組みをやめ、文字数どおりの幅で並べる。
+   等幅にすると「UnityRoom」が省略されるうえ、生成物っぽい均質さが出る。 */
+.home-profile-links {
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 30px;
     border-top: 1px solid var(--home-line);
 }
 
-.home-quick-facts dt {
-    color: var(--home-muted);
-    font-size: .75rem;
+.home-profile-links a {
+    position: relative;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #d9dae0;
+    text-decoration: none;
+    transition: color .2s ease;
 }
 
-.home-quick-facts dd {
-    margin: 3px 0 0;
-    font-size: .84rem;
-    font-weight: 600;
-    line-height: 1.55;
+.home-profile-links a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+    left: 0;
+    height: 2px;
+    background: var(--home-yellow);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .24s cubic-bezier(.16, .84, .3, 1);
+}
+
+.home-profile-links a:hover,
+.home-profile-links a:focus-visible {
+    color: var(--home-yellow);
+}
+
+.home-profile-links a:hover::before,
+.home-profile-links a:focus-visible::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.home-profile-mark {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    display: grid;
+    place-items: center;
+}
+
+.home-profile-mark img {
+    width: 21px;
+    height: 21px;
+    /* SVGはダーク背景用の色で入っている（GitHub/Xは白、Zennは青）。
+       色を潰さず、明度だけ少し落として並びを揃える。 */
+    opacity: .88;
+    transition: opacity .2s ease, filter .2s ease;
+}
+
+.home-profile-links a:hover .home-profile-mark img {
+    opacity: 1;
+    filter: saturate(1.15);
+}
+
+/* UnityRoomの扉マーク。横長ロゴを縮小せず、サービス名と同じ比率で見せる。 */
+.home-profile-mark--unityroom::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 1px;
+    width: 5px;
+    background: #2a68c5;
+    border-radius: 2px;
+}
+
+.home-profile-mark--unityroom::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 1px;
+    bottom: 0;
+    left: 8px;
+    background: #2e93ff;
+    clip-path: polygon(0 0, 100% 12%, 100% 88%, 0 100%);
+    border-radius: 2px;
+}
+
+.home-profile-mark--unityroom i {
+    position: relative;
+    z-index: 1;
+    width: 3px;
+    height: 3px;
+    margin-left: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.home-profile-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.home-profile-copy strong {
+    overflow: hidden;
+    font-size: .78rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home-profile-copy small {
+    margin-top: 4px;
+    color: var(--home-muted);
+    font-size: .58rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    white-space: nowrap;
+}
+
+.home-profile-arrow {
+    margin-left: auto;
+    color: var(--home-muted);
+    font-size: .68rem;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.home-profile-links a:hover .home-profile-arrow {
+    color: var(--home-yellow);
+    transform: translate(2px, -2px);
 }
 
 .home-portrait {
@@ -405,20 +523,6 @@
 .home-portrait-frame:hover img {
     transform: scale(1.025);
     filter: saturate(1) contrast(1.02);
-}
-
-.home-portrait figcaption {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    gap: 22px;
-    color: var(--home-muted);
-    font-size: .72rem;
-}
-
-.home-portrait figcaption strong {
-    color: var(--home-text);
-    font-weight: 600;
 }
 
 .home-section {
@@ -1204,20 +1308,9 @@
         font-size: .98rem;
     }
 
-    .home-quick-facts {
-        grid-template-columns: 1fr;
-        gap: 9px;
-    }
-
-    .home-quick-facts div {
-        display: grid;
-        grid-template-columns: 54px 1fr;
-        gap: 8px;
-    }
-
-    .home-portrait figcaption {
-        flex-direction: column;
-        gap: 2px;
+    .home-profile-links {
+        margin-top: 26px;
+        gap: 2px 22px;
     }
 
     .home-section {

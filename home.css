@@ -82,6 +82,7 @@
 }
 
 .home-brand {
+    position: relative;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -94,22 +95,21 @@
     font-weight: 700;
 }
 
-/* 待機中は幅0に畳んでおき、ホバー・フォーカスで右へ開く。
-   行き先を記号ではなく「TOP」という語で示すので、意味が確実に伝わる。
-   余白(margin)も畳む側に入れてあるため、閉じている間は一切場所を取らない。 */
+/* 絶対配置。レイアウトから外れているので、開いてもヘッダーの幅計算に
+   一切影響せず、ナビが横に動かない。 */
 .home-brand-top {
-    max-width: 0;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: 9px;
     opacity: 0;
-    overflow: hidden;
-    transform: translateX(-5px);
-    transition: max-width .3s cubic-bezier(.16, .84, .3, 1),
-                opacity .2s ease,
-                transform .3s cubic-bezier(.16, .84, .3, 1);
+    pointer-events: none;
+    transform: translateY(-50%) translateX(-6px);
+    transition: opacity .2s ease, transform .28s cubic-bezier(.16, .84, .3, 1);
 }
 
 .home-brand-top b {
     display: block;
-    margin-left: 9px;
     padding: 3px 8px;
     color: var(--home-bg);
     background: var(--home-yellow);
@@ -125,9 +125,8 @@
 
 .home-brand:hover .home-brand-top,
 .home-brand:focus-visible .home-brand-top {
-    max-width: 100px;
     opacity: 1;
-    transform: none;
+    transform: translateY(-50%);
 }
 
 .home-nav {
@@ -206,13 +205,15 @@
     font-size: 1rem;
 }
 
+/* 和文見出し。欧文用の詰め(-.07em)と行間(.92)だと和文は潰れるため、
+   字間を緩め行間を開いている。 */
 .home-hero h1 {
     margin: 0;
-    font-family: "Inter", sans-serif;
-    font-size: clamp(4.2rem, 7.3vw, 7.3rem);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(2.3rem, 4.6vw, 4rem);
     font-weight: 800;
-    line-height: .92;
-    letter-spacing: -.07em;
+    line-height: 1.2;
+    letter-spacing: -.045em;
 }
 
 .home-hero h1 span {
@@ -227,28 +228,30 @@
     bottom: .05em;
     left: -.03em;
     z-index: -1;
-    height: .1em;
+    height: .13em;
     background: var(--home-red);
     transform: rotate(-1.5deg);
 }
 
+/* H1の上に置くキッカー。職種を最初の一行で明示する。 */
 .home-role {
-    margin: 25px 0 22px;
+    margin: 0 0 16px;
     color: var(--home-yellow);
     font-size: 1rem;
     font-weight: 600;
+    letter-spacing: .02em;
 }
 
 .home-introduction {
     max-width: 620px;
-    margin: 0;
+    margin: 26px 0 0;
     color: #e1e2e4;
     font-size: 1.08rem;
     line-height: 1.9;
 }
 
 .home-introduction--small {
-    margin-top: 10px;
+    margin-top: 12px;
     color: var(--home-muted);
     font-size: .9rem;
 }
@@ -359,12 +362,12 @@
 
 .home-quick-facts dt {
     color: var(--home-muted);
-    font-size: .68rem;
+    font-size: .75rem;
 }
 
 .home-quick-facts dd {
     margin: 3px 0 0;
-    font-size: .75rem;
+    font-size: .84rem;
     font-weight: 600;
     line-height: 1.55;
 }
@@ -456,8 +459,10 @@
     letter-spacing: -.055em;
 }
 
+/* 末尾に1文字だけ落ちる折り返しを防ぐ。行長を均等に割る。 */
 .home-section-heading > p {
     max-width: 440px;
+    text-wrap: balance;
     margin: 0 0 5px;
     color: var(--home-muted);
     font-size: .9rem;
@@ -602,7 +607,7 @@
 
 .home-project-title span {
     color: var(--home-muted);
-    font-size: .65rem;
+    font-size: .75rem;
 }
 
 .home-project-title span + span::before {
@@ -648,46 +653,94 @@
     color: var(--home-yellow);
 }
 
+/* 旧サイトの「設計力/チーム開発/操作感」から造形を引き継いでいる。
+   カード + オフセット影 + 大きい番号 + 証拠バッジ。
+   影の色は 01〜04 で赤と黄を交互にして、並びに律動を出す。 */
 .home-strengths {
-    border-top: 1px solid var(--home-line);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
 }
 
 .home-strengths article {
-    padding: 28px 0;
-    display: grid;
-    grid-template-columns: 60px minmax(0, 1fr) minmax(170px, auto);
-    gap: 28px;
-    align-items: start;
-    border-bottom: 1px solid var(--home-line);
+    position: relative;
+    padding: 30px 28px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--home-panel);
+    border: 1px solid var(--home-line);
+    border-radius: 14px;
+    box-shadow: 3px 3px 0 var(--home-red);
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
+.home-strengths article:nth-child(2n) {
+    box-shadow: 3px 3px 0 var(--home-yellow);
+}
+
+/* 5枚目は2列にまたがらせる。均等な4枚並びを崩し、
+   設計の話に面積を与える。 */
+.home-strengths article:nth-child(5) {
+    grid-column: 1 / -1;
+}
+
+.home-strengths article:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 var(--home-red);
+}
+
+.home-strengths article:nth-child(2n):hover {
+    box-shadow: 10px 10px 0 var(--home-yellow);
+}
+
+/* 番号は背景側の記号として大きく置く。読ませる要素ではない。 */
 .home-strengths article > span {
-    color: var(--home-red);
-    font-size: .74rem;
-    font-weight: 700;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    color: rgba(244, 244, 241, .07);
+    font: 800 2.5rem/1 "Inter", sans-serif;
+    letter-spacing: -.06em;
+    pointer-events: none;
 }
 
 .home-strengths h3 {
-    margin: 0 0 5px;
-    font-size: 1.16rem;
+    margin: 0 0 9px;
+    padding-right: 46px;
+    font-size: 1.28rem;
+    line-height: 1.35;
+    letter-spacing: -.03em;
 }
 
 .home-strengths p {
-    max-width: 620px;
+    max-width: none;
     margin: 0;
     color: var(--home-muted);
-    font-size: .84rem;
+    font-size: .88rem;
+    line-height: 1.85;
 }
 
-.home-strengths a {
-    color: #d9dae0;
-    font-size: .74rem;
-    font-weight: 600;
-    text-align: right;
-}
-
-.home-strengths a:hover {
+/* 証拠はバッジにして、文章から独立させる。 */
+.home-strengths .home-strength-fact {
+    margin-top: auto;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: var(--home-yellow);
+    font-size: .82rem;
+    font-weight: 700;
+    border-top: 1px solid var(--home-line);
+}
+
+.home-strengths .home-strength-fact::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex: none;
+    background: var(--home-yellow);
+    border-radius: 50%;
 }
 
 .home-timeline {
@@ -1008,13 +1061,9 @@
         min-height: 390px;
     }
 
-    .home-strengths article {
-        grid-template-columns: 44px minmax(0, 1fr);
-    }
-
-    .home-strengths a {
-        grid-column: 2;
-        text-align: left;
+    .home-strengths {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
     }
 }
 
@@ -1039,7 +1088,7 @@
     }
 
     .home-nav a {
-        font-size: .7rem;
+        font-size: .8rem;
     }
 
     .home-nav-cta {
@@ -1052,11 +1101,10 @@
         gap: 48px;
     }
 
-    /* 「Programmer.」は改行できない1単語で、幅がフォントサイズの約5.69倍になる。
-       画面幅32px引いたコンテナに収まる上限が約 0.176 × 画面幅 なので、
-       余裕をみて 15.5vw までに抑える。 */
+    /* 和文は任意の位置で改行できるので、欧文のような溢れは起きない。
+       スマホで読める上限としてサイズだけ落とす。 */
     .home-hero h1 {
-        font-size: clamp(2.6rem, 15.5vw, 5.3rem);
+        font-size: clamp(1.85rem, 7.6vw, 2.9rem);
     }
 
     .home-introduction {
@@ -1114,13 +1162,21 @@
     }
 
     .home-strengths article {
-        padding-block: 23px;
-        grid-template-columns: 31px minmax(0, 1fr);
-        gap: 13px;
+        padding: 24px 22px 22px;
+        box-shadow: 5px 5px 0 var(--home-red);
     }
 
-    .home-strengths a {
-        grid-column: 2;
+    .home-strengths article:nth-child(2n) {
+        box-shadow: 5px 5px 0 var(--home-yellow);
+    }
+
+    .home-strengths article > span {
+        font-size: 2.5rem;
+    }
+
+    .home-strengths h3 {
+        padding-right: 44px;
+        font-size: 1.14rem;
     }
 
     .home-timeline article {

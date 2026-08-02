@@ -1,0 +1,1164 @@
+.portfolio-home {
+    --home-bg: #101114;
+    --home-panel: #191b20;
+    --home-soft: #17191e;
+    --home-text: #f4f4f1;
+    --home-muted: #aaaeb7;
+    --home-line: #30333a;
+    --home-red: #ff4d62;
+    --home-yellow: #e8f35a;
+    --home-max: 1160px;
+    margin: 0;
+    color: var(--home-text);
+    background: var(--home-bg);
+    font-family: "Inter", "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+
+.portfolio-home::before {
+    content: none;
+}
+
+.portfolio-home *,
+.portfolio-home *::before,
+.portfolio-home *::after {
+    box-sizing: border-box;
+}
+
+.portfolio-home img {
+    display: block;
+    max-width: 100%;
+}
+
+.portfolio-home a {
+    color: inherit;
+}
+
+.portfolio-home :focus-visible {
+    outline: 3px solid var(--home-yellow);
+    outline-offset: 4px;
+}
+
+.portfolio-home ::selection {
+    color: var(--home-bg);
+    background: var(--home-yellow);
+}
+
+.home-container {
+    width: min(var(--home-max), calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.home-skip {
+    position: fixed;
+    top: -80px;
+    left: 18px;
+    z-index: 300;
+    padding: 9px 14px;
+    color: var(--home-bg);
+    background: var(--home-yellow);
+    font-weight: 700;
+}
+
+.home-skip:focus {
+    top: 14px;
+}
+
+.home-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 76px;
+    padding-inline: max(24px, calc((100vw - var(--home-max)) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background: rgba(16, 17, 20, .9);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(16px);
+}
+
+.home-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .2s ease;
+}
+
+.home-brand strong {
+    font-size: .94rem;
+    font-weight: 700;
+}
+
+/* 待機中は幅0に畳んでおき、ホバー・フォーカスで右へ開く。
+   行き先を記号ではなく「TOP」という語で示すので、意味が確実に伝わる。
+   余白(margin)も畳む側に入れてあるため、閉じている間は一切場所を取らない。 */
+.home-brand-top {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-5px);
+    transition: max-width .3s cubic-bezier(.16, .84, .3, 1),
+                opacity .2s ease,
+                transform .3s cubic-bezier(.16, .84, .3, 1);
+}
+
+.home-brand-top b {
+    display: block;
+    margin-left: 9px;
+    padding: 3px 8px;
+    color: var(--home-bg);
+    background: var(--home-yellow);
+    border-radius: 4px;
+    font: 700 .64rem/1.25 "Inter", "Noto Sans JP", sans-serif;
+    letter-spacing: .04em;
+}
+
+.home-brand:hover,
+.home-brand:focus-visible {
+    color: var(--home-yellow);
+}
+
+.home-brand:hover .home-brand-top,
+.home-brand:focus-visible .home-brand-top {
+    max-width: 100px;
+    opacity: 1;
+    transform: none;
+}
+
+.home-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 2.8vw, 36px);
+}
+
+.home-nav a {
+    position: relative;
+    font-size: .78rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+/* 待機中は少し沈めておく。現在地とホバーが相対的に立つ。 */
+.home-nav a:not(.home-nav-cta) {
+    color: rgba(244, 244, 241, .6);
+}
+
+.home-nav a:not(.home-nav-cta)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .2s ease;
+}
+
+/* ホバー = 一時的な反応。白い線が左から伸びる（動きで示す）。 */
+.home-nav a:not(.home-nav-cta):hover {
+    color: var(--home-text);
+}
+
+.home-nav a:not(.home-nav-cta):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 現在地 = 状態。黄色で常時点灯し、アニメーションしない。
+   色が違うので、現在地をホバーしても両者が衝突しない。 */
+.home-nav a.is-current {
+    color: var(--home-yellow);
+}
+
+.home-nav a.is-current::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: none;
+}
+
+.home-nav-cta {
+    padding: 8px 13px;
+    color: var(--home-bg) !important;
+    background: var(--home-text);
+    border-radius: 7px;
+}
+
+.home-hero {
+    min-height: calc(100svh - 76px);
+    padding-block: clamp(72px, 8vw, 118px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(360px, .96fr);
+    gap: clamp(55px, 8vw, 110px);
+    align-items: center;
+}
+
+.home-greeting {
+    margin: 0 0 12px;
+    color: var(--home-muted);
+    font-size: 1rem;
+}
+
+.home-hero h1 {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(4.2rem, 7.3vw, 7.3rem);
+    font-weight: 800;
+    line-height: .92;
+    letter-spacing: -.07em;
+}
+
+.home-hero h1 span {
+    position: relative;
+    z-index: 0;
+}
+
+.home-hero h1 span::after {
+    content: "";
+    position: absolute;
+    right: -.04em;
+    bottom: .05em;
+    left: -.03em;
+    z-index: -1;
+    height: .1em;
+    background: var(--home-red);
+    transform: rotate(-1.5deg);
+}
+
+.home-role {
+    margin: 25px 0 22px;
+    color: var(--home-yellow);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.home-introduction {
+    max-width: 620px;
+    margin: 0;
+    color: #e1e2e4;
+    font-size: 1.08rem;
+    line-height: 1.9;
+}
+
+.home-introduction--small {
+    margin-top: 10px;
+    color: var(--home-muted);
+    font-size: .9rem;
+}
+
+.home-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ボタンの寸法は lucaskinoo.dev の比率に合わせている。
+   文字20px / 上下16px・左右32px / 枠2.5px。
+   日本語は同サイズだと重く見えるため文字だけ 17px に落としている。 */
+.home-button {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 56px;
+    padding: 16px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 8px;
+    font-size: 1.06rem;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color .25s ease, box-shadow .25s ease, transform .12s ease;
+}
+
+/* 塗りを左からワイプで入れる。色を差し替えるだけより変化が読み取りやすい。 */
+.home-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .32s cubic-bezier(.16, .84, .3, 1);
+}
+
+.home-button:hover::before {
+    transform: scaleX(1);
+}
+
+.home-button .icon {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    stroke: currentColor;
+    transition: transform .28s cubic-bezier(.16, .84, .3, 1);
+}
+
+/* 下矢印は下へ、外部リンクの矢印は右上へ動かす。 */
+.home-button:hover .icon--down {
+    transform: translateY(4px);
+}
+
+.home-button:hover .icon--out {
+    transform: translate(3px, -3px);
+}
+
+.home-button:active {
+    transform: scale(.97);
+}
+
+/* 最優先の導線。画面内でこの色を持つのは常に1つだけ。 */
+.home-button--primary {
+    color: var(--home-bg) !important;
+    background: var(--home-yellow);
+}
+
+.home-button--primary::before {
+    background: var(--home-text);
+}
+
+.home-button--primary:hover {
+    color: var(--home-bg) !important;
+}
+
+/* 枠は「白100%・2.5px」。1px・45%では背景に沈んで押せると分からなかった。
+   ホバーで完全に反転させ、押せることを疑う余地をなくす。 */
+.home-button--secondary {
+    color: var(--home-text);
+    background: transparent;
+    box-shadow: inset 0 0 0 2.5px var(--home-text);
+}
+
+.home-button--secondary::before {
+    background: var(--home-text);
+}
+
+.home-button--secondary:hover {
+    color: var(--home-bg) !important;
+}
+
+.home-quick-facts {
+    margin: 38px 0 0;
+    padding-top: 19px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    border-top: 1px solid var(--home-line);
+}
+
+.home-quick-facts dt {
+    color: var(--home-muted);
+    font-size: .68rem;
+}
+
+.home-quick-facts dd {
+    margin: 3px 0 0;
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+.home-portrait {
+    margin: 0;
+}
+
+.home-portrait-frame {
+    position: relative;
+    overflow: hidden;
+    background: var(--home-panel);
+    border-radius: 16px;
+}
+
+.home-portrait-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.home-portrait-frame img {
+    width: 100%;
+    aspect-ratio: 1 / 1.04;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: saturate(.82) contrast(1.04);
+    transition: transform .5s ease, filter .5s ease;
+}
+
+.home-portrait-frame:hover img {
+    transform: scale(1.025);
+    filter: saturate(1) contrast(1.02);
+}
+
+.home-portrait figcaption {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 22px;
+    color: var(--home-muted);
+    font-size: .72rem;
+}
+
+.home-portrait figcaption strong {
+    color: var(--home-text);
+    font-weight: 600;
+}
+
+.home-section {
+    padding-block: clamp(90px, 10vw, 145px);
+}
+
+.home-section--soft {
+    background: var(--home-soft);
+    border-block: 1px solid var(--home-line);
+}
+
+.home-section--soft > .home-container {
+    width: min(var(--home-max), calc(100% - 48px));
+}
+
+.home-section-heading {
+    margin-bottom: 48px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.home-section-heading > div > p,
+.home-contact-inner > div > p {
+    margin: 0 0 8px;
+    color: var(--home-red);
+    font-size: .77rem;
+    font-weight: 700;
+}
+
+.home-section-heading h2,
+.home-contact h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.6rem);
+    font-weight: 750;
+    line-height: 1.05;
+    letter-spacing: -.055em;
+}
+
+.home-section-heading > p {
+    max-width: 440px;
+    margin: 0 0 5px;
+    color: var(--home-muted);
+    font-size: .9rem;
+}
+
+.home-project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.home-project-card {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--home-panel);
+    border: 1px solid var(--home-line);
+    border-radius: 14px;
+    transition: border-color .25s ease, transform .25s ease;
+}
+
+.home-project-card:hover {
+    border-color: #555a64;
+    transform: translateY(-3px);
+}
+
+.home-project-card:first-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.35fr .65fr;
+}
+
+.home-project-media {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    display: block;
+    background: #252831;
+    text-decoration: none;
+}
+
+.home-project-card:first-child .home-project-media {
+    min-height: 440px;
+}
+
+.home-project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .45s ease, filter .45s ease;
+}
+
+/* data-video-src に短いMP4を指定すると、静止画を残したまま
+   読み込み完了後だけ動画へ切り替わる。素材未配置時は通信しない。 */
+.home-project-preview {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: transparent;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+}
+
+.home-project-preview.is-ready {
+    opacity: 1;
+}
+
+.home-project-media:hover img {
+    filter: brightness(.86);
+    transform: scale(1.025);
+}
+
+.home-project-media > span {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    padding: 5px 8px;
+    color: var(--home-bg);
+    background: rgba(244, 244, 241, .92);
+    border-radius: 5px;
+    font-size: .64rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.home-project-media--train {
+    padding: clamp(34px, 5vw, 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, .08), transparent 45%),
+        #bb2d40;
+}
+
+.home-project-media--train::after {
+    content: "";
+    position: absolute;
+    top: -25%;
+    right: -10%;
+    width: 58%;
+    aspect-ratio: 1;
+    border: clamp(35px, 5vw, 70px) solid rgba(255, 255, 255, .08);
+    border-radius: 50%;
+}
+
+.home-project-media--train strong {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(3.2rem, 6vw, 6.6rem);
+    line-height: .96;
+    letter-spacing: -.075em;
+}
+
+.home-project-media--train i {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    font-size: .75rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.home-project-content {
+    padding: 28px;
+}
+
+.home-project-card:first-child .home-project-content {
+    padding: clamp(30px, 4vw, 52px);
+    align-self: center;
+}
+
+.home-project-title > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.home-project-title span {
+    color: var(--home-muted);
+    font-size: .65rem;
+}
+
+.home-project-title span + span::before {
+    content: "·";
+    margin-right: 6px;
+}
+
+.home-project-title h3 {
+    margin: 6px 0 12px;
+    font-size: 1.55rem;
+    line-height: 1.3;
+}
+
+.home-project-content > p {
+    margin: 0;
+    color: #d1d3d8;
+    font-size: .86rem;
+}
+
+.home-project-content ul {
+    margin: 22px 0 0;
+    padding: 18px 0 0 1.2em;
+    color: var(--home-muted);
+    border-top: 1px solid var(--home-line);
+    font-size: .77rem;
+}
+
+.home-project-links {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 19px;
+}
+
+.home-project-links a {
+    color: var(--home-text);
+    font-size: .75rem;
+    font-weight: 700;
+    text-underline-offset: 4px;
+}
+
+.home-project-links a:hover {
+    color: var(--home-yellow);
+}
+
+.home-strengths {
+    border-top: 1px solid var(--home-line);
+}
+
+.home-strengths article {
+    padding: 28px 0;
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr) minmax(170px, auto);
+    gap: 28px;
+    align-items: start;
+    border-bottom: 1px solid var(--home-line);
+}
+
+.home-strengths article > span {
+    color: var(--home-red);
+    font-size: .74rem;
+    font-weight: 700;
+}
+
+.home-strengths h3 {
+    margin: 0 0 5px;
+    font-size: 1.16rem;
+}
+
+.home-strengths p {
+    max-width: 620px;
+    margin: 0;
+    color: var(--home-muted);
+    font-size: .84rem;
+}
+
+.home-strengths a {
+    color: #d9dae0;
+    font-size: .74rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+.home-strengths a:hover {
+    color: var(--home-yellow);
+}
+
+.home-timeline {
+    border-top: 1px solid var(--home-line);
+}
+
+.home-timeline article {
+    padding: 27px 0;
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 36px;
+    border-bottom: 1px solid var(--home-line);
+}
+
+.home-timeline time {
+    color: var(--home-red);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.home-timeline h3 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+.home-timeline p {
+    margin: 0;
+    color: var(--home-muted);
+    font-size: .82rem;
+}
+
+.home-other-projects {
+    padding-top: 40px;
+}
+
+.home-other-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--home-line);
+}
+
+.home-other-grid a {
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--home-line);
+    transition: color .2s ease, padding .2s ease;
+}
+
+/* 行がリンクであることを示す矢印。ホバーで前に出る。 */
+.home-other-grid a::after {
+    content: "→";
+    color: var(--home-muted);
+    transition: transform .2s ease, color .2s ease;
+}
+
+.home-other-grid a:hover {
+    color: var(--home-yellow);
+}
+
+.home-other-grid a:hover::after {
+    color: var(--home-yellow);
+    transform: translateX(4px);
+}
+
+.home-other-grid a:nth-child(odd) {
+    padding-right: 24px;
+}
+
+.home-other-grid a:nth-child(even) {
+    padding-left: 24px;
+    border-left: 1px solid var(--home-line);
+}
+
+.home-other-grid strong {
+    font-size: .88rem;
+}
+
+.home-other-grid span {
+    color: var(--home-muted);
+    font-size: .68rem;
+    text-align: right;
+}
+
+.home-other-grid a:hover strong {
+    color: var(--home-yellow);
+}
+
+.home-contact {
+    padding-block: clamp(90px, 10vw, 135px);
+    color: var(--home-bg);
+    background: var(--home-red);
+}
+
+.home-contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(60px, 9vw, 120px);
+}
+
+.home-contact-inner > div > p {
+    color: var(--home-bg);
+}
+
+.home-contact-copy {
+    align-self: end;
+}
+
+.home-contact-copy > p {
+    max-width: 500px;
+    margin: 0;
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+.home-button--light {
+    color: var(--home-bg) !important;
+    background: var(--home-text);
+}
+
+.home-button--light::before {
+    background: var(--home-yellow);
+}
+
+.home-button--contact-line {
+    color: var(--home-bg) !important;
+    box-shadow: inset 0 0 0 2.5px var(--home-bg);
+}
+
+.home-button--contact-line::before {
+    background: var(--home-bg);
+}
+
+.home-button--contact-line:hover {
+    color: var(--home-text) !important;
+}
+
+.home-socials {
+    margin-top: 28px;
+    display: flex;
+    gap: 22px;
+}
+
+.home-socials a {
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.home-trace {
+    margin-top: 42px;
+    padding-top: 13px;
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    gap: 13px;
+    align-items: center;
+    border-top: 1px solid rgba(16, 17, 20, .38);
+    font-size: .66rem;
+}
+
+.home-trace strong {
+    margin-left: 4px;
+    font-size: .76rem;
+}
+
+.home-trace > i {
+    height: 5px;
+    overflow: hidden;
+    background: rgba(16, 17, 20, .22);
+}
+
+.home-trace > i > b {
+    display: block;
+    width: 4%;
+    height: 100%;
+    background: var(--home-bg);
+    transition: width .3s ease;
+}
+
+.home-footer {
+    background: var(--home-bg);
+}
+
+.home-footer > div {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--home-muted);
+    font-size: .7rem;
+}
+
+.home-footer a {
+    color: var(--home-text);
+}
+
+/* 通常は10pxの点。押せる要素の上でだけリングに展開する。
+   枠線ではなく inset box-shadow で描くので、大きさを変えても線幅が揺れない。
+   外側の暗いハローは、白い写真や黄色いボタンの上で消えないための縁取り。 */
+.home-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, .85);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+    transition: width .24s cubic-bezier(.16, .84, .3, 1),
+                height .24s cubic-bezier(.16, .84, .3, 1),
+                background .24s ease,
+                box-shadow .24s ease,
+                opacity .2s ease;
+}
+
+.home-cursor.is-awake {
+    opacity: 1;
+}
+
+/* リングは白。黄色にすると黄色いボタンの上で消えるため。
+   内側と外側の両方に暗い線を重ね、明るい背景でも輪郭が残るようにする。
+   「押せる」の合図は色ではなく大きさの変化が担う。 */
+.home-cursor.is-active {
+    width: 34px;
+    height: 34px;
+    background: rgba(232, 243, 90, .12);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, .45),
+        inset 0 0 0 1.5px rgba(255, 255, 255, .95),
+        inset 0 0 0 2.5px rgba(0, 0, 0, .3);
+}
+
+.home-cursor.is-pressed {
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 0 0 1.5px rgba(0, 0, 0, .5);
+}
+
+.home-ink-pop {
+    position: fixed;
+    z-index: 999;
+    width: var(--ink-size, 34px);
+    height: var(--ink-size, 34px);
+    pointer-events: none;
+    background: var(--ink-color, var(--home-yellow));
+    border-radius: 52% 48% 61% 39% / 44% 59% 41% 56%;
+    transform: translate(-50%, -50%) rotate(var(--ink-rotate, 0deg));
+    animation: home-ink-pop .58s cubic-bezier(.16, .8, .3, 1) forwards;
+}
+
+.home-ink-pop::before,
+.home-ink-pop::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.home-ink-pop::before {
+    width: 8px;
+    height: 8px;
+    top: -9px;
+    right: 1px;
+}
+
+.home-ink-pop::after {
+    width: 5px;
+    height: 5px;
+    bottom: -8px;
+    left: -5px;
+}
+
+@keyframes home-ink-pop {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(.25) rotate(var(--ink-rotate, 0deg)); }
+    38% { opacity: .95; }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.7) rotate(var(--ink-rotate, 0deg)); }
+}
+
+/* 初期状態を隠すのはJSが動いている場合だけ。
+   JS無効・読み込み失敗時は最初から全部表示される。 */
+.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .55s ease, transform .55s ease;
+}
+
+.js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 900px) {
+    /* minmax(0, …) にしないとトラックが content の最小幅まで広がり、
+       長い英単語がレイアウトごと画面外へ押し出す。 */
+    .home-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-hero-copy {
+        max-width: 720px;
+        min-width: 0;
+    }
+
+    .home-portrait {
+        width: min(100%, 580px);
+    }
+
+    .home-project-card:first-child {
+        display: block;
+    }
+
+    .home-project-card:first-child .home-project-media {
+        min-height: 390px;
+    }
+
+    .home-strengths article {
+        grid-template-columns: 44px minmax(0, 1fr);
+    }
+
+    .home-strengths a {
+        grid-column: 2;
+        text-align: left;
+    }
+}
+
+@media (max-width: 700px) {
+    .home-container,
+    .home-section--soft > .home-container {
+        width: min(var(--home-max), calc(100% - 32px));
+    }
+
+    .home-header {
+        min-height: 64px;
+        padding-inline: 16px;
+    }
+
+    .home-nav a:first-child,
+    .home-nav a:nth-child(3) {
+        display: none;
+    }
+
+    .home-nav {
+        gap: 13px;
+    }
+
+    .home-nav a {
+        font-size: .7rem;
+    }
+
+    .home-nav-cta {
+        padding: 6px 9px;
+    }
+
+    .home-hero {
+        min-height: auto;
+        padding-block: 58px 84px;
+        gap: 48px;
+    }
+
+    /* 「Programmer.」は改行できない1単語で、幅がフォントサイズの約5.69倍になる。
+       画面幅32px引いたコンテナに収まる上限が約 0.176 × 画面幅 なので、
+       余裕をみて 15.5vw までに抑える。 */
+    .home-hero h1 {
+        font-size: clamp(2.6rem, 15.5vw, 5.3rem);
+    }
+
+    .home-introduction {
+        font-size: .98rem;
+    }
+
+    .home-quick-facts {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .home-quick-facts div {
+        display: grid;
+        grid-template-columns: 54px 1fr;
+        gap: 8px;
+    }
+
+    .home-portrait figcaption {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .home-section {
+        padding-block: 84px;
+    }
+
+    .home-section-heading {
+        margin-bottom: 34px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .home-project-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .home-project-card:first-child {
+        grid-column: auto;
+    }
+
+    .home-project-media,
+    .home-project-card:first-child .home-project-media {
+        min-height: 300px;
+    }
+
+    .home-project-media--train {
+        padding: 27px;
+    }
+
+    .home-project-content,
+    .home-project-card:first-child .home-project-content {
+        padding: 23px 20px;
+    }
+
+    .home-strengths article {
+        padding-block: 23px;
+        grid-template-columns: 31px minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .home-strengths a {
+        grid-column: 2;
+    }
+
+    .home-timeline article {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .home-other-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-other-grid a:nth-child(odd),
+    .home-other-grid a:nth-child(even) {
+        padding-inline: 0;
+        border-left: 0;
+    }
+
+    .home-contact-inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .home-trace {
+        grid-template-columns: auto auto 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .home-portrait-frame img,
+    .home-project-media img,
+    .home-project-card,
+    .home-button {
+        transition: none;
+    }
+}

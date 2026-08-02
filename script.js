@@ -238,3 +238,57 @@ if ("IntersectionObserver" in window && navigationSections.length) {
 
     navigationSections.forEach((section) => navigationObserver.observe(section));
 }
+
+/* 問い合わせフォーム。Web3Forms へ fetch で送るのでページ遷移しない。
+   access_key が未設定のうちは送信せず、その旨だけ出す。 */
+const contactForm = document.querySelector("[data-contact-form]");
+
+if (contactForm) {
+    const status = contactForm.querySelector("[data-form-status]");
+    const submitButton = contactForm.querySelector("button[type=submit]");
+
+    const setStatus = (message, isError = false) => {
+        if (!status) {
+            return;
+        }
+        status.textContent = message;
+        status.classList.toggle("is-error", isError);
+    };
+
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        const key = contactForm.elements.access_key?.value;
+        if (!key || key === "YOUR_ACCESS_KEY") {
+            setStatus("送信先が未設定です（access_key を差し替えてください）。", true);
+            return;
+        }
+
+        submitButton.disabled = true;
+        setStatus("送信中…");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: new FormData(contactForm),
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                contactForm.reset();
+                setStatus("送信が完了しました。ありがとうございます。");
+            } else {
+                setStatus("送信に失敗しました。GitHubからご連絡ください。", true);
+            }
+        } catch {
+            setStatus("送信に失敗しました。通信環境をご確認ください。", true);
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}

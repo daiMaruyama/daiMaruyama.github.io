@@ -653,94 +653,91 @@
     color: var(--home-yellow);
 }
 
-/* 旧サイトの「設計力/チーム開発/操作感」から造形を引き継いでいる。
-   カード + オフセット影 + 大きい番号 + 証拠バッジ。
-   影の色は 01〜04 で赤と黄を交互にして、並びに律動を出す。 */
+/* 代表作がカード形式なので、強みは作品集の索引のような縦組みにする。
+   色は面ではなく番号・証拠・ホバー時だけに使い、本文を読みやすく保つ。 */
 .home-strengths {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 26px;
+    border-top: 1px solid var(--home-line);
 }
 
 .home-strengths article {
     position: relative;
-    padding: 30px 28px 26px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    background: var(--home-panel);
-    border: 1px solid var(--home-line);
-    border-radius: 14px;
-    box-shadow: 3px 3px 0 var(--home-red);
-    transition: transform .25s ease, box-shadow .25s ease;
+    padding: 32px 12px 32px 0;
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) minmax(220px, .48fr);
+    gap: 32px;
+    align-items: center;
+    border-bottom: 1px solid var(--home-line);
 }
 
-.home-strengths article:nth-child(2n) {
-    box-shadow: 3px 3px 0 var(--home-yellow);
-}
-
-/* 5枚目は2列にまたがらせる。均等な4枚並びを崩し、
-   設計の話に面積を与える。 */
-.home-strengths article:nth-child(5) {
-    grid-column: 1 / -1;
-}
-
-.home-strengths article:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 10px 10px 0 var(--home-red);
-}
-
-.home-strengths article:nth-child(2n):hover {
-    box-shadow: 10px 10px 0 var(--home-yellow);
-}
-
-/* 番号は背景側の記号として大きく置く。読ませる要素ではない。 */
-.home-strengths article > span {
+.home-strengths article::before {
+    content: "";
     position: absolute;
-    top: 14px;
-    right: 20px;
-    color: rgba(244, 244, 241, .07);
-    font: 800 2.5rem/1 "Inter", sans-serif;
-    letter-spacing: -.06em;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 77, 98, .075), transparent 72%);
+    opacity: 0;
     pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.home-strengths article:nth-child(even)::before {
+    background: linear-gradient(90deg, rgba(232, 243, 90, .06), transparent 72%);
+}
+
+.home-strengths article:hover::before {
+    opacity: 1;
+}
+
+.home-strengths article > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 小さな番号と線で章立てを示す。偶数行だけ黄色にして律動を残す。 */
+.home-strengths article > span {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--home-red);
+    font: 800 .74rem/1 "Inter", sans-serif;
+    letter-spacing: .12em;
+    pointer-events: none;
+}
+
+.home-strengths article > span::after {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+}
+
+.home-strengths article:nth-child(even) > span {
+    color: var(--home-yellow);
 }
 
 .home-strengths h3 {
     margin: 0 0 9px;
-    padding-right: 46px;
     font-size: 1.28rem;
     line-height: 1.35;
     letter-spacing: -.03em;
 }
 
 .home-strengths p {
-    max-width: none;
+    max-width: 650px;
     margin: 0;
     color: var(--home-muted);
     font-size: .88rem;
     line-height: 1.85;
 }
 
-/* 証拠はバッジにして、文章から独立させる。 */
+/* 証拠は右端の注釈として本文から分ける。 */
 .home-strengths .home-strength-fact {
-    margin-top: auto;
-    padding-top: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--home-yellow);
-    font-size: .82rem;
+    max-width: none;
+    padding-left: 15px;
+    color: #d9dae0;
+    font-size: .78rem;
     font-weight: 700;
-    border-top: 1px solid var(--home-line);
-}
-
-.home-strengths .home-strength-fact::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    flex: none;
-    background: var(--home-yellow);
-    border-radius: 50%;
+    line-height: 1.7;
+    border-left: 2px solid var(--home-yellow);
 }
 
 .home-timeline {
@@ -878,6 +875,89 @@
 
 .home-button--contact-line:hover {
     color: var(--home-text) !important;
+}
+
+/* 問い合わせフォーム。連絡セクションは背景がピンクなので、
+   入力欄は黒地・白文字で抜く。 */
+.home-form {
+    margin-top: 28px;
+    display: grid;
+    gap: 14px;
+}
+
+.home-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.home-form label {
+    display: grid;
+    gap: 6px;
+}
+
+.home-form label > span {
+    color: var(--home-bg);
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.home-form input:not(.home-form-trap),
+.home-form textarea {
+    width: 100%;
+    padding: 13px 14px;
+    color: var(--home-text);
+    background: rgba(16, 17, 20, .88);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font: inherit;
+    font-size: .92rem;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.home-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.home-form input:focus,
+.home-form textarea:focus {
+    outline: none;
+    background: var(--home-bg);
+    border-color: var(--home-yellow);
+}
+
+/* ボット用の罠。画面にも読み上げにも出さない。 */
+.home-form-trap {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.home-form-actions {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.home-form-actions .home-button {
+    border: 0;
+    cursor: pointer;
+}
+
+.home-form-status {
+    margin: 0;
+    color: var(--home-bg);
+    font-size: .84rem;
+    font-weight: 700;
+}
+
+.home-form-status.is-error {
+    color: #7a0d18;
 }
 
 .home-socials {
@@ -1062,8 +1142,21 @@
     }
 
     .home-strengths {
+        border-top-color: var(--home-line);
+    }
+
+    .home-strengths article {
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 18px 24px;
+        align-items: start;
+    }
+
+    .home-strengths .home-strength-fact {
+        grid-column: 2;
+    }
+
+    .home-form-row {
         grid-template-columns: minmax(0, 1fr);
-        gap: 22px;
     }
 }
 
@@ -1162,21 +1255,30 @@
     }
 
     .home-strengths article {
-        padding: 24px 22px 22px;
-        box-shadow: 5px 5px 0 var(--home-red);
-    }
-
-    .home-strengths article:nth-child(2n) {
-        box-shadow: 5px 5px 0 var(--home-yellow);
+        padding: 25px 0;
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 12px;
     }
 
     .home-strengths article > span {
-        font-size: 2.5rem;
+        padding-top: 7px;
+        gap: 6px;
+        font-size: .68rem;
+    }
+
+    .home-strengths article > span::after {
+        width: 10px;
     }
 
     .home-strengths h3 {
-        padding-right: 44px;
         font-size: 1.14rem;
+    }
+
+    .home-strengths .home-strength-fact {
+        grid-column: 2;
+        margin-top: 4px;
+        padding-left: 11px;
+        font-size: .74rem;
     }
 
     .home-timeline article {

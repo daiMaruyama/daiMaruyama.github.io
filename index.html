@@ -259,11 +259,45 @@
                 </div>
                 <div class="home-contact-copy" data-reveal>
                     <p>作品や開発について、面接・インターン・制作のお話をお待ちしています。</p>
+
+                    <!-- 送信先は Web3Forms。access_key を自分のキーに差し替えれば動く。
+                         メールアドレスはHTMLに出ないので、収集ボットに拾われない。 -->
+                    <form class="home-form" data-contact-form novalidate>
+                        <input type="hidden" name="access_key" value="c200db7c-3ddf-4a22-b0eb-4f41345687db">
+                        <input type="hidden" name="subject" value="ポートフォリオからの問い合わせ">
+                        <input type="hidden" name="from_name" value="丸山大輔 ポートフォリオ">
+                        <!-- ボット用の罠。人間には見えないので、埋まっていたら破棄する。 -->
+                        <input type="checkbox" name="botcheck" class="home-form-trap" tabindex="-1" autocomplete="off">
+
+                        <div class="home-form-row">
+                            <label>
+                                <span>お名前</span>
+                                <input type="text" name="name" required autocomplete="name">
+                            </label>
+                            <label>
+                                <span>メールアドレス</span>
+                                <input type="email" name="email" required autocomplete="email">
+                            </label>
+                        </div>
+                        <label>
+                            <span>件名</span>
+                            <input type="text" name="title" required>
+                        </label>
+                        <label>
+                            <span>メッセージ</span>
+                            <textarea name="message" rows="5" required></textarea>
+                        </label>
+
+                        <div class="home-form-actions">
+                            <button class="home-button home-button--light" type="submit">
+                                送信
+                                <svg class="icon icon--out" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                            </button>
+                            <p class="home-form-status" data-form-status role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+
                     <div class="home-actions">
-                        <a class="home-button home-button--light" href="https://forms.gle/Jb7Jcvjh76Bgqcqs5" target="_blank" rel="noopener noreferrer">
-                            メッセージを送る
-                            <svg class="icon icon--out" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-                        </a>
                         <a class="home-button home-button--contact-line" href="https://github.com/daiMaruyama" target="_blank" rel="noopener noreferrer">
                             GitHub
                             <svg class="icon icon--out" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>

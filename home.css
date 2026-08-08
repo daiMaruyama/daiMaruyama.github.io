@@ -694,6 +694,44 @@
     font-weight: 700;
 }
 
+/* メイン作品だけは、静止画を土台に短いプレイ動画へ切り替える。
+   動画を見せつつ作品名と詳細導線が消えないよう、下部だけ暗く落とす。 */
+.home-project-media--video {
+    background: #111318;
+}
+
+.home-project-media--video > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-project-media--video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: auto;
+    aspect-ratio: auto;
+    background: linear-gradient(180deg, transparent 40%, rgba(10, 11, 14, .82) 100%);
+    border: 0;
+    border-radius: 0;
+    pointer-events: none;
+}
+
+.home-project-media--video > span,
+.home-project-media--video > strong,
+.home-project-media--video > i {
+    z-index: 3;
+}
+
+.home-project-media--video > strong {
+    font-size: clamp(2.7rem, 4.8vw, 5.5rem);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, .45);
+}
+
 .home-project-content {
     padding: 28px;
 }
@@ -1340,6 +1378,10 @@
 
     .home-project-media--train {
         padding: 27px;
+    }
+
+    .home-project-media--video > strong {
+        font-size: clamp(2.2rem, 11vw, 3.2rem);
     }
 
     .home-project-content,

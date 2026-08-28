@@ -12,13 +12,21 @@
     <meta property="og:url" content="https://daimaruyama.github.io/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Black&amp;family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@700&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="home.css">
     <script>document.documentElement.classList.add("js");</script>
     <script src="script.js" defer></script>
 </head>
 <body class="portfolio-home">
+    <div id="intro" role="button" tabindex="0" aria-label="クリックしてサイトへ進む">
+        <h1 class="intro-name" aria-label="DAISUKE MARUYAMA">
+            <span class="intro-row"><span class="ch">D</span><span class="ch">A</span><span class="ch">I</span><span class="ch">S</span><span class="ch">U</span><span class="ch">K</span><span class="ch">E</span></span>
+            <span class="intro-row"><span class="ch">M</span><span class="ch">A</span><span class="ch">R</span><span class="ch">U</span><span class="ch">Y</span><span class="ch">A</span><span class="ch">M</span><span class="ch">A</span></span>
+        </h1>
+        <p class="intro-sub">GAME PROGRAMMER PORTFOLIO</p>
+        <p class="intro-press">▶ PRESS ANY KEY / TAP TO START</p>
+    </div>
     <a class="home-skip" href="#main">本文へ移動</a>
 
     <header class="home-header">
@@ -204,7 +212,7 @@
                         <span>04</span>
                         <div>
                             <h3>実務経験</h3>
-                            <p>実際に運用されているゲームの開発に参加しています。既存の設計と影響範囲を読んでから手を入れる進め方が身についています。</p>
+                            <p>某ゲーム会社にエンジニアとして参加し、実際に運用されているタイトルの開発に携わっています。既存の設計と影響範囲を読んでから手を入れる進め方が身につきました。<a class="home-strength-invite" href="#contact">ここには書ききれないので、ぜひ直接お話しさせてください <span aria-hidden="true">→</span></a></p>
                         </div>
                         <p class="home-strength-fact">不具合修正 / 新規事業のミニゲーム開発</p>
                     </article>
@@ -231,11 +239,35 @@
 
             <div class="home-timeline">
                 <article data-reveal><time datetime="2025-04">2025.04</time><div><h3>ゲームプログラミングを開始</h3><p>Unity / C#を学び、個人制作とゲームジャムへ参加。</p></div></article>
-                <article data-reveal><time datetime="2025-08">2025.08</time><div><h3>学内ゲームジャムで最多得票数賞</h3><p>チームで参加し、プレイヤー投票で最多票を獲得。</p></div></article>
-                <article data-reveal><time datetime="2026-02">2026.02</time><div><h3>ZeroOneSlash 優秀賞</h3><p>企画・実装・UI/UX・UGSランキングまで個人制作。</p></div></article>
+                <article data-reveal><time datetime="2025-08">2025.08</time><div><h3>チーム制作でゲームジャムに参加</h3><p>連打と相撲を組み合わせた作品を2日間で制作。</p></div></article>
+                <article data-reveal><time datetime="2026-02">2026.02</time><div><h3>ZeroOneSlash を個人制作</h3><p>企画・実装・UI/UX・UGSランキングまで一人で担当。</p></div></article>
                 <article data-reveal><time datetime="2026-03">2026.03</time><div><h3>ゲームループとチーム統合を担当</h3><p>Unity1weekでMediator / UniTask / UI統合、TeamBで既存機能の修正を経験。</p></div></article>
                 <article data-reveal><time datetime="2026-05">2026.05</time><div><h3>ゲーム開発企業でのアルバイト</h3><p>Unity、Cocos2d-x / C++、PHPを使い、不具合修正と新規ミニゲーム開発へ参加。</p></div></article>
                 <article data-reveal><time datetime="2026-07">2026.07</time><div><h3>UnityからUE5・C++へ領域を広げる</h3><p>AtCoderでアルゴリズムを継続的に鍛えながら、UE5 / C++の学習を開始。</p></div></article>
+            </div>
+
+            <div class="home-records">
+                <section class="home-record" data-reveal>
+                    <h3>受賞と資格</h3>
+                    <ul>
+                        <li><b>基本情報技術者試験</b><time datetime="2026-08">2026.08</time></li>
+                        <li><b>学内審査会 敢闘賞</b><time datetime="2026-07">2026.07</time></li>
+                        <li><b>学内審査会 優秀賞</b><time datetime="2026-02">2026.02</time></li>
+                        <li><b>学内ゲームジャム 最多得票数賞</b><time datetime="2025-08">2025.08</time></li>
+                    </ul>
+                </section>
+
+                <section class="home-record" data-reveal>
+                    <h3>実績</h3>
+                    <ul>
+                        <li><b>コロプラ様1Dayインターン参加</b><time datetime="2026-08">2026.08</time></li>
+                        <li>
+                            <b>某モバイルゲーム会社にてエンジニアアルバイトを開始</b>
+                            <span>運用中タイトルの改修に加え、新規事業の企画から実装までをほぼ一人で担当。<a href="#contact">詳しくは面接でお話しします →</a></span>
+                            <time datetime="2026-05">2026.05</time>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </section>
 

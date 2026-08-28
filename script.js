@@ -1,4 +1,40 @@
 const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+/* タイトル画面。旧サイトの挙動をそのまま移植。
+   セッション中は初回だけ表示し、クリックまたはキー入力で消える。 */
+const intro = document.getElementById("intro");
+
+if (intro) {
+    let introSeen = false;
+    try {
+        introSeen = sessionStorage.getItem("introSeen") === "1";
+    } catch {
+        // ストレージが使えない場合は毎回表示する。
+    }
+
+    if (introSeen || motionQuery.matches) {
+        intro.classList.add("gone");
+    } else {
+        const dismissIntro = () => {
+            if (intro.classList.contains("go")) {
+                return;
+            }
+
+            intro.classList.add("go");
+            try {
+                sessionStorage.setItem("introSeen", "1");
+            } catch {
+                // 保存できなくても表示の切り替えは行う。
+            }
+            window.setTimeout(() => intro.classList.add("gone"), 700);
+        };
+
+        intro.addEventListener("click", dismissIntro);
+        intro.addEventListener("keydown", dismissIntro);
+        window.addEventListener("keydown", dismissIntro, { once: true });
+    }
+}
+
 const traceKey = "daiPortfolioTraceV4";
 const sessionKey = "daiPortfolioVisitedV4";
 const traceLimit = 999999;
@@ -129,7 +165,7 @@ if (!motionQuery.matches && "IntersectionObserver" in window) {
     projectVideos.forEach((video) => videoObserver.observe(video));
 }
 
-const inkColors = ["#ff4d62", "#e8f35a", "#f4f4f1"];
+const inkColors = ["#e60029", "#e8f35a", "#f4f4f1"];
 
 const createInkPop = (event) => {
     if (motionQuery.matches) {

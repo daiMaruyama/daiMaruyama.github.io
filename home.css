@@ -1,3 +1,121 @@
+/* ============================================================
+   タイトル画面。旧サイトの実装をそのまま移植している。
+   色・書体・角度・アニメーションの数値は変更していない。
+   ============================================================ */
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0a0a0f;
+    cursor: pointer;
+    transition: transform .55s cubic-bezier(.7, 0, .2, 1), opacity .4s ease .2s;
+}
+
+/* 網点の地。少し傾けて敷く。 */
+#intro::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background-image: radial-gradient(circle, rgba(230, 0, 41, .35) 1.6px, transparent 1.7px);
+    background-size: 15px 15px;
+    transform: rotate(-8deg);
+}
+
+/* 左側に差し込む赤のくさび。 */
+#intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #e60029;
+    clip-path: polygon(0 0, 46% 0, 20% 100%, 0 100%);
+}
+
+.intro-name {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(2.4rem, 10.5vw, 7.6rem);
+    line-height: .94;
+    text-align: center;
+    text-transform: uppercase;
+    transform: rotate(-7deg);
+}
+
+.intro-name .intro-row {
+    display: block;
+}
+
+/* 1文字ずつ跳ねる。奇数と偶数で書体を変えて、揃いすぎないようにする。 */
+.intro-name .ch {
+    display: inline-block;
+    text-shadow: 5px 5px 0 #e60029;
+    animation: intro-jump 2.4s cubic-bezier(.16, 1.3, .3, 1) infinite;
+}
+
+.intro-name .ch:nth-child(even) {
+    font-family: "Anton", sans-serif;
+}
+
+.intro-name .intro-row:nth-child(2) .ch {
+    color: #e8f35a;
+    text-shadow: 5px 5px 0 #e60029;
+}
+
+.intro-name .ch:nth-child(2n) { animation-delay: .12s; }
+.intro-name .ch:nth-child(3n) { animation-delay: .24s; }
+
+.intro-sub {
+    position: relative;
+    z-index: 2;
+    margin-top: 30px;
+    padding: 8px 22px;
+    color: #0a0a0f;
+    background: #fff;
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(.72rem, 1.8vw, .95rem);
+    letter-spacing: .3em;
+    transform: rotate(-2deg) skewX(-8deg);
+}
+
+.intro-press {
+    position: relative;
+    z-index: 2;
+    margin-top: 54px;
+    color: #fff;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: clamp(.8rem, 2vw, 1rem);
+    letter-spacing: .22em;
+    animation: intro-blink 1.1s steps(2, start) infinite;
+}
+
+/* 押すと上へ抜けていく。 */
+#intro.go {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%) rotate(-4deg) scale(1.1);
+}
+
+#intro.gone {
+    display: none;
+}
+
+@keyframes intro-jump {
+    0%, 86%, 100% { transform: translateY(0) rotate(0); }
+    90% { transform: translateY(-9px) rotate(-4deg); }
+    94% { transform: translateY(2px) rotate(2deg); }
+}
+
+@keyframes intro-blink {
+    50% { opacity: 0; }
+}
+
 .portfolio-home {
     --home-bg: #101114;
     --home-panel: #191b20;
@@ -5,7 +123,7 @@
     --home-text: #f4f4f1;
     --home-muted: #aaaeb7;
     --home-line: #30333a;
-    --home-red: #ff4d62;
+    --home-red: #e60029;
     --home-yellow: #e8f35a;
     --home-max: 1160px;
     margin: 0;
@@ -546,12 +664,17 @@
     gap: 60px;
 }
 
+/* 英字のキッカーだけ等幅に。タイトル画面と同じ書体で、
+   本文・見出しには触らずに繋がりを作る。 */
 .home-section-heading > div > p,
 .home-contact-inner > div > p {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     color: var(--home-red);
-    font-size: .77rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .74rem;
     font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
 }
 
 .home-section-heading h2,
@@ -970,10 +1093,13 @@
     color: var(--home-yellow);
 }
 
+/* 彩度の高い赤を全面に敷くと、平坦な矩形として安く見えるうえ目が疲れる。
+   面はダークに戻し、赤は見出しとボタンのアクセントに絞る。 */
 .home-contact {
     padding-block: clamp(90px, 10vw, 135px);
-    color: var(--home-bg);
-    background: var(--home-red);
+    color: var(--home-text);
+    background: var(--home-soft);
+    border-top: 1px solid var(--home-line);
 }
 
 .home-contact-inner {
@@ -983,7 +1109,7 @@
 }
 
 .home-contact-inner > div > p {
-    color: var(--home-bg);
+    color: var(--home-red);
 }
 
 .home-contact-copy {
@@ -999,24 +1125,24 @@
 
 .home-button--light {
     color: var(--home-bg) !important;
-    background: var(--home-text);
-}
-
-.home-button--light::before {
     background: var(--home-yellow);
 }
 
+.home-button--light::before {
+    background: var(--home-text);
+}
+
 .home-button--contact-line {
-    color: var(--home-bg) !important;
-    box-shadow: inset 0 0 0 2.5px var(--home-bg);
+    color: var(--home-text);
+    box-shadow: inset 0 0 0 2.5px var(--home-text);
 }
 
 .home-button--contact-line::before {
-    background: var(--home-bg);
+    background: var(--home-text);
 }
 
 .home-button--contact-line:hover {
-    color: var(--home-text) !important;
+    color: var(--home-bg) !important;
 }
 
 /* 問い合わせフォーム。連絡セクションは背景がピンクなので、
@@ -1039,7 +1165,7 @@
 }
 
 .home-form label > span {
-    color: var(--home-bg);
+    color: var(--home-muted);
     font-size: .78rem;
     font-weight: 700;
 }
@@ -1049,8 +1175,8 @@
     width: 100%;
     padding: 13px 14px;
     color: var(--home-text);
-    background: rgba(16, 17, 20, .88);
-    border: 2px solid transparent;
+    background: rgba(255, 255, 255, .04);
+    border: 2px solid var(--home-line);
     border-radius: 8px;
     font: inherit;
     font-size: .92rem;
@@ -1065,7 +1191,7 @@
 .home-form input:focus,
 .home-form textarea:focus {
     outline: none;
-    background: var(--home-bg);
+    background: rgba(255, 255, 255, .07);
     border-color: var(--home-yellow);
 }
 
@@ -1093,13 +1219,13 @@
 
 .home-form-status {
     margin: 0;
-    color: var(--home-bg);
+    color: var(--home-text);
     font-size: .84rem;
     font-weight: 700;
 }
 
 .home-form-status.is-error {
-    color: #7a0d18;
+    color: #ff8a99;
 }
 
 .home-socials {
@@ -1120,7 +1246,7 @@
     grid-template-columns: auto auto 1fr auto;
     gap: 13px;
     align-items: center;
-    border-top: 1px solid rgba(16, 17, 20, .38);
+    border-top: 1px solid var(--home-line);
     font-size: .66rem;
 }
 
@@ -1132,14 +1258,14 @@
 .home-trace > i {
     height: 5px;
     overflow: hidden;
-    background: rgba(16, 17, 20, .22);
+    background: rgba(255, 255, 255, .2);
 }
 
 .home-trace > i > b {
     display: block;
     width: 4%;
     height: 100%;
-    background: var(--home-bg);
+    background: var(--home-yellow);
     transition: width .3s ease;
 }
 
@@ -1442,6 +1568,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    /* 旧サイトと同じく、動きを減らす設定ではタイトル画面を出さない。 */
+    #intro {
+        display: none;
+    }
+
     .js [data-reveal] {
         opacity: 1;
         transform: none;
@@ -1454,4 +1585,113 @@
     .home-button {
         transition: none;
     }
+}
+
+/* ============================================================
+   受賞と資格 / 実績。タイムラインと同じ行の作りに揃える。
+   1行あたりの高さと区切り線を上のタイムラインと共通にすることで、
+   同じセクション内で浮かないようにしている。
+   ============================================================ */
+.home-records {
+    margin-top: 54px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 54px;
+}
+
+.home-record h3 {
+    margin: 0 0 6px;
+    padding-bottom: 14px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    color: var(--home-red);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--home-line);
+}
+
+.home-record ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home-record li {
+    padding: 18px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3px 20px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--home-line);
+}
+
+.home-record b {
+    font-size: .98rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* 作品名は補足なので1行落として弱く置く。 */
+.home-record span {
+    grid-column: 1;
+    color: var(--home-muted);
+    font-size: .8rem;
+}
+
+.home-record time {
+    grid-row: 1;
+    grid-column: 2;
+    color: var(--home-muted);
+    font-family: "JetBrains Mono", monospace;
+    font-size: .72rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .home-records {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+    }
+}
+
+
+/* 実務は守秘で書ける範囲が限られる。その制約を、
+   直接会う理由に変えるための誘い。連絡先へ直接飛ぶ。 */
+.home-strength-invite {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--home-yellow);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 243, 90, .45);
+    transition: border-color .2s ease;
+}
+
+.home-strength-invite span {
+    transition: transform .24s cubic-bezier(.16, .84, .3, 1);
+}
+
+.home-strength-invite:hover {
+    border-color: var(--home-yellow);
+}
+
+.home-strength-invite:hover span {
+    transform: translateX(4px);
+}
+
+/* 実績の補足内に置く誘い。書けない範囲があることを、会う理由に変える。 */
+.home-record span a {
+    color: var(--home-yellow);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 243, 90, .45);
+    transition: border-color .2s ease;
+}
+
+.home-record span a:hover {
+    border-color: var(--home-yellow);
 }

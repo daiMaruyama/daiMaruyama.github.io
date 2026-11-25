@@ -1695,3 +1695,17 @@
 .home-record span a:hover {
     border-color: var(--home-yellow);
 }
+
+.toy-cover {
+    display: block;
+}
+.toy-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+.home-project-media.toy-card img {
+    object-fit: contain;
+    background: #14141a;
+}

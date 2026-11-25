@@ -29,78 +29,12 @@ if (intro) {
             window.setTimeout(() => intro.classList.add("gone"), 700);
         };
 
+        window.setTimeout(dismissIntro, 2200);
         intro.addEventListener("click", dismissIntro);
         intro.addEventListener("keydown", dismissIntro);
         window.addEventListener("keydown", dismissIntro, { once: true });
     }
 }
-
-const traceKey = "daiPortfolioTraceV4";
-const sessionKey = "daiPortfolioVisitedV4";
-const traceLimit = 999999;
-
-const clampTrace = (value) => {
-    const number = Number.parseInt(value, 10);
-    return Number.isFinite(number)
-        ? Math.min(traceLimit, Math.max(0, number))
-        : 0;
-};
-
-const readTrace = () => {
-    try {
-        const stored = JSON.parse(localStorage.getItem(traceKey) || "{}");
-        return {
-            visits: clampTrace(stored?.visits),
-            touches: clampTrace(stored?.touches),
-        };
-    } catch {
-        return { visits: 0, touches: 0 };
-    }
-};
-
-let trace = readTrace();
-
-const saveTrace = () => {
-    try {
-        localStorage.setItem(traceKey, JSON.stringify(trace));
-    } catch {
-        // The site remains usable when storage is unavailable.
-    }
-};
-
-const traceNodes = {
-    visits: document.querySelector("[data-trace-visits]"),
-    touches: document.querySelector("[data-trace-touches]"),
-    fill: document.querySelector("[data-trace-fill]"),
-};
-
-const renderTrace = () => {
-    if (traceNodes.visits) {
-        traceNodes.visits.textContent = trace.visits.toLocaleString("ja-JP");
-    }
-
-    if (traceNodes.touches) {
-        traceNodes.touches.textContent = trace.touches.toLocaleString("ja-JP");
-    }
-
-    if (traceNodes.fill) {
-        const activity = trace.visits * 4 + trace.touches;
-        const progress = activity === 0 ? 4 : Math.min(100, 8 + Math.log2(activity + 1) * 11);
-        traceNodes.fill.style.width = `${progress}%`;
-    }
-};
-
-try {
-    if (!sessionStorage.getItem(sessionKey)) {
-        trace.visits = clampTrace(trace.visits + 1);
-        sessionStorage.setItem(sessionKey, "1");
-        saveTrace();
-    }
-} catch {
-    // A visit is simply not persisted when storage is unavailable.
-}
-
-renderTrace();
 
 const revealTargets = document.querySelectorAll("[data-reveal]");
 
@@ -187,26 +121,7 @@ const createInkPop = (event) => {
     window.setTimeout(() => ink.remove(), 680);
 };
 
-/* 演出はページのどこを押しても出す。カウントは実際の操作（リンク・ボタン）だけ。 */
-document.addEventListener("pointerdown", (event) => {
-    createInkPop(event);
-
-    const target = event.target.closest("a, button");
-    if (target && !target.closest("[data-no-trace]")) {
-        trace.touches = clampTrace(trace.touches + 1);
-        saveTrace();
-        renderTrace();
-    }
-});
-
-window.addEventListener("storage", (event) => {
-    if (event.key !== traceKey) {
-        return;
-    }
-
-    trace = readTrace();
-    renderTrace();
-});
+document.addEventListener("pointerdown", createInkPop);
 
 /* カーソル追従リング。マウス環境のみ。
    押せる要素の上で拡大するので、クリック可能かどうかの手掛かりになる。

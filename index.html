@@ -56,6 +56,7 @@
                     ゲームシステムとUIフィードバックの実装を軸に、個人・チームで10本以上を制作。
                     現在はモバイルゲーム開発企業でエンジニアとして勤務しています。
                 </p>
+                <p><a class="home-nav-cta" href="projects/toy-or-not.html">代表作『Toy or Not ?』を見る →</a></p>
                 <nav class="home-profile-links" aria-label="外部プロフィール">
                     <a href="https://github.com/daiMaruyama" target="_blank" rel="noopener noreferrer" aria-label="GitHubでソースコードを見る">
                         <span class="home-profile-mark"><img src="images/github.svg" alt=""></span>
@@ -81,9 +82,7 @@
             </div>
 
             <figure class="home-portrait" data-reveal>
-                <div class="home-portrait-frame">
-                    <img src="images/profile.jpg" alt="丸山大輔のプロフィール写真">
-                </div>
+                <a class="toy-cover" href="projects/toy-or-not.html#trailer"><img src="images/toy-title.jpg"  alt="Toy or Not ? の公式トレーラーを見る"></a>
             </figure>
         </section>
 
@@ -98,10 +97,22 @@
 
             <div class="home-project-grid">
                 <article class="home-project-card" data-reveal>
+                    <a class="home-project-media toy-card" href="projects/toy-or-not.html#trailer">
+                        <img src="images/toy-title.jpg" alt="Toy or Not ?">
+                        <span>公式トレーラーを見る ▶</span>
+                    </a>
+                    <div class="home-project-content">
+                        <div class="home-project-title"><div><span>UE5.8</span><span>C++</span><span>3人チーム</span></div><h3>Toy or Not ?</h3></div>
+                        <p>凝視されたら動けない。人間とおもちゃに分かれて遊ぶ非対称オンライン対戦。</p>
+                        <ul><li>サーバー側で視線を判定</li><li>観戦テレビはチャンネル番号を同期し、映像は各端末で描画</li><li>Steamストア公開中 ／ 2027年2月発売予定</li></ul>
+                        <div class="home-project-links"><a href="projects/toy-or-not.html">担当実装を見る →</a></div>
+                    </div>
+                </article>
+                <article class="home-project-card" data-reveal>
                     <a class="home-project-media home-project-media--train home-project-media--video" href="projects/train-seat-survival.html">
                         <img src="images/train-seat-survival-poster.jpg" alt="">
                         <video class="home-project-preview" muted loop playsinline preload="none" poster="images/train-seat-survival-poster.jpg" data-project-video data-video-src="videos/train-seat-survival-preview.mp4" aria-hidden="true"></video>
-                        <span>PICKUP 01 ／ 個人制作</span>
+                        <span>個人制作</span>
                         <strong>座れ！<br>サラリーマン！</strong>
                         <i aria-hidden="true">詳細を見る ↗</i>
                     </a>
@@ -147,29 +158,7 @@
                     </div>
                 </article>
 
-                <article class="home-project-card" data-reveal>
-                    <a class="home-project-media" href="https://unityroom.com/games/shapepuzzles" target="_blank" rel="noopener noreferrer">
-                        <img src="images/2025.11.22.png" alt="Shape Puzzlesのタイトル画面" loading="lazy">
-                        <video class="home-project-preview" muted loop playsinline preload="none" poster="images/2025.11.22.png" data-project-video data-video-src="" aria-hidden="true"></video>
-                        <span>UnityRoomで遊ぶ ↗</span>
-                    </a>
-                    <div class="home-project-content">
-                        <div class="home-project-title">
-                            <div><span>Unity</span><span>C#</span><span>3人チーム</span></div>
-                            <h3>Shape Puzzles</h3>
-                        </div>
-                        <p>図形を回転・配置して完成形を作るパズルゲーム。</p>
-                        <ul>
-                            <li>リードプログラマーを担当</li>
-                            <li>共通機能・操作・GitHub運用を整備</li>
-                            <li>コード規約とタスク管理を導入</li>
-                        </ul>
-                        <div class="home-project-links">
-                            <a href="projects/shapepuzzles.html">担当を見る →</a>
-                            <a href="https://github.com/WatanabeMasaki1224/team-pazuru" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                        </div>
-                    </div>
-                </article>
+
             </div>
         </section>
 
@@ -184,46 +173,8 @@
                 </header>
 
                 <div class="home-strengths">
-                    <article data-reveal>
-                        <span>01</span>
-                        <div>
-                            <h3>手触りへのこだわり</h3>
-                            <p>まず最短で遊べるコアループを作り、入力への反応や情報の伝わり方をプレイテストで確かめます。そのうえでヒットストップ・画面演出・音・UIを優先度順に磨き、「ただ動く」ではなく「完成させた」と言える状態まで詰めます。</p>
-                        </div>
-                        <p class="home-strength-fact">ヒットストップ / カメラシェイク / Bloom</p>
-                    </article>
-                    <article data-reveal>
-                        <span>02</span>
-                        <div>
-                            <h3>企画から実装まで</h3>
-                            <p>日常で感じたことを、そのまま遊びのルールに変換します。企画・設計・実装を分けずに一人で通せるので、思いついた面白さを最後まで形にできます。個人制作でも商用でも同じ進め方で担当しています。</p>
-                        </div>
-                        <p class="home-strength-fact">乗降シミュレーション / 決定性乱数</p>
-                    </article>
-                    <article data-reveal>
-                        <span>03</span>
-                        <div>
-                            <h3>チーム開発</h3>
-                            <p>自分が書けることより、チーム全員が書きやすいことを優先します。共通化と運用ルールを整えて、他のメンバーが実装で迷う時間を減らします。</p>
-                        </div>
-                        <p class="home-strength-fact">3人チーム / 共通UIクラス</p>
-                    </article>
-                    <article data-reveal>
-                        <span>04</span>
-                        <div>
-                            <h3>実務経験</h3>
-                            <p>某ゲーム会社にエンジニアとして参加し、実際に運用されているタイトルの開発に携わっています。既存の設計と影響範囲を読んでから手を入れる進め方が身につきました。<a class="home-strength-invite" href="#contact">ここには書ききれないので、ぜひ直接お話しさせてください <span aria-hidden="true">→</span></a></p>
-                        </div>
-                        <p class="home-strength-fact">不具合修正 / 新規事業のミニゲーム開発</p>
-                    </article>
-                    <article data-reveal>
-                        <span>05</span>
-                        <div>
-                            <h3>設計とアルゴリズム</h3>
-                            <p>場面に応じて適切な設計とデザインパターンを選ぶことを常に意識しています。作って終わりではなく、あとから変更しやすい構造を選びます。アルゴリズムはAtCoderで継続的に鍛えています。</p>
-                        </div>
-                        <p class="home-strength-fact">Mediator / Builder / ServiceLocator / AtCoder 入茶</p>
-                    </article>
+                    <article data-reveal><div><h3>画面比による有利をなくす</h3><p>『Toy or Not ?』では、凝視の判定範囲を16:9で頭打ちにしました。端末から届く画面比は、範囲を狭める方向にだけ使っています。</p></div></article>
+                    <article data-reveal><div><h3>遊びのルールをテストする</h3><p>『座れ！サラリーマン！』では乗降モデルを画面から分離し、定員を超えないことや、目的駅を過ぎた乗客が残らないことを検証しました。</p></div></article>
                 </div>
             </div>
         </section>
@@ -242,14 +193,17 @@
                 <article data-reveal><time datetime="2025-08">2025.08</time><div><h3>チーム制作でゲームジャムに参加</h3><p>連打と相撲を組み合わせた作品を2日間で制作。</p></div></article>
                 <article data-reveal><time datetime="2026-02">2026.02</time><div><h3>ZeroOneSlash を個人制作</h3><p>企画・実装・UI/UX・UGSランキングまで一人で担当。</p></div></article>
                 <article data-reveal><time datetime="2026-03">2026.03</time><div><h3>ゲームループとチーム統合を担当</h3><p>Unity1weekでMediator / UniTask / UI統合、TeamBで既存機能の修正を経験。</p></div></article>
-                <article data-reveal><time datetime="2026-05">2026.05</time><div><h3>ゲーム開発企業でのアルバイト</h3><p>Unity、Cocos2d-x / C++、PHPを使い、不具合修正と新規ミニゲーム開発へ参加。</p></div></article>
+                <article data-reveal><time datetime="2026-05">2026.05</time><div><h3>ゲーム開発企業でのアルバイト</h3><p>運営中タイトルの改修、新規事業でTikTok向けゲームの企画・開発・収益目標設定を担当。</p></div></article>
                 <article data-reveal><time datetime="2026-07">2026.07</time><div><h3>UnityからUE5・C++へ領域を広げる</h3><p>AtCoderでアルゴリズムを継続的に鍛えながら、UE5 / C++の学習を開始。</p></div></article>
+                <article data-reveal><time datetime="2026-09">2026.09</time><div><h3>『Toy or Not ?』制作開始</h3><p>3人チームでUE5.8・C++を使用。</p></div></article>
+                <article data-reveal><time datetime="2026-11">2026.11</time><div><h3>Toy or Not ? のSteamストアを公開</h3><p>UE5・C++でチーム開発したオンライン対戦かくれんぼ。</p></div></article>
             </div>
 
             <div class="home-records">
                 <section class="home-record" data-reveal>
                     <h3>受賞と資格</h3>
                     <ul>
+                        <li><b>CAPCOM Hackathon 3位</b><span>Unity・4人チーム・2日間</span><time datetime="2026-11">2026.11</time></li>
                         <li><b>基本情報技術者試験</b><time datetime="2026-08">2026.08</time></li>
                         <li><b>学内審査会 敢闘賞</b><time datetime="2026-07">2026.07</time></li>
                         <li><b>学内審査会 優秀賞</b><time datetime="2026-02">2026.02</time></li>
@@ -258,14 +212,11 @@
                 </section>
 
                 <section class="home-record" data-reveal>
-                    <h3>実績</h3>
+                    <h3>インターン参加歴</h3>
                     <ul>
-                        <li><b>コロプラ様1Dayインターン参加</b><time datetime="2026-08">2026.08</time></li>
-                        <li>
-                            <b>某モバイルゲーム会社にてエンジニアアルバイトを開始</b>
-                            <span>運用中タイトルの改修に加え、新規事業の企画から実装までをほぼ一人で担当。<a href="#contact">詳しくは面接でお話しします →</a></span>
-                            <time datetime="2026-05">2026.05</time>
-                        </li>
+                        <li><b>サイバーエージェント 2days</b><span>実タイトルのバグ修正・機能追加</span><time datetime="2026-09">2026.09</time></li>
+                        <li><b>マーベラス 2days</b><span>モデルのアニメーションとシェーダーの基礎を講義・実習で学習</span><time datetime="2026-09">2026.09</time></li>
+                        <li><b>コロプラ 1day ゲーム設計ワーク</b><time datetime="2026-08">2026.08</time></li>
                     </ul>
                 </section>
             </div>
@@ -279,6 +230,7 @@
                 </div>
             </header>
             <div class="home-other-grid">
+                <a href="projects/shapepuzzles.html" data-reveal><strong>Shape Puzzles</strong><span>3人チーム / リードプログラマー</span></a>
                 <a href="projects/turnoffthelights.html" data-reveal><strong>TurnOffTheLights</strong><span>3D / NavMesh / 個人</span></a>
                 <a href="projects/anaai.html" data-reveal><strong>いますぐあなたに会いたいの</strong><span>2D / 個人</span></a>
                 <a href="projects/shootingtwinkle.html" data-reveal><strong>Shooting Twinkle</strong><span>2人対戦 / チーム</span></a>
@@ -344,12 +296,7 @@
                         <a href="https://unityroom.com/users/daimaruyama" target="_blank" rel="noopener noreferrer">UnityRoom</a>
                         <a href="https://zenn.dev/daimaruyama" target="_blank" rel="noopener noreferrer">Zenn</a>
                         <a href="https://x.com/daiMaruyama" target="_blank" rel="noopener noreferrer">X</a>
-                        <a href="https://atcoder.jp/users/mgnl633" target="_blank" rel="noopener noreferrer">AtCoder</a>
-                    </div>
-                    <div class="home-trace" aria-live="polite">
-                        <span>この端末での訪問 <strong data-trace-visits>0</strong></span>
-                        <span>操作 <strong data-trace-touches>0</strong></span>
-                        <i aria-hidden="true"><b data-trace-fill></b></i>
+                        <a href="https://atcoder.jp/users/mgnl633" target="_blank" rel="noopener noreferrer">AtCoder（緑・888）</a>
                     </div>
                 </div>
             </div>

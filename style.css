@@ -3730,3 +3730,31 @@ body.play-mode .garden-lab {
         transform: none;
     }
 }
+
+.toy-film {
+    margin: 2rem 0 0;
+}
+
+.toy-trailer {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    object-fit: contain;
+}
+
+.toy-shot {
+    margin: 1.5rem 0;
+}
+.toy-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.toy-shot figcaption {
+    padding-block: .5rem;
+    font-size: .9rem;
+}
+.toy-code {
+    overflow-wrap: anywhere;
+}

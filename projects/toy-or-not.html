@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toy or Not ?｜丸山大輔</title>
+    <meta name="description" content="人間とおもちゃの非対称オンライン対戦。寸劇、観戦テレビ、画面比による公平性など、担当した実装を紹介します。">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="project-page">
+    <header class="project-header"><a href="../index.html#projects">← 代表作へ</a><span>丸山 大輔</span></header>
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-top">
+                <div>
+                    <p class="project-index">UE5.8 / C++</p>
+                    <h1 class="project-title" lang="en">Toy or Not ?</h1>
+                    <p class="project-dek">凝視されたら動けない。人間とおもちゃの非対称オンライン対戦です。おもちゃは電池を集め、捕まった仲間を助けながら脱出を目指します。人間はおもちゃを見つけて箱にしまいます。</p>
+                    <div class="project-actions"><a class="button button--dark" href="https://store.steampowered.com/app/5582500/Toy_or_Not/">Steamストアで見る ↗</a></div>
+                </div>
+                <dl class="project-facts">
+                    <div><dt>開発</dt><dd>3人チーム ／ 2026年9月から制作中</dd></div>
+                    <div><dt>担当実装</dt><dd>寸劇とタイトル、観戦テレビ、画面比の判定、ボイスチャット、開発フロー</dd></div>
+                    <div><dt>公開状況</dt><dd>Steamストア公開中 ／ 2027年2月発売予定</dd></div>
+                </dl>
+            </div>
+            <figure class="toy-film" id="trailer">
+                <video class="toy-trailer" controls playsinline preload="none" poster="../images/toy-title.jpg" aria-label="Toy or Not ? 日本語公式トレーラー" src="../videos/toy-or-not-trailer.mp4"></video>
+                <figcaption>『Toy or Not ?』日本語公式トレーラー</figcaption>
+            </figure>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><h2>寸劇からタイトルへ</h2></div>
+                <div class="case-copy">
+                    <p>遊ぶ前におもちゃたちの事情が伝わるよう、Sequencerで寸劇を作りました。暗転からテディの目のアップを経てタイトルへつなぎます。タイトルでおもちゃをクリックすると踊りが変わります。</p>
+                    <figure class="toy-shot"><img src="../images/toy-story.jpg" alt="部屋に並ぶおもちゃたち" loading="lazy"><figcaption>捨てられると知ったおもちゃたち。</figcaption></figure>
+                    <figure class="toy-shot"><img src="../images/toy-eye.jpg" alt="暗がりに映るテディの片目" loading="lazy"><figcaption>テディの目に寄り、寸劇とタイトルをつなぐ。</figcaption></figure>
+                    <p>寸劇を見せたときに「吹き出しは見づらい」という感想がありました。セリフを字幕に移して大きさを調整し、扉が閉まる「バタンッ」だけは大きな描き文字で残しました。</p>
+                    <figure class="toy-shot"><img src="../images/toy-subtitles.jpg" alt="子どもと母親の場面で画面下に表示される字幕" loading="lazy"><figcaption>変更後の字幕。人物の動きとセリフを一緒に追えるようにした。</figcaption></figure>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleGameMode.cpp"><code>TBTitleGameMode.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleStory.h"><code>TBTitleStory.h</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleEmote.cpp"><code>TBTitleEmote.cpp</code></a></p>
+                </div>
+            </div>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><h2>捕まった後は、テレビで観戦</h2></div>
+                <div class="case-copy">
+                    <p>捕まった仲間同士で試合を見ながら待てるよう、おもちゃ箱に子ども用のテレビを置きました。大きなリモコンに乗って、みんなで観戦するチャンネルを替えられます。</p>
+                    <figure class="toy-shot"><img src="../images/toy-tv.jpg" alt="おもちゃ箱に置かれたテレビと大きなリモコン" loading="lazy"><figcaption>箱の中からリモコンを踏んで、試合中の部屋を見る。</figcaption></figure>
+                    <p>観戦映像を共有するためにサーバーが同期するのはチャンネル番号だけです。映像は各端末で描画し、おもちゃ箱の外にいるプレイヤーの端末では描画しません。</p>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp"><code>TBBoxTV.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVRemote.cpp"><code>TBTVRemote.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVButton.cpp"><code>TBTVButton.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVCamera.h"><code>TBTVCamera.h</code></a></p>
+                </div>
+            </div>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><h2>画面比で勝負が変わらないように</h2></div>
+                <div class="case-copy">
+                    <p>リッスンサーバー方式で、SteamリレーとLANを切り替えられます。対戦の審判はサーバーが担い、端末は操作を送ります。</p>
+                    <figure class="toy-shot"><img src="../images/toy-room.jpg" alt="室内を上から見たゲーム画面" loading="lazy"><figcaption>人間とおもちゃが対戦する部屋。</figcaption></figure>
+                    <p>担当した <code>JudgeHalfAngles</code> では、凝視の判定に使う画面比の上限を16:9にしました。端末から届く画面比は判定範囲を狭める方向にだけ使います。</p>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBRuleMath.h#L125"><code>TBRuleMath.h · JudgeHalfAngles</code></a></p>
+                </div>
+            </div>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><h2>声で距離と役柄を伝える</h2></div>
+                <div class="case-copy">
+                    <p>ボイスチャットは相手との距離で音量が下がり、箱越しには声がこもります。人間とおもちゃで声の高さが変わるよう、ピッチシフトを自作しました。</p>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Character/TBVoiceComponent.cpp"><code>TBVoiceComponent.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Audio/TBPitchShift.cpp"><code>TBPitchShift.cpp</code></a></p>
+                </div>
+            </div>
+        </section>
+        <section class="case-section">
+            <div class="case-grid">
+                <div class="case-heading"><h2>担当範囲と開発フロー</h2></div>
+                <div class="case-copy">
+                    <p>担当したC++は約1万4千行、作品の自動テストは約190本です。AIのコーディング支援を使い、仕様と仕組みは自分で決めました。</p>
+                    <p>PRの前に <code>/quiz</code> で変更内容についての4択問題に3問答えます。合格しないとpushできず、GitHub Actionsでも合格記録を確認します。</p>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/.github/workflows/quiz.yml"><code>quiz.yml</code></a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="project-header"><a href="../index.html#projects">← 代表作へ</a><a href="train-seat-survival.html">次の作品：座れ！サラリーマン！ →</a></footer>
+</body>
+</html>

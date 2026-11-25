@@ -34,13 +34,18 @@
         </section>
         <section class="case-section" id="title-story">
             <div class="case-grid">
-                <div class="case-heading"><span>01</span><h2>寸劇とタイトル</h2></div>
+                <div class="case-heading"><span>01</span><h2>寸劇からタイトルへ</h2></div>
                 <div class="case-copy">
-                    <p>「吹き出しは見づらい」という声で字幕に変更。バグに見えた静止演出も、クリックで踊る動きに作り直しました。</p>
-                    <figure class="toy-flow" aria-label="寸劇からタイトルへの遷移">
-                        <div><img loading="lazy" src="../images/toy-story.jpg" alt=""><strong>寸劇を再生</strong><span>スキップ時は最後のコマで停止</span></div>
-                        <div><img loading="lazy" src="../images/toy-eye.jpg" alt=""><strong>テディの目へ</strong><span>暗転からアップへつなぐ</span></div>
-                        <div><img loading="lazy" src="../images/toy-title.jpg" alt=""><strong>タイトルへ</strong><span>切れ目なく操作へ移る</span></div>
+                    <p>遊ぶ前に、おもちゃたちの事情を伝えたい。寸劇の最後にテディの目に寄り、タイトルへ切れ目なくつなぎます。</p>
+                    <figure class="toy-exhibit">
+                        <img id="story-subtitles" width="1600" height="900" src="../images/toy-subtitles.jpg" alt="母親と子どもの寸劇。人物の足元にセリフが字幕で表示されている">
+                        <figcaption>
+                            <p>吹き出しが読みづらいという声を受け、セリフは画面下の字幕にまとめました。</p>
+                            <dl class="story-routes">
+                                <div><dt>通常再生</dt><dd>寸劇 → テディの目に寄る → タイトルへ</dd></div>
+                                <div><dt>スキップ</dt><dd>寸劇 → 最後のコマで停止</dd></div>
+                            </dl>
+                        </figcaption>
                     </figure>
                     <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleGameMode.cpp"><code>TBTitleGameMode.cpp</code></a> <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleStory.h"><code>TBTitleStory.h</code></a> <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleEmote.cpp"><code>TBTitleEmote.cpp</code></a></p>
                 </div>
@@ -51,12 +56,21 @@
                 <div class="case-heading"><span>02</span><h2>おもちゃ箱の観戦テレビ</h2></div>
                 <div class="case-copy">
                     <p>捕まった仲間と同じ試合を見られるよう、大きなリモコンに乗って観戦先を替えるテレビを作りました。</p>
-                    <figure class="toy-flow" aria-label="観戦テレビの同期と描画">
-                        <div><img loading="lazy" src="../images/toy-tv.jpg" alt=""><strong>サーバー</strong><span>送るのはチャンネル番号だけ</span></div>
-                        <div><strong>箱の中の端末</strong><span>受け取った番号で映像を描画</span></div>
-                        <div><strong>箱の外の端末</strong><span>観戦映像を描画しない</span></div>
+                    <figure class="toy-exhibit">
+                        <img width="1600" height="900" loading="lazy" src="../images/toy-tv.jpg" alt="おもちゃ箱のテレビに試合中の部屋が映り、手前にはおもちゃが乗れる大きなリモコンがある">
+                        <figcaption class="tv-network">
+                            <strong class="tv-source">サーバーがチャンネル番号を共有</strong>
+                            <div class="tv-clients">
+                                <div><strong>箱の中の端末</strong><span>その番号の映像を描画</span></div>
+                                <div><strong>箱の外の端末</strong><span>観戦映像の描画を省略</span></div>
+                            </div>
+                        </figcaption>
                     </figure>
-                    <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp"><code>TBBoxTV.cpp</code></a> <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVRemote.cpp"><code>TBTVRemote.cpp</code></a> <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVButton.cpp"><code>TBTVButton.cpp</code></a> <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVCamera.h"><code>TBTVCamera.h</code></a></p>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp">観戦テレビの実装を見る · TBBoxTV.cpp</a></p>
+                    <details class="toy-related">
+                        <summary>関連コード（リモコン・ボタン・カメラ）</summary>
+                        <p><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVRemote.cpp"><code>TBTVRemote.cpp</code></a> · <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVButton.cpp"><code>TBTVButton.cpp</code></a> · <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVCamera.h"><code>TBTVCamera.h</code></a></p>
+                    </details>
                 </div>
             </div>
         </section>

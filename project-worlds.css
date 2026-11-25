@@ -1,0 +1,170 @@
+/* Toy or Not ? — painted wood, printed packaging and a scalloped lid. */
+.toy-page {
+    --ink: #252944;
+    --muted: #51546a;
+    --paper: #fff4d8;
+    --paper-strong: #fffbef;
+    --red: #a02c35;
+    background: radial-gradient(#d9bb7f 1px, transparent 1.5px) 0 0 / 18px 18px, var(--paper);
+}
+.toy-page .project-header {
+    background: #fff9e9;
+    border-bottom: 4px solid var(--ink);
+}
+.toy-page .project-hero { padding-top: clamp(36px, 5vw, 72px); }
+.toy-page .project-hero-top {
+    background: var(--paper-strong);
+    border: 3px solid var(--ink);
+    border-radius: 20px;
+    padding: clamp(20px, 4vw, 54px);
+    box-shadow: 0 7px 0 #d5a653;
+    overflow: hidden;
+    position: relative;
+}
+.toy-page .project-hero-top::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 10px;
+    background: repeating-linear-gradient(90deg,#c83a42 0 30px,#efb847 30px 60px,#447f9d 60px 90px);
+}
+.toy-page .project-title {
+    font: 900 clamp(2.7rem, 7vw, 6.6rem)/1.22 "Archivo Black", sans-serif;
+    color: var(--ink);
+    letter-spacing: -.055em;
+}
+.toy-page .project-title span {
+    display: inline-block;
+    padding: 0 .09em;
+    border-radius: .12em;
+    color: #fff9e9;
+    background: #b83840;
+    box-shadow: .04em .06em 0 var(--ink);
+    transform: rotate(-3deg);
+}
+.toy-page .project-title span:last-child {
+    background: #296783;
+    transform: rotate(2deg);
+}
+.toy-page .case-section { background: var(--paper-strong); }
+.toy-page .case-section:nth-of-type(odd) { background: #f3eddc; }
+.toy-page .case-heading span, .toy-page .button {
+    border-radius: 8px;
+    background: #a02c35;
+    color: white;
+    box-shadow: 2px 3px 0 var(--ink);
+}
+.toy-page .toy-exhibit img, .toy-page .toy-trailer {
+    border: 5px solid var(--ink);
+    border-radius: 15px;
+    box-shadow: 0 5px 0 #d6aa62;
+}
+
+/* 座れ！サラリーマン！ — platform signage, route stripe and carriage window. */
+.train-page { --ink: #192e31; --muted: #41595b; --paper: #f6f7f2; --red: #146b61; --lime: #b7ead5; }
+.train-page .project-header {
+    background: #182e32;
+    border-bottom: 5px solid #65c4a3;
+    color: white;
+}
+.train-page .project-header .project-name { color: #d9e7e2; }
+.train-page .project-hero { padding-top: clamp(30px, 4vw, 58px); }
+.train-page .project-hero-top {
+    align-items: center;
+    padding: clamp(18px, 4vw, 54px);
+    border: 1px solid #b4c5bd;
+    border-top: 10px solid var(--red);
+    background: #fff;
+    box-shadow: 0 4px 0 #ced8d1;
+}
+.train-page .project-title {
+    font-size: clamp(2.15rem, 5.3vw, 5rem);
+    line-height: 1.16;
+    font-weight: 900;
+    letter-spacing: -.05em;
+}
+.train-route { display: flex; margin: 2rem 0; }
+.train-route a {
+    position: relative;
+    flex: 1;
+    padding-top: 1.35rem;
+    color: var(--ink);
+    font-weight: 700;
+    text-align: center;
+    text-underline-offset: 4px;
+}
+.train-route a::before {
+    content: "";
+    position: absolute;
+    inset: 7px 0 auto;
+    height: 5px;
+    background: var(--red);
+}
+.train-route a:first-child::before { left: 50%; }
+.train-route a:last-child::before { right: 50%; }
+.train-route a::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 4px solid var(--red);
+    border-radius: 50%;
+    background: #fff;
+    transform: translateX(-50%);
+}
+.train-page .project-media {
+    margin-top: 1.5rem;
+    border: 7px solid #516568;
+    border-radius: 22px;
+    box-shadow: 0 0 0 2px #aebbb6;
+}
+.train-page .case-heading { border-left: 5px solid #478f7b; padding-left: 18px; }
+.train-page .button { border-radius: 4px; }
+
+/* ZeroOneSlash — illuminated dartboard against a dark bar interior. */
+.darts-page {
+    --paper: #151021;
+    --paper-strong: #251c32;
+    --ink: #fbf5ff;
+    --muted: #d5c8dd;
+    --line: #57475f;
+    --red: #ffa1d0;
+    --lime: #a0eadc;
+    color: var(--ink);
+    background: radial-gradient(ellipse at 85% 0, #42243d 0, transparent 38rem), var(--paper);
+}
+.darts-page .project-header, .darts-page .project-next { background: #17121e; color: var(--ink); border-color: var(--line); }
+.darts-page .project-hero { padding-top: clamp(36px, 6vw, 84px); }
+.darts-page .project-hero-top { position: relative; isolation: isolate; align-items: center; }
+.darts-page .project-hero-top::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -1rem 0 0;
+    pointer-events: none;
+    opacity: .25;
+    background: repeating-radial-gradient(circle at 42% 54%, transparent 0 47px, #ad7497 48px 49px, transparent 50px 67px);
+    mask-image: linear-gradient(90deg,transparent,#000 42%,transparent 72%);
+}
+.darts-page .project-title {
+    color: #fff6fc;
+    font-family: "Space Mono", monospace;
+    font-size: clamp(3.2rem, 7.2vw, 7rem);
+    font-style: italic;
+    letter-spacing: -.085em;
+    text-shadow: 2px 2px #a73672, 0 0 22px #83345d;
+}
+.darts-page .project-facts { padding: 12px 18px; background: #201829; border: 1px solid #674462; border-top: 3px solid #d95c9e; }
+.darts-page .project-media { border: 1px solid #ae638f; box-shadow: 0 0 28px #48283f; }
+.darts-page .project-media figcaption { background: #201829; color: var(--muted); }
+.darts-page .case-section { border-color: var(--line); }
+.darts-page .case-section--dark { background: #211929; color: var(--ink); }
+.darts-page .case-section--dark .case-copy > p, .darts-page .detail-list span { color: var(--muted); }
+.darts-page .decision { border-left: 3px solid #cb609c; }
+.darts-page .project-links-panel { color: var(--ink); background: #351e34; }
+.darts-page .button { border-color: #ca70a1; color: var(--ink); background: #251929; box-shadow: none; }
+.darts-page .button--primary, .darts-page .button--dark { color: #221624; background: #ffb5db; }
+.darts-page .project-next a { color: var(--ink); }

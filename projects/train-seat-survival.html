@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../project-worlds.css">
 </head>
-<body class="project-page">
+<body class="project-page train-page">
     <header class="project-header">
         <a href="../index.html#projects">← SELECTED WORKS</a>
         <span class="project-name">DAISUKE MARUYAMA / CASE 01</span>
@@ -19,7 +20,7 @@
         <section class="project-hero">
             <div class="project-hero-top">
                 <div>
-                    <p class="project-index">CASE STUDY 01 / SOLO DEVELOPMENT</p>
+                    <p class="project-index">Unity 6 ／ 個人制作</p>
                     <h1 class="project-title">座れ！<br>サラリーマン！</h1>
                     <p class="project-dek">
                         満員電車で座席を奪い合う一人称サバイバル。
@@ -39,13 +40,18 @@
                     <div><dt>RESULT</dt><dd>学内審査会 敢闘賞</dd></div>
                 </dl>
             </div>
+            <nav class="train-route" aria-label="作品解説の目次">
+                <a href="#rules">遊びのルール</a>
+                <a href="#model">乗降モデル</a>
+                <a href="#next-test">次の検証</a>
+            </nav>
             <figure class="project-media">
                 <img src="../images/train-seat-gameplay.jpg" alt="車内の乗客越しに、空いた座席が光っているゲーム画面">
                 <figcaption>駅で空席が出た瞬間。光る座席を狙い、ほかの乗客と席を奪い合う。</figcaption>
             </figure>
         </section>
 
-        <section class="case-section">
+        <section class="case-section" id="rules">
             <div class="case-grid">
                 <div class="case-heading">
                     <span>01 / INTENT</span>
@@ -78,7 +84,7 @@
             </div>
         </section>
 
-        <section class="case-section case-section--dark">
+        <section class="case-section case-section--dark" id="model">
             <div class="case-grid">
                 <div class="case-heading">
                     <span>02 / ENGINEERING</span>
@@ -100,7 +106,7 @@
             </div>
         </section>
 
-        <section class="case-section">
+        <section class="case-section" id="next-test">
             <div class="case-grid">
                 <div class="case-heading">
                     <span>03 / LEARNING</span>

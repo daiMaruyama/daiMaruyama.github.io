@@ -98,14 +98,19 @@
 
             <div class="home-project-grid">
                 <article class="home-project-card" data-reveal>
-                    <a class="home-project-media toy-card" href="projects/toy-or-not.html#trailer">
-                        <img src="images/toy-tv.jpg" alt="おもちゃ箱の中の観戦テレビとリモコン">
-                        <span>公式トレーラーを見る ▶</span>
+                    <a class="home-project-media toy-card" href="projects/toy-or-not.html" aria-label="Toy or Not ? の担当実装を見る">
+                        <img src="images/toy-room.jpg" alt="">
+                        <video class="home-project-preview" muted loop playsinline preload="none" poster="images/toy-room.jpg" data-project-video data-video-src="videos/toy-or-not-preview.mp4" aria-hidden="true"></video>
                     </a>
                     <div class="home-project-content">
                         <div class="home-project-title"><div><span>UE5.8</span><span>C++</span><span>3人チーム</span></div><h3>Toy or Not ?</h3></div>
                         <p>凝視されたら動けない。人間とおもちゃに分かれて遊ぶ非対称オンライン対戦。</p>
-                        <ul><li>画面比で有利にならないよう、凝視の判定範囲を制限（担当）</li><li>観戦テレビはチャンネル番号を同期し、映像は各端末で描画</li><li>Steamストア公開中 ／ 2027年2月発売予定</li></ul>
+                        <ul>
+                            <li>寸劇からタイトルへつなぐ演出を制作</li>
+                            <li>おもちゃ箱の観戦テレビを実装</li>
+                            <li>凝視の判定範囲を画面比に合わせて制限</li>
+                        </ul>
+                        <p><a href="https://store.steampowered.com/app/5582500/Toy_or_Not/">Steamストア公開中 ↗</a> ／ 2027年2月発売予定</p>
                         <div class="home-project-links"><a href="projects/toy-or-not.html">担当実装を見る →</a></div>
                     </div>
                 </article>
@@ -188,14 +193,18 @@
                 <p>ゲーム開発を始めてから、作品と仕事で担当範囲を広げてきました。</p>
             </header>
 
+            <h3 class="home-year">1年次 <small>2025.04〜</small></h3>
             <div class="home-timeline">
-                <article data-reveal><time datetime="2025-04">2025.04</time><div><h3>ゲームプログラミングを開始</h3><p>Unity / C#を学び、個人制作とゲームジャムへ参加。</p></div></article>
-                <article data-reveal><time datetime="2025-08">2025.08</time><div><h3>チーム制作でゲームジャムに参加</h3><p>連打と相撲を組み合わせた作品を2日間で制作。</p></div></article>
+                <article data-reveal><time datetime="2025-04">2025.04</time><div><h3>ゲームプログラミングを開始</h3><p>Unity / C#を学び始める。初のゲームジャム作品『Front Slimers』では敵キャラクターを担当。</p></div></article>
+                <article data-reveal><time datetime="2025-08">2025.08</time><div><h3>チーム制作でゲームジャムに参加</h3><p>『はっきよいよい つっぱって！』を2日間で制作。</p></div></article>
                 <article data-reveal><time datetime="2026-02">2026.02</time><div><h3>ZeroOneSlash を個人制作</h3><p>企画・実装・UI/UX・UGSランキングまで一人で担当。</p></div></article>
                 <article data-reveal><time datetime="2026-03">2026.03</time><div><h3>ゲームループとチーム統合を担当</h3><p>Unity1weekでMediator / UniTask / UI統合、TeamBで既存機能の修正を経験。</p></div></article>
-                <article data-reveal><time datetime="2026-05">2026.05</time><div><h3>ゲーム開発企業でのアルバイト</h3><p>運営中タイトルの改修、新規事業でTikTok向けゲームの企画・開発・収益目標設定を担当。</p></div></article>
-                <article data-reveal><time datetime="2026-07">2026.07</time><div><h3>UnityからUE5・C++へ領域を広げる</h3><p>AtCoderでアルゴリズムを継続的に鍛えながら、UE5 / C++の学習を開始。</p></div></article>
-                <article data-reveal><time datetime="2026-09">2026.09</time><div><h3>『Toy or Not ?』制作開始</h3><p>3人チームでUE5.8・C++を使用。</p></div></article>
+            </div>
+            <h3 class="home-year">2年次 <small>2026.04〜</small></h3>
+            <div class="home-timeline">
+                <article data-reveal><time datetime="2026-05">2026.05〜現在</time><div><h3>ゲーム開発企業でのアルバイト</h3><p>運営中タイトルの改修、新規事業でTikTok向けゲームの企画・開発・収益目標設定を担当。</p></div></article>
+                <article data-reveal><time datetime="2026-07">2026.07</time><div><h3>UnityからUE5・C++へ領域を広げる</h3><p>個人制作『座れ！サラリーマン！』を発表。UE5 / C++の学習を開始。</p></div></article>
+                <article data-reveal><time datetime="2026-09">2026.09</time><div><h3>『Toy or Not ?』制作開始</h3><p>3人チームで開発。寸劇とタイトル、観戦テレビ、画面比の判定などを担当。</p></div></article>
                 <article data-reveal><time datetime="2026-11">2026.11</time><div><h3>Toy or Not ? のSteamストアを公開</h3><p>UE5・C++でチーム開発したオンライン対戦かくれんぼ。</p></div></article>
             </div>
 
@@ -205,9 +214,9 @@
                     <ul>
                         <li><b>CAPCOM Hackathon 3位</b><span>Unity・4人チーム・2日間</span><time datetime="2026-11">2026.11</time></li>
                         <li><b>基本情報技術者試験 合格</b><time datetime="2026-08">2026.08</time></li>
-                        <li><b>学内審査会 敢闘賞</b><time datetime="2026-07">2026.07</time></li>
-                        <li><b>学内審査会 優秀賞</b><time datetime="2026-02">2026.02</time></li>
-                        <li><b>学内ゲームジャム 最多得票数賞</b><time datetime="2025-08">2025.08</time></li>
+                        <li><b>学内審査会 敢闘賞</b><span>座れ！サラリーマン！</span><time datetime="2026-07">2026.07</time></li>
+                        <li><b>学内審査会 優秀賞</b><span>ZeroOneSlash</span><time datetime="2026-02">2026.02</time></li>
+                        <li><b>学内ゲームジャム 最多得票数賞</b><span>はっきよいよい つっぱって！</span><time datetime="2025-08">2025.08</time></li>
                     </ul>
                 </section>
 

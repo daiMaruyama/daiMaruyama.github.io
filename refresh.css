@@ -285,3 +285,14 @@
     word-break: keep-all;
     overflow-wrap: anywhere;
 }
+
+.home-year {
+    margin: 2rem 0 .75rem;
+    font-size: 1.25rem;
+}
+
+.home-year small {
+    margin-inline-start: .5em;
+    color: var(--home-muted);
+    font-size: .85rem;
+}

@@ -135,3 +135,79 @@
         box-shadow: 6px 6px 0 #e60029;
     }
 }
+
+.toy-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.toy-flow > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px solid var(--ink);
+    background: var(--paper-strong);
+}
+.toy-flow img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin-bottom: .7rem;
+}
+.toy-flow strong { font-size: 1.15rem; }
+.toy-flow span { margin-top: .35rem; }
+#spectator-tv .toy-flow > div:first-child { border-color: #c61132; }
+@media (max-width: 650px) {
+    .toy-flow { grid-template-columns: 1fr; gap: .6rem; }
+    .toy-flow > div:has(img) {
+        display: grid;
+        grid-template-columns: 33% 1fr;
+        gap: .25rem 1rem;
+        align-items: center;
+    }
+    .toy-flow img { grid-row: span 2; margin: 0; }
+}
+
+.toy-aspects .screen {
+    display: flex;
+    justify-content: center;
+    width: 8rem;
+    height: 4.5rem;
+    margin: .25rem 0 .75rem;
+    border: 2px solid var(--ink);
+    background: var(--ink);
+}
+.toy-aspects .wide { width: 10.5rem; }
+.toy-aspects .narrow { width: 6rem; }
+.toy-aspects .screen i {
+    width: min(100%, 8rem);
+    background: #f8dce0;
+    border: 2px dashed #a31832;
+}
+#title-story .toy-flow > div,
+#development .toy-flow > div { position: relative; }
+#title-story .toy-flow > div:not(:last-child)::after,
+#development .toy-flow > div:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -1.05rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a31832;
+}
+@media (max-width: 650px) {
+    #title-story .toy-flow, #development .toy-flow { gap: 1.4rem; }
+    #title-story .toy-flow > div:not(:last-child)::after,
+    #development .toy-flow > div:not(:last-child)::after {
+        content: "↓";
+        top: 100%;
+        right: 50%;
+        transform: none;
+    }
+}
+
+@media (min-width: 721px) {
+    .toy-page .project-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

@@ -31,12 +31,12 @@
     <a class="home-skip" href="#main">本文へ移動</a>
 
     <header class="home-header">
-        <a class="home-brand" href="#about" aria-label="ページ上部へ戻る">
+        <a class="home-brand" href="#top" aria-label="ページ上部へ戻る">
             <strong>丸山 大輔</strong>
             <span class="home-brand-top" aria-hidden="true"><b>Topへ</b></span>
         </a>
         <nav class="home-nav" aria-label="メインナビゲーション">
-            <a href="#about">プロフィール</a>
+            <a href="#about">私について</a>
             <a href="#projects">作品</a>
             <a href="#experience">経歴</a>
             <a class="home-nav-cta" href="#contact">連絡する</a>
@@ -44,45 +44,15 @@
     </header>
 
     <main id="main">
-        <section class="home-hero home-container" id="about">
+        <section class="home-hero home-container" id="top">
             <figure class="home-portrait" data-reveal>
                 <a class="toy-cover" href="projects/toy-or-not.html#trailer"><img src="images/toy-title.jpg" width="1600" height="900" alt="『Toy or Not ?』のタイトル画面。公式トレーラーを見る"></a>
             </figure>
             <div class="home-hero-copy" data-reveal>
-                <p class="home-role">28卒 ／ ゲームプログラマー</p>
+                <p class="home-role">丸山 大輔 ／ 28卒 ゲームプログラマー</p>
                 <h1>夢中になれる、<br><span>もう一つの世界</span>を<br>作る。</h1>
-                <p class="home-stack">Unity・C# ／ Unreal Engine・C++</p>
-                <p class="home-introduction">
-                    ゲームに夢中になる時間が、<em>現実とは違う自由</em>をくれました。
-                    今度は私が、その時間を届ける側になります。
-                </p>
-                <p class="home-introduction home-introduction--small">
-                    ゲームシステムとUIフィードバックの実装を軸に、個人・チームで10本以上を制作。
-                    現在はモバイルゲーム開発企業でエンジニアとして勤務しています。
-                </p>
                 <p><a class="home-nav-cta" href="projects/toy-or-not.html">代表作『Toy or Not ?』を見る →</a></p>
-                <nav class="home-profile-links" aria-label="外部プロフィール">
-                    <a href="https://github.com/daiMaruyama" target="_blank" rel="noopener noreferrer" aria-label="GitHubでソースコードを見る">
-                        <span class="home-profile-mark"><img src="images/github.svg" alt=""></span>
-                        <span class="home-profile-copy"><strong>GitHub</strong><small>コード</small></span>
-                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
-                    </a>
-                    <a href="https://unityroom.com/users/daimaruyama" target="_blank" rel="noopener noreferrer" aria-label="UnityRoomで遊べる作品を見る">
-                        <span class="home-profile-mark home-profile-mark--unityroom" aria-hidden="true"><i></i></span>
-                        <span class="home-profile-copy"><strong>UnityRoom</strong><small>遊べる作品</small></span>
-                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
-                    </a>
-                    <a href="https://zenn.dev/daimaruyama" target="_blank" rel="noopener noreferrer" aria-label="Zennで技術記事を読む">
-                        <span class="home-profile-mark"><img src="images/zenn.svg" alt=""></span>
-                        <span class="home-profile-copy"><strong>Zenn</strong><small>技術記事</small></span>
-                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
-                    </a>
-                    <a href="https://x.com/daiMaruyama" target="_blank" rel="noopener noreferrer" aria-label="Xで開発記録を見る">
-                        <span class="home-profile-mark"><img src="images/x.svg" alt=""></span>
-                        <span class="home-profile-copy"><strong>X</strong><small>開発記録</small></span>
-                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
-                    </a>
-                </nav>
+
             </div>
 
         </section>
@@ -167,20 +137,21 @@
             </div>
         </section>
 
-        <section class="home-section home-section--soft">
-            <div class="home-container">
-                <header class="home-section-heading" data-reveal>
-                    <div>
-                        <p>Strengths</p>
-                        <h2>強み</h2>
-                    </div>
-                    <p>作品と実務で実際に起きたことから挙げています。</p>
-                </header>
-
-                <div class="home-strengths">
-                    <article data-reveal><span>01</span><div><h3>遊びの公平さを、コードで守る</h3><p>『Toy or Not ?』では、凝視の判定範囲を16:9で頭打ちにしました。端末から届く画面比は、範囲を狭める方向にだけ使っています。横長のモニターを使う人だけが得をしないようにするためです。</p></div><p class="home-strength-fact">UE5 / C++ ／ JudgeHalfAngles</p></article>
-                    <article data-reveal><span>02</span><div><h3>遊びのルールを、テストで確かめる</h3><p>『座れ！サラリーマン！』では乗降モデルを画面から分離し、定員を超えないことや、目的駅を過ぎた乗客が残らないことを自動テストで検証しました。</p></div><p class="home-strength-fact">Unity / C# ／ 乗降シミュレーション</p></article>
+        <section class="home-section home-container home-other-projects">
+            <header class="home-section-heading" data-reveal>
+                <div>
+                    <p>More work</p>
+                    <h2>その他の制作</h2>
                 </div>
+            </header>
+            <div class="home-other-grid">
+                <a href="projects/shapepuzzles.html" data-reveal><strong>Shape Puzzles</strong><span>3人チーム / リードプログラマー</span></a>
+                <a href="projects/turnoffthelights.html" data-reveal><strong>TurnOffTheLights</strong><span>3D / NavMesh / 個人</span></a>
+                <a href="projects/anaai.html" data-reveal><strong>いますぐあなたに会いたいの</strong><span>2D / 個人</span></a>
+                <a href="projects/shootingtwinkle.html" data-reveal><strong>Shooting Twinkle</strong><span>2人対戦 / チーム</span></a>
+                <a href="projects/tsuppatte.html" data-reveal><strong>はっきよいよい つっぱって！</strong><span><b>最多得票数賞</b> / チーム</span></a>
+                <a href="projects/virus.html" data-reveal><strong>Virus</strong><span>タワーディフェンス / 個人</span></a>
+                <a href="projects/frontslimers.html" data-reveal><strong>Front Slimers</strong><span>初ゲームジャム / チーム</span></a>
             </div>
         </section>
 
@@ -233,21 +204,50 @@
             </div>
         </section>
 
-        <section class="home-section home-container home-other-projects">
-            <header class="home-section-heading" data-reveal>
-                <div>
-                    <p>More work</p>
-                    <h2>その他の制作</h2>
+        <section class="home-section home-section--soft" id="about">
+            <div class="home-container">
+                <header class="home-section-heading" data-reveal>
+                    <div><p>About me</p><h2>私について</h2></div>
+                </header>
+                <div class="home-about-copy">
+                    <p>ゲームに夢中になる時間が、私に現実とは違う自由をくれました。今度は自分が、遊ぶ人の心を動かす、もう一つの世界を作りたいです。</p>
+                    <p>意見が分かれたとき、多くのプレイヤーにとって何が良いかを考えて、自分の案を通すか、作り直すかを選べるエンジニアを目指しています。</p>
                 </div>
-            </header>
-            <div class="home-other-grid">
-                <a href="projects/shapepuzzles.html" data-reveal><strong>Shape Puzzles</strong><span>3人チーム / リードプログラマー</span></a>
-                <a href="projects/turnoffthelights.html" data-reveal><strong>TurnOffTheLights</strong><span>3D / NavMesh / 個人</span></a>
-                <a href="projects/anaai.html" data-reveal><strong>いますぐあなたに会いたいの</strong><span>2D / 個人</span></a>
-                <a href="projects/shootingtwinkle.html" data-reveal><strong>Shooting Twinkle</strong><span>2人対戦 / チーム</span></a>
-                <a href="projects/tsuppatte.html" data-reveal><strong>はっきよいよい つっぱって！</strong><span><b>最多得票数賞</b> / チーム</span></a>
-                <a href="projects/virus.html" data-reveal><strong>Virus</strong><span>タワーディフェンス / 個人</span></a>
-                <a href="projects/frontslimers.html" data-reveal><strong>Front Slimers</strong><span>初ゲームジャム / チーム</span></a>
+                <div class="home-about-evidence">
+                    <article>
+                        <h3>自分から動き、最後まで形にする</h3>
+                        <p>『Toy or Not ?』を自分から立ち上げ、3人でSteamストア公開まで進めました。コードを理解してから共有できるよう、チームに <code>/quiz</code> を導入しました。</p>
+                        <a href="projects/toy-or-not.html#development">立ち上げと開発フローを見る →</a>
+                    </article>
+                    <article>
+                        <h3>芯を持ち、意見を聞いて作り直す</h3>
+                        <p>寸劇の吹き出しは「見づらい」という声で字幕に変更。タイトルで光を当てると固まる演出も、遊ぶとバグに見えたため、クリックするとおもちゃが踊る形に作り直しました。</p>
+                        <a href="projects/toy-or-not.html#title-story">寸劇とタイトルの演出を見る →</a>
+                    </article>
+                </div>
+                <p class="home-about-copy">今は『Toy or Not ?』の実装を出発点に、カメラ・音・アニメーションを深めています。</p>
+                <nav class="home-profile-links" aria-label="外部プロフィール">
+                    <a href="https://github.com/daiMaruyama" target="_blank" rel="noopener noreferrer" aria-label="GitHubでソースコードを見る">
+                        <span class="home-profile-mark"><img src="images/github.svg" alt=""></span>
+                        <span class="home-profile-copy"><strong>GitHub</strong><small>コード</small></span>
+                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="https://unityroom.com/users/daimaruyama" target="_blank" rel="noopener noreferrer" aria-label="UnityRoomで遊べる作品を見る">
+                        <span class="home-profile-mark home-profile-mark--unityroom" aria-hidden="true"><i></i></span>
+                        <span class="home-profile-copy"><strong>UnityRoom</strong><small>遊べる作品</small></span>
+                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="https://zenn.dev/daimaruyama" target="_blank" rel="noopener noreferrer" aria-label="Zennで技術記事を読む">
+                        <span class="home-profile-mark"><img src="images/zenn.svg" alt=""></span>
+                        <span class="home-profile-copy"><strong>Zenn</strong><small>技術記事</small></span>
+                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="https://x.com/daiMaruyama" target="_blank" rel="noopener noreferrer" aria-label="Xで開発記録を見る">
+                        <span class="home-profile-mark"><img src="images/x.svg" alt=""></span>
+                        <span class="home-profile-copy"><strong>X</strong><small>開発記録</small></span>
+                        <span class="home-profile-arrow" aria-hidden="true">↗</span>
+                    </a>
+                </nav>
             </div>
         </section>
 
@@ -315,7 +315,7 @@
     </main>
 
     <footer class="home-footer">
-        <div class="home-container"><span>© 2026 Daisuke Maruyama</span><a href="#about">ページ上部へ ↑</a></div>
+        <div class="home-container"><span>© 2026 Daisuke Maruyama</span><a href="#top">ページ上部へ ↑</a></div>
     </footer>
 </body>
 </html>

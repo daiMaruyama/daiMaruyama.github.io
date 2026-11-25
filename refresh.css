@@ -296,3 +296,22 @@
     color: var(--home-muted);
     font-size: .85rem;
 }
+
+.home-about-copy {
+    max-width: 48rem;
+    line-height: 1.9;
+}
+.home-about-evidence {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1.5rem;
+    margin-block: 2rem;
+}
+.home-about-evidence article {
+    padding: 1.4rem;
+    border-top: 3px solid var(--home-red);
+    background: var(--home-panel);
+}
+.home-about-evidence h3 { margin-top: 0; }
+.home-about-evidence p { line-height: 1.85; }
+.home-about-evidence a { color: var(--home-yellow); }

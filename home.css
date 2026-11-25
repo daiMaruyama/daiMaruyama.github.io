@@ -609,6 +609,7 @@
 }
 
 .home-portrait {
+    grid-area: 1 / 2;
     margin: 0;
 }
 
@@ -1398,6 +1399,7 @@
     }
 
     .home-portrait {
+        grid-area: auto;
         width: min(100%, 580px);
     }
 
@@ -1458,8 +1460,8 @@
 
     .home-hero {
         min-height: auto;
-        padding-block: 58px 84px;
-        gap: 48px;
+        padding-block: 24px 84px;
+        gap: 24px;
     }
 
     /* 和文は任意の位置で改行できるので、欧文のような溢れは起きない。
@@ -1708,4 +1710,16 @@
 .home-project-media.toy-card img {
     object-fit: contain;
     background: #14141a;
+}
+
+
+@media (max-width: 900px) {
+    .home-project-card:first-child .toy-card {
+        min-height: 0;
+    }
+
+    .home-project-media.toy-card img {
+        display: block;
+        height: auto;
+    }
 }

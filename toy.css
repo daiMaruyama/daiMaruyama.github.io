@@ -1,0 +1,137 @@
+/* 『Toy or Not ?』の作品ページ。style.css の作品ページに重ねる。
+   見出しを上、本文と画像を下に置き、画像を大きく見せる。 */
+.toy-page .case-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    max-width: 980px;
+}
+
+.toy-page .case-heading {
+    position: static;
+}
+
+.toy-page .case-heading span {
+    display: inline-block;
+    padding: 4px 10px 3px;
+    color: #fff;
+    background: #e60029;
+    font: 400 .9rem/1.2 "Archivo Black", sans-serif;
+    transform: rotate(-3deg);
+}
+
+.toy-page .case-heading h2,
+.toy-page .project-title {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+.toy-page .case-heading h2 {
+    margin-top: 16px;
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+}
+
+.toy-page .case-copy > p,
+.toy-page .case-copy > p:first-child {
+    max-width: 760px;
+    color: var(--ink);
+    font-size: 1.02rem;
+    font-weight: 500;
+    line-height: 1.95;
+}
+
+.toy-page .toy-shot,
+.toy-page .toy-diagram {
+    margin: 32px 0;
+}
+
+.toy-page .toy-shot img {
+    border: 3px solid var(--ink);
+    box-shadow: 10px 10px 0 #e60029;
+}
+
+.toy-page .toy-shot figcaption,
+.toy-page .toy-diagram figcaption,
+.toy-page .toy-film figcaption {
+    margin-top: 14px;
+    color: var(--ink);
+    font-size: .92rem;
+    font-weight: 600;
+}
+
+.toy-page .toy-diagram svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 24px;
+    background: var(--paper-strong);
+    border: 3px solid var(--ink);
+}
+
+.toy-page .toy-code {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.toy-page .toy-code b {
+    margin-right: 4px;
+    font-size: .85rem;
+}
+
+.toy-page .toy-code a {
+    padding: 6px 10px;
+    color: var(--ink);
+    background: var(--paper-strong);
+    border: 2px solid var(--ink);
+    text-decoration: none;
+    font-size: .85rem;
+}
+
+.toy-page .toy-code a:hover {
+    color: #fff;
+    background: var(--ink);
+}
+
+/* 作品名の下に、事実の表を横並びで置く。高さのずれをなくす。 */
+.toy-page .project-hero-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+}
+
+.toy-page .project-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 28px;
+}
+
+.toy-page .project-facts div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+}
+
+.toy-page .project-facts dd {
+    font-size: .92rem;
+}
+
+.toy-page .toy-trailer {
+    border: 3px solid var(--ink);
+    box-shadow: 12px 12px 0 #e60029;
+}
+
+@media (max-width: 720px) {
+    .toy-page .project-facts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .toy-page .toy-diagram svg {
+        padding: 10px;
+    }
+
+    .toy-page .toy-shot img,
+    .toy-page .toy-trailer {
+        box-shadow: 6px 6px 0 #e60029;
+    }
+}

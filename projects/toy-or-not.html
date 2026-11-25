@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Toy or Not ?｜丸山大輔</title>
     <meta name="description" content="人間とおもちゃの非対称オンライン対戦。寸劇、観戦テレビ、画面比による公平性など、担当した実装を紹介します。">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../toy.css">
 </head>
-<body class="project-page">
+<body class="project-page toy-page">
     <header class="project-header"><a href="../index.html#projects">← 代表作へ</a><span>丸山 大輔</span></header>
     <main>
         <section class="project-hero">
@@ -31,55 +33,86 @@
         </section>
         <section class="case-section">
             <div class="case-grid">
-                <div class="case-heading"><h2>寸劇からタイトルへ</h2></div>
+                <div class="case-heading"><span>01</span><h2>寸劇からタイトルへ</h2></div>
                 <div class="case-copy">
                     <p>遊ぶ前におもちゃたちの事情が伝わるよう、Sequencerで寸劇を作りました。暗転からテディの目のアップを経てタイトルへつなぎます。タイトルでおもちゃをクリックすると踊りが変わります。</p>
                     <figure class="toy-shot"><img src="../images/toy-story.jpg" alt="部屋に並ぶおもちゃたち" loading="lazy"><figcaption>捨てられると知ったおもちゃたち。</figcaption></figure>
                     <figure class="toy-shot"><img src="../images/toy-eye.jpg" alt="暗がりに映るテディの片目" loading="lazy"><figcaption>テディの目に寄り、寸劇とタイトルをつなぐ。</figcaption></figure>
                     <p>寸劇を見せたときに「吹き出しは見づらい」という感想がありました。セリフを字幕に移して大きさを調整し、扉が閉まる「バタンッ」だけは大きな描き文字で残しました。</p>
                     <figure class="toy-shot"><img src="../images/toy-subtitles.jpg" alt="子どもと母親の場面で画面下に表示される字幕" loading="lazy"><figcaption>変更後の字幕。人物の動きとセリフを一緒に追えるようにした。</figcaption></figure>
-                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleGameMode.cpp"><code>TBTitleGameMode.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleStory.h"><code>TBTitleStory.h</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleEmote.cpp"><code>TBTitleEmote.cpp</code></a></p>
+                    <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleGameMode.cpp"><code>TBTitleGameMode.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleStory.h"><code>TBTitleStory.h</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Core/TBTitleEmote.cpp"><code>TBTitleEmote.cpp</code></a></p>
                 </div>
             </div>
         </section>
         <section class="case-section">
             <div class="case-grid">
-                <div class="case-heading"><h2>捕まった後は、テレビで観戦</h2></div>
+                <div class="case-heading"><span>02</span><h2>捕まった後は、テレビで観戦</h2></div>
                 <div class="case-copy">
                     <p>捕まった仲間同士で試合を見ながら待てるよう、おもちゃ箱に子ども用のテレビを置きました。大きなリモコンに乗って、みんなで観戦するチャンネルを替えられます。</p>
                     <figure class="toy-shot"><img src="../images/toy-tv.jpg" alt="おもちゃ箱に置かれたテレビと大きなリモコン" loading="lazy"><figcaption>箱の中からリモコンを踏んで、試合中の部屋を見る。</figcaption></figure>
                     <p>観戦映像を共有するためにサーバーが同期するのはチャンネル番号だけです。映像は各端末で描画し、おもちゃ箱の外にいるプレイヤーの端末では描画しません。</p>
-                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp"><code>TBBoxTV.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVRemote.cpp"><code>TBTVRemote.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVButton.cpp"><code>TBTVButton.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVCamera.h"><code>TBTVCamera.h</code></a></p>
+                    <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp"><code>TBBoxTV.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVRemote.cpp"><code>TBTVRemote.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVButton.cpp"><code>TBTVButton.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVCamera.h"><code>TBTVCamera.h</code></a></p>
                 </div>
             </div>
         </section>
         <section class="case-section">
             <div class="case-grid">
-                <div class="case-heading"><h2>画面比で勝負が変わらないように</h2></div>
+                <div class="case-heading"><span>03</span><h2>画面比で勝負が変わらないように</h2></div>
                 <div class="case-copy">
-                    <p>リッスンサーバー方式で、SteamリレーとLANを切り替えられます。対戦の審判はサーバーが担い、端末は操作を送ります。</p>
-                    <figure class="toy-shot"><img src="../images/toy-room.jpg" alt="室内を上から見たゲーム画面" loading="lazy"><figcaption>人間とおもちゃが対戦する部屋。</figcaption></figure>
-                    <p>担当した <code>JudgeHalfAngles</code> では、凝視の判定に使う画面比の上限を16:9にしました。端末から届く画面比は判定範囲を狭める方向にだけ使います。</p>
-                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBRuleMath.h#L125"><code>TBRuleMath.h · JudgeHalfAngles</code></a></p>
+                    <p>横長のモニターを使う人だけが広く見えて有利になる、という不公平をなくしたいと考えました。</p>
+                    <p>作品全体はリッスンサーバー方式で、対戦の審判はサーバーが担います。その中で私が担当した <code>JudgeHalfAngles</code> では、凝視の判定に使う画面比の上限を16:9にし、端末から届く画面比は判定範囲を狭める方向にだけ使います。画面比は端末が送る値なので、広げる方向に使うと、嘘の値で得ができてしまうからです。</p>
+                    <figure class="toy-diagram">
+                        <svg viewBox="0 0 960 300" role="img" aria-labelledby="aspect-title aspect-desc">
+                            <title id="aspect-title">画面比ごとの凝視の判定範囲</title>
+                            <desc id="aspect-desc">16:9は映っている範囲で判定する。16:9より横長の画面は黒帯で16:9に止め、判定も広げない。16:9より狭い画面は、映っている範囲まで判定を狭める。</desc>
+                            <g font-family="Noto Sans JP, sans-serif" font-size="15" fill="#1a1b18">
+                                <g transform="translate(20,40)">
+                                    <rect width="256" height="144" fill="#fffdf6" stroke="#1a1b18" stroke-width="3"/>
+                                    <rect x="14" y="10" width="228" height="124" fill="rgba(230,0,41,.12)" stroke="#e60029" stroke-width="2.5" stroke-dasharray="7 5"/>
+                                    <text x="0" y="-14" font-weight="700" font-size="18">16:9（基準）</text>
+                                    <text x="0" y="176">映っている範囲で判定する</text>
+                                </g>
+                                <g transform="translate(330,40)">
+                                    <rect width="336" height="144" fill="#1a1b18"/>
+                                    <rect x="40" width="256" height="144" fill="#fffdf6" stroke="#1a1b18" stroke-width="3"/>
+                                    <rect x="54" y="10" width="228" height="124" fill="rgba(230,0,41,.12)" stroke="#e60029" stroke-width="2.5" stroke-dasharray="7 5"/>
+                                    <text x="0" y="-14" font-weight="700" font-size="18">21:9（横長）</text>
+                                    <text x="0" y="176">黒帯で16:9に止め、判定も広げない</text>
+                                </g>
+                                <g transform="translate(720,40)">
+                                    <rect width="192" height="144" fill="#fffdf6" stroke="#1a1b18" stroke-width="3"/>
+                                    <rect x="14" y="10" width="164" height="124" fill="rgba(230,0,41,.12)" stroke="#e60029" stroke-width="2.5" stroke-dasharray="7 5"/>
+                                    <text x="0" y="-14" font-weight="700" font-size="18">4:3（狭い）</text>
+                                    <text x="0" y="176">映っている範囲まで狭める</text>
+                                </g>
+                                <g transform="translate(20,262)">
+                                    <rect width="22" height="14" fill="rgba(230,0,41,.12)" stroke="#e60029" stroke-width="2" stroke-dasharray="5 4"/>
+                                    <text x="32" y="12">凝視の判定範囲。端末から届く画面比は、狭める方向にだけ使う</text>
+                                </g>
+                            </g>
+                        </svg>
+                        <figcaption>画面比ごとの判定範囲。横長のモニターを使う人だけが、広く見て得をすることはない。</figcaption>
+                    </figure>
+                                        <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBRuleMath.h#L125"><code>TBRuleMath.h · JudgeHalfAngles</code></a></p>
                 </div>
             </div>
         </section>
         <section class="case-section">
             <div class="case-grid">
-                <div class="case-heading"><h2>声で距離と役柄を伝える</h2></div>
+                <div class="case-heading"><span>04</span><h2>声で距離と役柄を伝える</h2></div>
                 <div class="case-copy">
                     <p>ボイスチャットは相手との距離で音量が下がり、箱越しには声がこもります。人間とおもちゃで声の高さが変わるよう、ピッチシフトを自作しました。</p>
-                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Character/TBVoiceComponent.cpp"><code>TBVoiceComponent.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Audio/TBPitchShift.cpp"><code>TBPitchShift.cpp</code></a></p>
+                    <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Character/TBVoiceComponent.cpp"><code>TBVoiceComponent.cpp</code></a> ・ <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Audio/TBPitchShift.cpp"><code>TBPitchShift.cpp</code></a></p>
                 </div>
             </div>
         </section>
         <section class="case-section">
             <div class="case-grid">
-                <div class="case-heading"><h2>担当範囲と開発フロー</h2></div>
+                <div class="case-heading"><span>05</span><h2>担当範囲と開発フロー</h2></div>
                 <div class="case-copy">
                     <p>担当したC++は約1万4千行、作品の自動テストは約190本です。AIのコーディング支援を使い、仕様と仕組みは自分で決めました。</p>
                     <p>PRの前に <code>/quiz</code> で変更内容についての4択問題に3問答えます。合格しないとpushできず、GitHub Actionsでも合格記録を確認します。</p>
-                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/.github/workflows/quiz.yml"><code>quiz.yml</code></a></p>
+                    <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/.github/workflows/quiz.yml"><code>quiz.yml</code></a></p>
                 </div>
             </div>
         </section>

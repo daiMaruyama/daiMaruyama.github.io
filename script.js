@@ -58,45 +58,59 @@ if (motionQuery.matches || !("IntersectionObserver" in window)) {
     revealTargets.forEach((element) => revealObserver.observe(element));
 }
 
-/* トップの短いプレイ動画は、画面に近づいてから読み込む。
-   data-video-src が空なら静止画のままで、不要な404も発生しない。 */
-const projectVideos = [...document.querySelectorAll("[data-project-video]")];
+/* 画面中央に近い作品だけ動かし、ほかのカードは静止画に戻す。 */
+const projectVideos = [...document.querySelectorAll("[data-project-video]")]
+    .filter(video => video.dataset.videoSrc?.trim());
 
-const loadProjectVideo = (video) => {
-    const source = video.dataset.videoSrc?.trim();
-    if (!source || video.dataset.loaded === "true") {
-        return;
-    }
+if (projectVideos.length) {
+    let activeVideo = null;
+    let frame = 0;
 
-    video.dataset.loaded = "true";
-    video.src = source;
-    video.addEventListener("canplay", () => {
-        video.classList.add("is-ready");
-        if (!motionQuery.matches) {
-            video.play().catch(() => {
-                // Autoplayが拒否された場合もposter画像は残る。
+    const updatePreview = () => {
+        frame = 0;
+        let next = null;
+        let nearest = Infinity;
+
+        if (!document.hidden && !motionQuery.matches) {
+            const middle = window.innerHeight / 2;
+            for (const video of projectVideos) {
+                const rect = video.getBoundingClientRect();
+                const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+                if (!rect.height || visible < Math.min(rect.height, window.innerHeight) * .45) continue;
+
+                const distance = Math.abs(rect.top + rect.height / 2 - middle);
+                if (distance < nearest) {
+                    nearest = distance;
+                    next = video;
+                }
+            }
+        }
+
+        if (next === activeVideo) return;
+        if (activeVideo) {
+            activeVideo.pause();
+            activeVideo.classList.remove("is-ready");
+        }
+        activeVideo = next;
+        if (next) {
+            if (!next.hasAttribute("src")) next.src = next.dataset.videoSrc;
+            next.play().then(() => {
+                if (activeVideo === next) next.classList.add("is-ready");
+            }).catch(() => {
+                // 自動再生できない環境では静止画を表示する。
             });
         }
-    }, { once: true });
-    video.load();
-};
+    };
 
-if (!motionQuery.matches && "IntersectionObserver" in window) {
-    const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-                return;
-            }
-
-            loadProjectVideo(entry.target);
-            videoObserver.unobserve(entry.target);
-        });
-    }, {
-        rootMargin: "240px 0px",
-        threshold: 0.01,
-    });
-
-    projectVideos.forEach((video) => videoObserver.observe(video));
+    const schedulePreview = () => {
+        if (!frame) frame = window.requestAnimationFrame(updatePreview);
+    };
+    window.addEventListener("scroll", schedulePreview, { passive: true });
+    window.addEventListener("resize", schedulePreview);
+    window.addEventListener("load", schedulePreview);
+    document.addEventListener("visibilitychange", updatePreview);
+    motionQuery.addEventListener("change", updatePreview);
+    schedulePreview();
 }
 
 const inkColors = ["#e60029", "#e8f35a", "#f4f4f1"];

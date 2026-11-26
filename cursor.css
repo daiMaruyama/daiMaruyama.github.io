@@ -1,0 +1,46 @@
+.home-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, .85);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+    transition: width .24s cubic-bezier(.16, .84, .3, 1),
+                height .24s cubic-bezier(.16, .84, .3, 1),
+                background .24s ease,
+                box-shadow .24s ease,
+                opacity .2s ease;
+}
+
+.home-cursor.is-awake {
+    opacity: 1;
+}
+
+/* リングは白。黄色にすると黄色いボタンの上で消えるため。
+   内側と外側の両方に暗い線を重ね、明るい背景でも輪郭が残るようにする。
+   「押せる」の合図は色ではなく大きさの変化が担う。 */
+.home-cursor.is-active {
+    width: 34px;
+    height: 34px;
+    background: rgba(232, 243, 90, .12);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, .45),
+        inset 0 0 0 1.5px rgba(255, 255, 255, .95),
+        inset 0 0 0 2.5px rgba(0, 0, 0, .3);
+}
+
+.home-cursor.is-pressed {
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 0 0 1.5px rgba(0, 0, 0, .5);
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+    .home-cursor { display: none; }
+}

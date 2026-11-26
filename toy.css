@@ -1,274 +1,549 @@
-/* 『Toy or Not ?』の作品ページ。style.css の作品ページに重ねる。
-   見出しを上、本文と画像を下に置き、画像を大きく見せる。 */
+/* ============================================================
+   『Toy or Not ?』の作品ページ。ゲームの紙のUI（TBPaperStyle.h）にそろえる。
+   PFでは toy.css と project-worlds.css の .toy-page の部分をこれに置き換える想定。
+   ============================================================ */
+.toy-page {
+    --ink: #351805;        /* TBPaper::Ink 本文 */
+    --outline: #3b1b09;    /* TBPaper::Outline 輪郭 */
+    --muted: #695648;      /* TBPaper::Muted */
+    --paper: #ffedcf;      /* TBPaper::Paper 面 */
+    --paper-strong: #fff6df; /* PrintCream */
+    --cream: #f8dfb3;      /* TBPaper::Cream */
+    --toy: #b1402e;        /* TBPaper::Accent おもちゃ */
+    --human: #2c7e98;      /* TBPaper::HumanBlue にんげん */
+    --teal: #59bdb5;       /* TBPaper::Teal 補助操作 */
+    --aqua: #96d6c7;       /* PrintAqua */
+    --gold: #ffd65b;       /* TBPaper::Gold 選択・進捗・ホバー */
+    --honey: #ffce59;      /* PrintHoney */
+    --coral: #ee785e;      /* 押したボタン */
+    --body: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+    --heading: "Mochiy Pop One", "Zen Maru Gothic", sans-serif;
+    --hand: "Yusei Magic", "Zen Maru Gothic", sans-serif;
+    --num: "Fredoka", "Zen Maru Gothic", sans-serif;
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 500;
+    background:
+        radial-gradient(rgba(177, 64, 46, .09) 1.6px, transparent 2px) 0 0 / 22px 22px,
+        var(--paper);
+}
+.toy-page::before { display: none; }
+
+/* --- 上の帯 --- */
+.toy-page .project-header {
+    background: rgba(255, 246, 223, .95);
+    border-bottom: 3px solid var(--outline);
+}
+.toy-page .project-header a,
+.toy-page .project-header span { font: 700 .85rem var(--body); color: var(--ink); }
+
+/* --- 作品の表紙 --- */
+.toy-page .project-hero { padding-top: clamp(36px, 5vw, 64px); }
+.toy-page .project-hero-top {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding: clamp(22px, 4vw, 52px);
+    background: var(--paper-strong);
+    border: 3px solid var(--outline);
+    border-radius: 18px;
+    box-shadow: 0 7px 0 rgba(59, 27, 9, .28);
+}
+.toy-page .project-index {
+    display: inline-block;
+    margin: 0;
+    padding: 2px 12px;
+    color: var(--paper-strong);
+    background: var(--outline);
+    border-radius: 999px;
+    font: 600 .85rem var(--num);
+    letter-spacing: .02em;
+}
+.toy-page .project-title {
+    margin: 18px 0 20px;
+    color: var(--ink);
+    font: 700 clamp(2.8rem, 7.2vw, 6.4rem)/1.18 var(--num);
+    letter-spacing: -.02em;
+    word-break: keep-all;
+}
+.toy-page .project-title span {
+    display: inline-block;
+    padding: 0 .16em .04em;
+    color: var(--paper-strong);
+    border: .045em solid var(--outline);
+    border-radius: .16em;
+    box-shadow: 0 .07em 0 var(--outline);
+}
+/* おもちゃは赤茶、にんげんは青。ゲームの陣営の色。 */
+.toy-page .project-title span:first-child { background: var(--toy); transform: rotate(-3deg); }
+.toy-page .project-title span:last-child { background: var(--human); transform: rotate(2deg); }
+.toy-page .project-dek {
+    max-width: 760px;
+    color: var(--ink);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.95;
+}
+/* 隠れているおもちゃへの誘い。遊び方の漫画と同じ手書きの字。 */
+.toy-page .hide-note {
+    position: relative;
+    display: inline-block;
+    margin: 22px 0 0;
+    padding: 10px 16px 10px 46px;
+    background: #fff;
+    border: 2.5px solid var(--outline);
+    border-radius: 14px;
+    font: 400 1.02rem/1.6 var(--hand);
+}
+.toy-page .hide-note::before {
+    content: "";
+    position: absolute; left: 12px; top: 50%;
+    width: 24px; height: 24px; margin-top: -12px;
+    background: url(assets/toy-or-not/duck.png) center / contain no-repeat;
+}
+.toy-page .project-actions { margin-top: 26px; }
+.toy-page .button {
+    min-height: 48px;
+    color: var(--ink);
+    background: var(--honey);
+    border: 2.5px solid var(--outline);
+    border-radius: 12px;
+    box-shadow: 0 4px 0 var(--outline);
+    font: 700 1rem var(--body);
+    transition: transform .12s, box-shadow .12s, background .12s;
+}
+.toy-page .button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--outline); background: var(--gold); }
+.toy-page .button:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--outline); background: var(--teal); }
+
+/* 事実の札。 */
+.toy-page .project-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    border: 0;
+}
+.toy-page .project-facts div {
+    display: block;
+    padding: 12px 16px;
+    background: var(--paper);
+    border: 2px solid var(--outline);
+    border-radius: 12px;
+}
+.toy-page .project-facts dt { color: var(--muted); font: 700 .78rem var(--body); letter-spacing: .04em; }
+.toy-page .project-facts dd { margin: 4px 0 0; font: 700 .95rem/1.6 var(--body); }
+
+/* --- 写真と映像。紙に貼った写真のように、白いふちとテープ。 --- */
+.toy-page .toy-film { position: relative; margin-top: 3.4rem; }
+.toy-page .toy-trailer,
+.toy-page .toy-exhibit > img,
+.toy-page .tv-set,
+.toy-page .story-screen {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 7px solid var(--paper-strong);
+    border-radius: 12px;
+    outline: 2.5px solid var(--outline);
+    box-shadow: 0 7px 0 2px rgba(59, 27, 9, .22);
+}
+.toy-page .toy-trailer { aspect-ratio: 16 / 9; background: #1d130c; }
+.toy-page .toy-film::after,
+.toy-page .toy-exhibit::after,
+.toy-page .story-film::after {
+    content: "";
+    position: absolute; z-index: 3; top: -12px; left: 50%;
+    width: 112px; height: 26px; margin-left: -56px;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .18) 0 4px, transparent 4px 9px), rgba(214, 170, 98, .78);
+    clip-path: polygon(3% 0, 97% 4%, 100% 30%, 96% 55%, 100% 80%, 97% 100%, 2% 96%, 0 70%, 4% 45%, 0 20%);
+    transform: rotate(-3deg);
+    pointer-events: none;
+}
+.toy-page .toy-film figcaption,
+.toy-page .toy-exhibit figcaption {
+    margin-top: 16px;
+    color: var(--ink);
+    font-size: .95rem;
+    line-height: 1.75;
+}
+
+/* --- 各節 --- */
+.toy-page .case-section {
+    position: relative;
+    border-top: 3px solid var(--outline);
+    background: transparent;
+}
+.toy-page .case-section:nth-of-type(even) {
+    background: radial-gradient(rgba(44, 126, 152, .08) 1.6px, transparent 2px) 0 0 / 22px 22px, var(--cream);
+}
 .toy-page .case-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+    gap: 22px;
     max-width: 980px;
 }
-
-.toy-page .case-heading {
-    position: static;
-}
-
-.toy-page .case-heading span {
+/* style.css の sticky（top: 100px）を打ち消す。電池を置くので relative にする。 */
+.toy-page .case-heading { position: relative; top: auto; }
+/* 節の番号は、紙に貼ったマスキングテープ。 */
+.toy-page .case-heading > span {
     display: inline-block;
-    padding: 4px 10px 3px;
-    color: #fff;
-    background: #e60029;
-    font: 400 .9rem/1.2 "Archivo Black", sans-serif;
+    padding: 3px 18px 2px;
+    color: var(--ink);
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .2) 0 4px, transparent 4px 9px), rgba(214, 170, 98, .85);
+    clip-path: polygon(3% 0, 97% 6%, 100% 35%, 96% 60%, 100% 88%, 96% 100%, 2% 94%, 0 66%, 4% 40%, 0 12%);
+    font: 600 1rem var(--num);
     transform: rotate(-3deg);
 }
-
-.toy-page .case-heading h2,
-.toy-page .project-title {
-    word-break: keep-all;
-    overflow-wrap: anywhere;
-    text-wrap: balance;
-}
-
 .toy-page .case-heading h2 {
-    margin-top: 16px;
-    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    margin: 14px 0 0;
+    font: 400 clamp(1.75rem, 3.6vw, 2.7rem)/1.4 var(--heading);
+    letter-spacing: .01em;
 }
-
+/* 見出しの下の、さんご色の線（ゲームのUnderline_Coralに寄せる）。 */
+.toy-page .case-heading h2::after {
+    content: "";
+    display: block;
+    width: 3.2em; height: .22em; margin-top: .25em;
+    background: var(--coral);
+    border-radius: 999px;
+}
 .toy-page .case-copy > p,
 .toy-page .case-copy > p:first-child {
     max-width: 760px;
     color: var(--ink);
-    font-size: 1.02rem;
+    font-size: 1.04rem;
     font-weight: 500;
     line-height: 1.95;
 }
+.toy-page .toy-exhibit { position: relative; margin: 3.4rem 0 1.5rem; }
 
-.toy-page .toy-shot,
-.toy-page .toy-diagram {
-    margin: 32px 0;
-}
-
-.toy-page .toy-shot img {
-    border: 3px solid var(--ink);
-    box-shadow: 10px 10px 0 #e60029;
-}
-
-.toy-page .toy-shot figcaption,
-.toy-page .toy-diagram figcaption,
-.toy-page .toy-film figcaption {
-    margin-top: 14px;
-    color: var(--ink);
-    font-size: .92rem;
-    font-weight: 600;
-}
-
-.toy-page .toy-diagram svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: 24px;
-    background: var(--paper-strong);
-    border: 3px solid var(--ink);
-}
-
-.toy-page .toy-code {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-top: 26px;
-}
-
-.toy-page .toy-code b {
-    margin-right: 4px;
-    font-size: .85rem;
-}
-
-.toy-page .toy-code a {
-    padding: 6px 10px;
-    color: var(--ink);
-    background: var(--paper-strong);
-    border: 2px solid var(--ink);
-    text-decoration: none;
-    font-size: .85rem;
-}
-
-.toy-page .toy-code a:hover {
-    color: #fff;
-    background: var(--ink);
-}
-
-/* 作品名の下に、事実の表を横並びで置く。高さのずれをなくす。 */
-.toy-page .project-hero-top {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
-}
-
-.toy-page .project-facts {
+/* 紙のカード。PaperPanel と同じく、紙の面と濃茶の輪郭。 */
+.toy-page .toy-flow {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0 28px;
+    gap: 14px;
+    margin: 3.4rem 0 1.5rem;
 }
-
-.toy-page .project-facts div {
-    grid-template-columns: 1fr;
-    gap: 4px;
-}
-
-.toy-page .project-facts dd {
-    font-size: .92rem;
-}
-
-.toy-page .toy-trailer {
-    border: 3px solid var(--ink);
-    box-shadow: 12px 12px 0 #e60029;
-}
-
-@media (max-width: 720px) {
-    .toy-page .project-facts {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .toy-page .toy-diagram svg {
-        padding: 10px;
-    }
-
-    .toy-page .toy-shot img,
-    .toy-page .toy-trailer {
-        box-shadow: 6px 6px 0 #e60029;
-    }
-}
-
-.toy-flow {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-.toy-flow > div {
+.toy-page .toy-flow > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem;
-    border: 2px solid var(--ink);
+    padding: 16px 18px;
     background: var(--paper-strong);
+    border: 2.5px solid var(--outline);
+    border-radius: 14px;
+    box-shadow: 0 5px 0 rgba(59, 27, 9, .22);
 }
-.toy-flow img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    margin-bottom: .7rem;
-}
-.toy-flow strong { font-size: 1.15rem; }
-.toy-flow span { margin-top: .35rem; }
-
+.toy-page .toy-flow strong { font: 400 1.15rem/1.4 var(--heading); }
+.toy-page .toy-flow > div > span:not(.screen) { margin-top: .4rem; line-height: 1.7; }
 @media (max-width: 650px) {
-    .toy-flow { grid-template-columns: 1fr; gap: .6rem; }
-    .toy-flow > div:has(img) {
-        display: grid;
-        grid-template-columns: 33% 1fr;
-        gap: .25rem 1rem;
-        align-items: center;
-    }
-    .toy-flow img { grid-row: span 2; margin: 0; }
+    .toy-page .toy-flow { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 }
-
-.toy-aspects .screen {
-    display: flex;
-    justify-content: center;
-    width: 8rem;
-    height: 4.5rem;
-    margin: .25rem 0 .75rem;
-    border: 2px solid var(--ink);
-    background: var(--ink);
+/* 凝視の判定範囲の画面。黒帯は輪郭の濃茶、判定の範囲はにんげんの青。 */
+.toy-page .toy-aspects .screen {
+    display: flex; justify-content: center;
+    width: 8rem; height: 4.5rem; margin: .25rem 0 .8rem;
+    background: var(--outline);
+    border: 2.5px solid var(--outline);
+    border-radius: 6px;
+    overflow: hidden;
 }
-.toy-aspects .wide { width: 10.5rem; }
-.toy-aspects .narrow { width: 6rem; }
-.toy-aspects .screen i {
+.toy-page .toy-aspects .wide { width: 10.5rem; }
+.toy-page .toy-aspects .narrow { width: 6rem; }
+.toy-page .toy-aspects .screen i {
     width: min(100%, 8rem);
-    background: #f8dce0;
-    border: 2px dashed #a31832;
+    background: var(--aqua);
+    border: 2px dashed var(--human);
 }
 #development .toy-flow > div { position: relative; }
 #development .toy-flow > div:not(:last-child)::after {
     content: "→";
-    position: absolute;
-    right: -1.05rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #a31832;
+    position: absolute; right: -14px; top: 50%; z-index: 2;
+    transform: translate(50%, -50%);
+    color: var(--toy);
+    font: 700 1.3rem var(--num);
 }
 @media (max-width: 650px) {
-    #development .toy-flow { gap: 1.4rem; }
-    #development .toy-flow > div:not(:last-child)::after {
-        content: "↓";
-        top: 100%;
-        right: 50%;
-        transform: none;
-    }
+    #development .toy-flow > div:not(:last-child)::after { content: "↓"; top: 100%; right: 50%; transform: translate(50%, -10%); }
 }
 
-@media (min-width: 721px) {
-    .toy-page .project-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-.toy-exhibit {
-    margin: 1.25rem 0;
-}
-.toy-exhibit > img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 2px solid var(--ink);
-}
-#story-subtitles { scroll-margin-top: 5rem; }
-.toy-exhibit figcaption { line-height: 1.6; }
-.story-routes { margin: 1rem 0; }
-.story-routes div {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
+/* 寸劇の2つの経路 */
+.toy-page .story-routes { margin: 1rem 0 0; }
+.toy-page .story-routes div {
+    display: flex; gap: 1rem; align-items: baseline;
     padding: .65rem 0;
-    border-top: 1px solid var(--ink);
+    border-top: 2px dashed rgba(59, 27, 9, .3);
 }
-.story-routes dt { flex: 0 0 auto; font-weight: 700; }
-.story-routes dd { margin: 0; }
-.tv-network { margin: 1rem auto; max-width: 42rem; text-align: center; }
-.tv-source {
+.toy-page .story-routes dt { flex: 0 0 auto; font: 400 .95rem var(--heading); color: var(--toy); }
+.toy-page .story-routes dd { margin: 0; }
+
+/* 観戦テレビの図 */
+.toy-page .tv-network { margin: 1.2rem auto 0; max-width: 42rem; text-align: center; }
+.toy-page .tv-source {
+    position: relative;
     display: inline-block;
-    padding: .45rem .8rem;
-    color: white;
-    background: var(--ink);
+    padding: .45rem 1rem;
+    color: var(--paper-strong);
+    background: var(--outline);
+    border-radius: 10px;
+    font: 400 .95rem var(--heading);
 }
-.tv-source::after, .tv-clients > div::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 2px;
-    height: .75rem;
-    background: var(--ink);
+.toy-page .tv-source::after,
+.toy-page .tv-clients > div::before {
+    content: ""; position: absolute; left: 50%; width: 2.5px; height: .75rem; margin-left: -1px; background: var(--outline);
 }
-.tv-source { position: relative; }
-.tv-source::after { top: 100%; }
-.tv-clients {
+.toy-page .tv-source::after { top: 100%; }
+.toy-page .tv-clients { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; padding-top: 1.5rem; }
+.toy-page .tv-clients::before {
+    content: ""; position: absolute; top: .75rem; left: calc(25% - .2rem); right: calc(25% - .2rem); border-top: 2.5px solid var(--outline);
+}
+.toy-page .tv-clients > div {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: .6rem;
-    padding-top: 1.5rem;
-}
-.tv-clients::before {
-    content: "";
-    position: absolute;
-    top: .75rem;
-    left: calc(25% - .15rem);
-    right: calc(25% - .15rem);
-    border-top: 2px solid var(--ink);
-}
-.tv-clients > div {
-    position: relative;
-    padding: .6rem .25rem;
+    padding: .7rem .4rem;
     background: var(--paper-strong);
-    border: 1px solid var(--ink);
+    border: 2px solid var(--outline);
+    border-radius: 12px;
 }
-.tv-clients > div::before { bottom: 100%; }
-.tv-clients span { display: block; }
-.toy-related { margin-top: .75rem; }
-.toy-related summary { cursor: pointer; }
+.toy-page .tv-clients > div:first-child { box-shadow: inset 0 -5px 0 var(--toy); }
+.toy-page .tv-clients > div::before { bottom: 100%; }
+.toy-page .tv-clients strong { font: 700 .95rem var(--body); }
+.toy-page .tv-clients span { display: block; color: var(--muted); font-size: .9rem; }
+
+/* コードへのリンク。ゲームの小さいボタン（CompactButton）と同じ3つの状態。 */
+.toy-page .toy-code { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 26px; }
+.toy-page .toy-code b { margin-right: 4px; font: 700 .9rem var(--body); }
+.toy-page .toy-code a,
+.toy-page .toy-related summary {
+    display: inline-block;
+    padding: 6px 12px;
+    color: var(--ink);
+    background: var(--paper-strong);
+    border: 2.5px solid var(--outline);
+    border-radius: 9px;
+    box-shadow: 0 3px 0 var(--outline);
+    text-decoration: none;
+    font-size: .88rem;
+    transition: transform .1s, box-shadow .1s, background .1s;
+}
+.toy-page .toy-code a:hover, .toy-page .toy-related summary:hover { background: var(--gold); }
+.toy-page .toy-code a:active, .toy-page .toy-related summary:active { background: var(--teal); transform: translateY(2px); box-shadow: 0 1px 0 var(--outline); }
+.toy-page a:focus-visible, .toy-page button:focus-visible, .toy-page summary:focus-visible { outline: 3px solid var(--human); outline-offset: 2px; }
+.toy-page .toy-related { margin-top: 14px; }
+.toy-page .toy-related summary { cursor: pointer; font-weight: 700; }
+.toy-page .toy-related p { margin: 12px 0 0; }
+.toy-page .toy-related p a { color: var(--ink); }
+
+.toy-page footer.project-header { position: static; border-top: 3px solid var(--outline); border-bottom: 0; }
+
+@media (max-width: 720px) {
+    .toy-page .project-facts { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ============================================================
+   演出A：寸劇からタイトルへ。ゲームで1コマずつ撮った本物の映像（ToonStory.UI.VisualReview.TitleStoryFilm）。
+   スキップは、ゲームと同じく0.5秒の暗転から、最後のコマ（タイトル）で止まる（TBTitleMenu::SkipStory）。
+   ============================================================ */
+.story-film { display: none; position: relative; }
+.fx-a .story-film { display: block; }
+.fx-a #story-subtitles { display: none; }
+.fx-a #title-story .toy-exhibit::after { display: none; }
+.story-screen { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #120c08; }
+.story-screen video,
+.story-screen .story-end { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.story-end { opacity: 0; }
+.story-film.is-ended .story-end { opacity: 1; }
+.story-blackout { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+.story-blackout.is-on { opacity: 1; }
+.story-blackout.is-fading { transition: opacity .5s linear; }
+/* ゲームの画面右下に出るスキップの案内と同じ場所・同じ見た目（TBTitleMenu の StorySkipHint）。寸劇の間だけ出る。 */
+.story-skip {
+    position: absolute; right: 2.4%; bottom: 3.4%;
+    min-height: 34px; padding: 4px 16px;
+    color: #fff6df;
+    background: rgba(29, 53, 56, .72);
+    border: 1px solid rgba(255, 246, 223, .8);
+    border-radius: 2px;
+    font: 500 .95rem var(--body);
+    cursor: pointer;
+}
+.story-skip:hover { background: rgba(29, 53, 56, .92); }
+.story-film:not(.is-playing) .story-skip { display: none; }
+.story-replay {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    color: var(--ink);
+    background: var(--honey);
+    border: 2.5px solid var(--outline);
+    border-radius: 12px;
+    box-shadow: 0 4px 0 var(--outline);
+    font: 700 1rem var(--body);
+    cursor: pointer;
+}
+.story-replay:hover { background: var(--gold); }
+.story-film.is-playing .story-replay { display: none; }
+/* 終わってタイトルが出たあとは、ボタンを右上の小さな札にして、タイトルの画を隠さない。 */
+.story-film.is-ended .story-replay { left: auto; top: 4%; right: 2.4%; transform: none; padding: 5px 12px; font-size: .85rem; box-shadow: 0 3px 0 var(--outline); }
+.toy-page .story-routes > div { transition: background .2s; border-radius: 6px; padding-left: .5rem; padding-right: .5rem; }
+.toy-page .story-routes > div.is-on { background: rgba(255, 214, 91, .45); }
+
+/* ============================================================
+   演出B：リモコンでチャンネルを替える。テレビの画面の中だけが切り替わる。
+   ============================================================ */
+/* 写真はすべてゲームで同じカメラから撮ったもの（ToonStory.UI.VisualReview.Television）。
+   チャンネルごとに写真をまるごと替えるので、合成の継ぎ目が無い。 */
+.tv-set { position: relative; overflow: hidden; }
+.tv-set > img { display: block; width: 100%; height: auto; }
+/* 砂嵐。撮ったテレビの画面の形だけに描き、そのチャンネルの「CH n」の文字は残す。
+   動きを減らす設定では出さない（空き番号の写真には、ゲームで撮った止まった砂嵐が映っている）。 */
+.tv-static {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+.tv-static.is-on { opacity: 1; }
+.still .tv-static { display: none; }
+.tv-remote-wrap { display: none; }
+.fx-b .tv-remote-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 24px; margin: 22px 0 6px; }
+.tv-remote {
+    display: grid; grid-template-columns: repeat(3, 52px); gap: 9px;
+    padding: 18px 18px 20px;
+    background: linear-gradient(#3b3532, #1f1b19);
+    border: 2.5px solid var(--outline);
+    border-radius: 28px;
+    box-shadow: 0 6px 0 rgba(59, 27, 9, .3), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+.tv-remote button {
+    height: 38px; padding: 0;
+    color: #2a2622;
+    background: linear-gradient(#efede8, #bfbcb5);
+    border: 0; border-radius: 999px;
+    box-shadow: 0 3px 0 #0b0908, inset 0 1px 0 #fff;
+    font: 600 1.05rem var(--num);
+    cursor: pointer;
+    transition: transform .06s, box-shadow .06s, background .12s;
+}
+.tv-remote button:hover { background: linear-gradient(#fff6d0, #f3d983); }
+/* 押したボタンは光って沈む（M_RemoteGlow の GlowPressed）。 */
+.tv-remote button:active,
+.tv-remote button.is-pressed { transform: translateY(3px); box-shadow: 0 0 0 #0b0908, 0 0 14px rgba(255, 214, 91, .95); background: linear-gradient(#fff4b8, var(--gold)); }
+.tv-remote button[aria-pressed="true"] { background: linear-gradient(#fff4b8, var(--gold)); box-shadow: 0 3px 0 #0b0908, 0 0 10px rgba(255, 214, 91, .75); }
+.tv-now { max-width: 18rem; margin: 0; font-size: .95rem; line-height: 1.7; }
+.tv-now b { display: block; font: 600 1.4rem var(--num); color: var(--ink); }
+.tv-legend { margin: 6px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .85rem; }
+
+/* ============================================================
+   演出C：幕の場面転換。ロード画面の天鵞絨の幕（STBLoadingScreen.cpp）と同じ色とひだ。
+   ============================================================ */
+.stage-curtain {
+    position: fixed; inset: 0; z-index: 100;
+    pointer-events: none;
+    transform: translateX(-101%);
+    background:
+        linear-gradient(90deg, #4a1720 0%, #962c30 12%, #bb423a 34%, #4a1720 85%, #4a1720 100%) 0 0 / calc(100% / 14) 100% repeat-x;
+}
+.stage-curtain::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(rgba(6, 1, 3, .4), rgba(6, 1, 3, 0) 25%, rgba(6, 1, 3, .04) 82%, rgba(6, 1, 3, .32));
+}
+/* 裾の金の縁取り */
+.stage-curtain::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 95.6%;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, #e0ac60 0 10px, #b9843f 10px 13px);
+}
+html.curtain-arrive .stage-curtain,
+.stage-curtain.is-closed { transform: none; }
+.stage-curtain.is-moving { transition: transform .45s cubic-bezier(.45, 0, .55, 1); }
+.stage-curtain.is-open { transform: translateX(101%); }
+
+/* ============================================================
+   演出D：電池集め。ページに隠れた電池を拾うと数が増え、そろうと脱出。
+   ============================================================ */
+.battery, .battery-hud, .escape-banner { display: none; }
+.fx-d .battery { display: block; }
+.fx-d .battery-hud { display: flex; }
+.battery {
+    position: absolute; z-index: 4;
+    width: 44px; height: 44px; padding: 0;
+    background: none; border: 0;
+    cursor: pointer;
+    transform: rotate(var(--r, -18deg));
+}
+.battery::before, .battery-hud i::before {
+    content: ""; position: absolute; left: 6px; top: 13px;
+    width: 28px; height: 18px;
+    background: linear-gradient(90deg, var(--teal) 0 60%, var(--gold) 60% 100%);
+    border: 2.5px solid var(--outline);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.battery::after, .battery-hud i::after {
+    content: ""; position: absolute; left: 34px; top: 18px;
+    width: 4px; height: 8px;
+    background: var(--outline);
+    border-radius: 0 2px 2px 0;
+}
+.battery:hover { animation: battery-wiggle .4s; }
+.battery.is-taken { animation: battery-take .35s forwards; pointer-events: none; }
+@keyframes battery-wiggle { 25% { transform: rotate(calc(var(--r, -18deg) + 10deg)); } 75% { transform: rotate(calc(var(--r, -18deg) - 10deg)); } }
+@keyframes battery-take { 40% { transform: rotate(0) scale(1.4); opacity: 1; } 100% { transform: translateY(-30px) scale(.6); opacity: 0; } }
+.still .battery.is-taken { animation: none; opacity: 0; }
+.battery-hud {
+    position: fixed; z-index: 35; top: 78px; right: 14px;
+    align-items: center; gap: 10px;
+    padding: 6px 14px 6px 8px;
+    background: rgba(255, 246, 223, .96);
+    border: 2.5px solid var(--outline);
+    border-radius: 999px;
+    box-shadow: 0 4px 0 rgba(59, 27, 9, .25);
+    font: 600 1.15rem var(--num);
+}
+.battery-hud i { position: relative; display: block; width: 40px; height: 44px; margin: -6px 0; transform: rotate(-12deg) scale(.8); }
+.battery-hud.is-bump { animation: hud-bump .3s; }
+@keyframes hud-bump { 40% { transform: scale(1.15); background: var(--gold); } }
+.escape-banner {
+    position: fixed; z-index: 45; left: 50%; bottom: 28px;
+    transform: translateX(-50%);
+    padding: 12px 26px;
+    background: var(--gold);
+    border: 3px solid var(--outline);
+    border-radius: 16px;
+    box-shadow: 0 6px 0 var(--outline);
+    font: 400 clamp(1.1rem, 3vw, 1.5rem) var(--heading);
+    white-space: nowrap;
+}
+.escape-banner small { display: block; font: 700 .85rem var(--body); text-align: center; }
+.escape-banner.is-on { display: block; animation: banner-in .4s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes banner-in { from { transform: translate(-50%, 30px) scale(.8); opacity: 0; } }
+.escape-duck { position: fixed; z-index: 44; left: -90px; bottom: 96px; width: 72px; height: 72px; pointer-events: none; }
+.escape-duck.is-on { animation: escape-run 2.6s linear forwards; }
+.escape-duck img { width: 100%; height: 100%; animation: escape-hop .32s ease-in-out infinite alternate; }
+@keyframes escape-run { to { transform: translateX(calc(100vw + 180px)); } }
+@keyframes escape-hop { from { transform: translateY(0) rotate(-6deg); } to { transform: translateY(-22px) rotate(6deg); } }
+
+/* ============================================================
+   隠れるアヒル。ページの写真やカードの後ろに隠れ、上の縁から顔を出す。
+   ============================================================ */
+[data-hide] { position: relative; z-index: 0; }
+[data-hide="row"] > div,
+[data-hide="media"] > img,
+[data-hide="media"] > video,
+[data-hide="media"] > .tv-set,
+[data-hide="media"] > .story-film { position: relative; z-index: 1; }
+.hide-duck {
+    position: absolute; left: 0; top: 0; z-index: 0;
+    width: 72px; height: 72px;
+    transform-origin: 50% 100%;
+    will-change: transform, filter;
+    -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+}
+.hide-duck img { display: block; width: 100%; height: 100%; pointer-events: none; }
+@media (max-width: 650px) { .hide-duck { width: 60px; height: 60px; } }
+/* 見られているときの画面のふちの影。ゲームのおもちゃ側の画面と同じく、二拍で縮む。 */
+.gaze-shade {
+    position: fixed; inset: 0; z-index: 40;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: inset 0 0 var(--shade-size, 110px) 14px rgba(150, 44, 34, .55);
+}

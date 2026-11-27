@@ -456,7 +456,7 @@ html.curtain-arrive .stage-curtain,
 [data-hide="row"] > div,
 [data-hide="media"] > img,
 [data-hide="media"] > video,
-[data-hide="media"] > .tv-set,
+[data-hide="remote"] > .tv-remote,
 [data-hide="media"] > .story-film { position: relative; z-index: 1; }
 .hide-duck {
     position: absolute; left: 0; top: 0; z-index: 0;

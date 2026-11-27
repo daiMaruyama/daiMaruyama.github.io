@@ -183,7 +183,7 @@ const isStill = () => document.body.classList.contains('still');
 // 隠れるアヒル。ページの写真やカードの後ろを移り歩き、上の縁から顔を出す。
 // 0.3秒見つめると凍って置物になる（ゲームの凝視と同じ）。見られていない間だけ時間が進む。
 (() => {
-    const hosts = [...document.querySelectorAll('[data-hide]')];
+    const hosts = [...document.querySelectorAll('[data-hide]:not([data-hide="remote"])')];
     if (!hosts.length) return;
     const shade = document.querySelector('.gaze-shade');
 
@@ -201,6 +201,7 @@ const isStill = () => document.body.classList.contains('still');
 
     // 隠れ場所の、上の縁にそった顔を出す位置。横に並んだカードは1枚ごと、写真は左右2か所。
     function covers(host) {
+        if (host.dataset.hide === 'remote') return [host.querySelector('.tv-remote')];
         return host.dataset.hide === 'row'
             ? [...host.children].filter(c => c.tagName === 'DIV')
             : [...host.querySelectorAll(':scope > img, :scope > video, :scope > .tv-set, :scope > .story-film')].filter(c => c.offsetWidth > 0).slice(0, 1);
@@ -298,11 +299,29 @@ const isStill = () => document.body.classList.contains('still');
         visit = makeVisit(host);
     }
 
+    const remote = document.querySelector('.tv-remote');
+    function peekFromRemote(event) {
+        if (!event.target.closest('button')) return;
+        remote.removeEventListener('click', peekFromRemote);
+        if (isStill()) return;
+        const host = remote.parentElement;
+        host.prepend(duck);
+        hover = false;
+        seenFor = freeze = touchUntil = 0;
+        const steps = [['rise', 1, -1, .35], ['look', 1, -1, 1.2], ['sink', 1, -1, .35]];
+        visit = { host, steps, t: 0, total: 1.9 };
+    }
+    remote.addEventListener('click', peekFromRemote);
+
     function frame(now) {
         const dt = Math.min((now - last) / 1000, .1);
         last = now;
         const still = isStill();
 
+        if (visit?.host.dataset.hide === 'remote' && visit.t >= visit.total) {
+            duck.remove();
+            visit = null;
+        }
         if (still) {
             // 動きを減らす設定：凝視の節のカードから、顔を出したまま動かない。
             const host = document.querySelector('#gaze [data-hide]') || hosts[0];

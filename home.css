@@ -865,6 +865,10 @@
     align-self: center;
 }
 
+.home-project-title {
+    margin-bottom: 14px;
+}
+
 .home-project-title > div {
     display: flex;
     flex-wrap: wrap;
@@ -882,8 +886,8 @@
 }
 
 .home-project-title h3 {
-    margin: 6px 0 12px;
-    font-size: 1.55rem;
+    margin: 0 0 5px;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
     line-height: 1.3;
 }
 

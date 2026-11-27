@@ -193,19 +193,22 @@
     font: 600 1rem var(--num);
     transform: rotate(-3deg);
 }
+/* 見出しは、文字の下半分にさんご色の蛍光ペンを引く。長さは文字の幅で決まる。 */
 .toy-page .case-heading h2 {
     margin: 14px 0 0;
     font: 400 clamp(1.75rem, 3.6vw, 2.7rem)/1.4 var(--heading);
     letter-spacing: .01em;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
 }
-/* 見出しの下の、さんご色の線（ゲームのUnderline_Coralに寄せる）。 */
-.toy-page .case-heading h2::after {
-    content: "";
-    display: block;
-    width: 3.2em; height: .22em; margin-top: .25em;
-    background: var(--coral);
-    border-radius: 999px;
+.toy-page .case-heading h2 .heading-text {
+    color: inherit;
+    font: inherit;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background: linear-gradient(transparent 62%, rgba(238, 120, 94, .42) 62% 90%, transparent 90%);
 }
+
 .toy-page .case-copy > p,
 .toy-page .case-copy > p:first-child {
     max-width: 760px;

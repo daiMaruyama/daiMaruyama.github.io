@@ -430,6 +430,25 @@
 .tv-now { max-width: 18rem; margin: 0; font-size: .95rem; line-height: 1.7; }
 .tv-now b { display: block; font: 600 1.4rem var(--num); color: var(--ink); }
 .tv-legend { margin: 6px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .85rem; }
+@media (min-width: 900px) {
+    .fx-b #spectator-tv .toy-exhibit {
+        --remote-width: 14rem;
+        --remote-gap: clamp(24px, 3vw, 40px);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) var(--remote-width);
+        column-gap: var(--remote-gap);
+        align-items: start;
+    }
+    .fx-b #spectator-tv .toy-exhibit::after {
+        left: calc((100% - var(--remote-width) - var(--remote-gap)) / 2);
+    }
+    .fx-b .tv-remote-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+    }
+    .fx-b #spectator-tv figcaption { grid-column: 1 / -1; }
+}
 
 /* ============================================================
    演出C：幕の場面転換。ロード画面の天鵞絨の幕（STBLoadingScreen.cpp）と同じ色とひだ。

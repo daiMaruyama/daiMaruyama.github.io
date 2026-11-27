@@ -62,22 +62,12 @@
 }
 .toy-page .project-title {
     margin: 18px 0 20px;
-    color: var(--ink);
-    font: 700 clamp(2.8rem, 7.2vw, 6.4rem)/1.18 var(--num);
-    letter-spacing: -.02em;
-    word-break: keep-all;
 }
-.toy-page .project-title span {
-    display: inline-block;
-    padding: 0 .16em .04em;
-    color: var(--paper-strong);
-    border: .045em solid var(--outline);
-    border-radius: .16em;
-    box-shadow: 0 .07em 0 var(--outline);
+.toy-page .project-title img {
+    display: block;
+    width: min(100%, clamp(165px, 23vw, 280px));
+    height: auto;
 }
-/* おもちゃは赤茶、にんげんは青。ゲームの陣営の色。 */
-.toy-page .project-title span:first-child { background: var(--toy); transform: rotate(-3deg); }
-.toy-page .project-title span:last-child { background: var(--human); transform: rotate(2deg); }
 .toy-page .project-dek {
     max-width: 760px;
     color: var(--ink);

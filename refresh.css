@@ -126,6 +126,10 @@
     background: none;
 }
 
+.home-project-media.toy-card img {
+    object-position: left center;
+}
+
 .home-project-media--train::after {
     display: none;
 }

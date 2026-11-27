@@ -354,35 +354,24 @@
 .story-blackout { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
 .story-blackout.is-on { opacity: 1; }
 .story-blackout.is-fading { transition: opacity .5s linear; }
-/* ゲームの画面右下に出るスキップの案内と同じ場所・同じ見た目（TBTitleMenu の StorySkipHint）。寸劇の間だけ出る。 */
-.story-skip {
-    position: absolute; right: 2.4%; bottom: 3.4%;
-    min-height: 34px; padding: 4px 16px;
-    color: #fff6df;
-    background: rgba(29, 53, 56, .72);
-    border: 1px solid rgba(255, 246, 223, .8);
-    border-radius: 2px;
-    font: 500 .95rem var(--body);
-    cursor: pointer;
+.story-controls {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 4px;
 }
-.story-skip:hover { background: rgba(29, 53, 56, .92); }
-.story-film:not(.is-playing) .story-skip { display: none; }
-.story-replay {
-    position: absolute; left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px 20px;
+.story-controls button {
+    min-height: 44px;
+    padding: 0 10px;
+    border: 0;
+    background: transparent;
     color: var(--ink);
-    background: var(--honey);
-    border: 2.5px solid var(--outline);
-    border-radius: 12px;
-    box-shadow: 0 4px 0 var(--outline);
-    font: 700 1rem var(--body);
+    font: 700 .9rem var(--body);
     cursor: pointer;
 }
-.story-replay:hover { background: var(--gold); }
+.story-controls button:hover { text-decoration: underline; }
+.story-controls button:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+.story-film:not(.is-playing) .story-skip,
 .story-film.is-playing .story-replay { display: none; }
-/* 終わってタイトルが出たあとは、ボタンを右上の小さな札にして、タイトルの画を隠さない。 */
-.story-film.is-ended .story-replay { left: auto; top: 4%; right: 2.4%; transform: none; padding: 5px 12px; font-size: .85rem; box-shadow: 0 3px 0 var(--outline); }
 .toy-page .story-routes > div { transition: background .2s; border-radius: 6px; padding-left: .5rem; padding-right: .5rem; }
 .toy-page .story-routes > div.is-on { background: rgba(255, 214, 91, .45); }
 

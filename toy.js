@@ -21,7 +21,7 @@ const isStill = () => document.body.classList.contains('still');
     function state(name) {
         film.classList.toggle('is-playing', name === 'playing');
         film.classList.toggle('is-ended', name === 'ended');
-        if (name === 'ended') replay.textContent = '↻ もう一度見る';
+        if (name === 'ended') replay.textContent = '寸劇をもう一度見る';
     }
     function play() {
         played = true;
@@ -71,7 +71,7 @@ const isStill = () => document.body.classList.contains('still');
     const WATCHABLE = [0, 1, 2, 3, 4];
     const kind = n => n <= 2 ? '部屋の固定カメラ' : n === 3 ? '人間の視点' : n === 4 ? '箱の外のおもちゃの視点' : '誰もいない（砂嵐）';
     const NOISE = 120; // 切り替えの砂嵐。ゲームの NoiseSeconds（0.12秒）と同じ。
-    let channel = 2, noiseUntil = 0, raf = 0, loaded = false;
+    let channel = Number(document.querySelector('.tv-remote [aria-pressed="true"]').dataset.ch), noiseUntil = 0, raf = 0, loaded = false;
 
     // 近づいたら、全チャンネルの写真と砂嵐を先に読んでおく（押した瞬間に替わるように）。
     function preload() {

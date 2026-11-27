@@ -56,8 +56,10 @@
                                        aria-label="寸劇の終わり。男の子がおもちゃの動きに気づき、おもちゃたちが走ったあと、タイトルとメニューが重なって出る"></video>
                                 <img class="story-end" width="1280" height="720" loading="lazy" src="../assets/toy-or-not/story/title.jpg" alt="タイトル画面。おもちゃたちの前に、ロゴとメニューが出ている">
                                 <div class="story-blackout" aria-hidden="true"></div>
-                                <button type="button" class="story-skip">スキップ</button>
-                                <button type="button" class="story-replay">▶ 寸劇の終わりを見る</button>
+                            </div>
+                            <div class="story-controls">
+                                <button type="button" class="story-skip">タイトルまで進む <span aria-hidden="true">→</span></button>
+                                <button type="button" class="story-replay">寸劇を再生</button>
                             </div>
                         </div>
                         <figcaption>
@@ -79,18 +81,18 @@
                     <p>捕まった仲間と同じ試合を見られるよう、大きなリモコンに乗って観戦先を替えるテレビを作りました。</p>
                     <figure class="toy-exhibit" data-hide="media">
                         <div class="tv-set">
-                            <img class="tv-frame" width="1440" height="810" loading="lazy" src="../assets/toy-or-not/tv/ch2.jpg" alt="おもちゃ箱のテレビと、おもちゃが乗れる大きなリモコン。テレビには選んだチャンネルの試合の映像が映る">
+                            <img class="tv-frame" width="1440" height="810" loading="lazy" src="../assets/toy-or-not/tv/ch1.jpg" alt="おもちゃ箱のテレビと、おもちゃが乗れる大きなリモコン。テレビには選んだチャンネルの試合の映像が映る">
                             <canvas class="tv-static" width="1440" height="810" aria-hidden="true"></canvas>
                         </div>
                         <div class="tv-remote-wrap">
                             <div class="tv-remote" role="group" aria-label="テレビのチャンネル">
-                                <button type="button" data-ch="1">1</button><button type="button" data-ch="2" aria-pressed="true">2</button><button type="button" data-ch="3">3</button>
+                                <button type="button" data-ch="1" aria-pressed="true">1</button><button type="button" data-ch="2">2</button><button type="button" data-ch="3">3</button>
                                 <button type="button" data-ch="4">4</button><button type="button" data-ch="5">5</button><button type="button" data-ch="6">6</button>
                                 <button type="button" data-ch="7">7</button><button type="button" data-ch="8">8</button><button type="button" data-ch="9">9</button>
                                 <button type="button" data-step="-1" aria-label="前のチャンネル">◀</button><button type="button" data-ch="0">0</button><button type="button" data-step="1" aria-label="次のチャンネル">▶</button>
                             </div>
                             <div>
-                                <p class="tv-now" aria-live="polite"><b>CH 2</b><span>部屋の固定カメラ</span></p>
+                                <p class="tv-now" aria-live="polite"><b>CH 1</b><span>部屋の固定カメラ</span></p>
                                 <ul class="tv-legend">
                                     <li>0〜2：部屋の固定カメラ</li>
                                     <li>3〜：箱の外にいるプレイヤー</li>

@@ -181,7 +181,7 @@
     gap: 22px;
     max-width: 980px;
 }
-/* style.css の sticky（top: 100px）を打ち消す。電池を置くので relative にする。 */
+/* style.css の sticky（top: 100px）を打ち消す。 */
 .toy-page .case-heading { position: relative; top: auto; }
 /* 節の番号は、紙に貼ったマスキングテープ。 */
 .toy-page .case-heading > span {
@@ -448,71 +448,6 @@ html.curtain-arrive .stage-curtain,
 .stage-curtain.is-closed { transform: none; }
 .stage-curtain.is-moving { transition: transform .45s cubic-bezier(.45, 0, .55, 1); }
 .stage-curtain.is-open { transform: translateX(101%); }
-
-/* ============================================================
-   演出D：電池集め。ページに隠れた電池を拾うと数が増え、そろうと脱出。
-   ============================================================ */
-.battery, .battery-hud, .escape-banner { display: none; }
-.fx-d .battery { display: block; }
-.fx-d .battery-hud { display: flex; }
-.battery {
-    position: absolute; z-index: 4;
-    width: 44px; height: 44px; padding: 0;
-    background: none; border: 0;
-    cursor: pointer;
-    transform: rotate(var(--r, -18deg));
-}
-.battery::before, .battery-hud i::before {
-    content: ""; position: absolute; left: 6px; top: 13px;
-    width: 28px; height: 18px;
-    background: linear-gradient(90deg, var(--teal) 0 60%, var(--gold) 60% 100%);
-    border: 2.5px solid var(--outline);
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-.battery::after, .battery-hud i::after {
-    content: ""; position: absolute; left: 34px; top: 18px;
-    width: 4px; height: 8px;
-    background: var(--outline);
-    border-radius: 0 2px 2px 0;
-}
-.battery:hover { animation: battery-wiggle .4s; }
-.battery.is-taken { animation: battery-take .35s forwards; pointer-events: none; }
-@keyframes battery-wiggle { 25% { transform: rotate(calc(var(--r, -18deg) + 10deg)); } 75% { transform: rotate(calc(var(--r, -18deg) - 10deg)); } }
-@keyframes battery-take { 40% { transform: rotate(0) scale(1.4); opacity: 1; } 100% { transform: translateY(-30px) scale(.6); opacity: 0; } }
-.still .battery.is-taken { animation: none; opacity: 0; }
-.battery-hud {
-    position: fixed; z-index: 35; top: 78px; right: 14px;
-    align-items: center; gap: 10px;
-    padding: 6px 14px 6px 8px;
-    background: rgba(255, 246, 223, .96);
-    border: 2.5px solid var(--outline);
-    border-radius: 999px;
-    box-shadow: 0 4px 0 rgba(59, 27, 9, .25);
-    font: 600 1.15rem var(--num);
-}
-.battery-hud i { position: relative; display: block; width: 40px; height: 44px; margin: -6px 0; transform: rotate(-12deg) scale(.8); }
-.battery-hud.is-bump { animation: hud-bump .3s; }
-@keyframes hud-bump { 40% { transform: scale(1.15); background: var(--gold); } }
-.escape-banner {
-    position: fixed; z-index: 45; left: 50%; bottom: 28px;
-    transform: translateX(-50%);
-    padding: 12px 26px;
-    background: var(--gold);
-    border: 3px solid var(--outline);
-    border-radius: 16px;
-    box-shadow: 0 6px 0 var(--outline);
-    font: 400 clamp(1.1rem, 3vw, 1.5rem) var(--heading);
-    white-space: nowrap;
-}
-.escape-banner small { display: block; font: 700 .85rem var(--body); text-align: center; }
-.escape-banner.is-on { display: block; animation: banner-in .4s cubic-bezier(.3, 1.6, .5, 1); }
-@keyframes banner-in { from { transform: translate(-50%, 30px) scale(.8); opacity: 0; } }
-.escape-duck { position: fixed; z-index: 44; left: -90px; bottom: 96px; width: 72px; height: 72px; pointer-events: none; }
-.escape-duck.is-on { animation: escape-run 2.6s linear forwards; }
-.escape-duck img { width: 100%; height: 100%; animation: escape-hop .32s ease-in-out infinite alternate; }
-@keyframes escape-run { to { transform: translateX(calc(100vw + 180px)); } }
-@keyframes escape-hop { from { transform: translateY(0) rotate(-6deg); } to { transform: translateY(-22px) rotate(6deg); } }
 
 /* ============================================================
    隠れるアヒル。ページの写真やカードの後ろに隠れ、上の縁から顔を出す。

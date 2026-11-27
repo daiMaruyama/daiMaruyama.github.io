@@ -16,12 +16,11 @@
     <link rel="stylesheet" href="../cursor.css">
     <script defer src="../cursor.js"></script>
 </head>
-<body class="project-page toy-page fx-a fx-b fx-c fx-d">
+<body class="project-page toy-page fx-a fx-b fx-c">
     <header class="project-header"><a href="../index.html#projects">← 代表作へ</a><span>丸山 大輔</span></header>
     <main>
         <section class="project-hero">
             <div class="project-hero-top">
-                <button class="battery" style="top: 18px; right: 22px; --r: 14deg" aria-label="電池を拾う"></button>
                 <div>
                     <p class="project-index">UE5.8 / C++</p>
                     <h1 class="project-title" lang="en"><span>Toy</span> or <span>Not ?</span></h1>
@@ -44,7 +43,6 @@
         <section class="case-section" id="title-story">
             <div class="case-grid">
                 <div class="case-heading"><span>01</span><h2><span class="heading-text">寸劇から<wbr>タイトルへ</span></h2>
-                    <button class="battery" style="right: 4%; top: 30%; --r: -24deg" aria-label="電池を拾う"></button>
                 </div>
                 <div class="case-copy">
                     <p>遊ぶ前に、おもちゃたちの事情を伝えたい。寸劇の最後の場面にタイトルを重ね、切れ目なくメニューへつなぎます。</p>
@@ -111,8 +109,7 @@
                         </div>
                         </figcaption>
                     </figure>
-                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp">ゲーム本体の実装を見る · ATBBoxTV（TBBoxTV.cpp）</a>
-                        <button class="battery" style="position: relative; --r: 8deg" aria-label="電池を拾う"></button></p>
+                    <p class="toy-code"><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBBoxTV.cpp">ゲーム本体の実装を見る · ATBBoxTV（TBBoxTV.cpp）</a></p>
                     <details class="toy-related">
                         <summary>関連コード（リモコン・ボタン・カメラ）</summary>
                         <p><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVRemote.cpp"><code>TBTVRemote.cpp</code></a> · <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVButton.cpp"><code>TBTVButton.cpp</code></a> · <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/GamePlay/TBTVCamera.h"><code>TBTVCamera.h</code></a></p>
@@ -141,8 +138,7 @@
                     <p>距離と箱の位置に応じて聞こえ方を変え、人間とおもちゃの声を分けるピッチシフトを自作しました。</p>
                     <figure class="toy-flow" data-hide="row" aria-label="ボイスチャットの聞こえ方">
                         <div><strong>距離</strong><span>遠い相手の声は小さく</span></div>
-                        <div><strong>おもちゃ箱</strong><span>箱越しの声はこもる</span>
-                            <button class="battery" style="top: 6px; right: 6px; --r: 20deg" aria-label="電池を拾う"></button></div>
+                        <div><strong>おもちゃ箱</strong><span>箱越しの声はこもる</span></div>
                         <div><strong>役柄</strong><span>人間とおもちゃで声の高さが変わる</span></div>
                     </figure>
                     <p class="toy-code"><b>コードを読む</b><a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Character/TBVoiceComponent.cpp"><code>TBVoiceComponent.cpp</code></a> <a href="https://github.com/daiMaruyama/toy-or-not/blob/65a8550b0ae17392c4ac346963aa0315a0521abb/Source/ToonStory/Audio/TBPitchShift.cpp"><code>TBPitchShift.cpp</code></a></p>
@@ -152,7 +148,6 @@
         <section class="case-section" id="development">
             <div class="case-grid">
                 <div class="case-heading"><span>05</span><h2><span class="heading-text">立ち上げと<wbr>開発フロー</span></h2>
-                    <button class="battery" style="right: 10%; bottom: 0; --r: -8deg" aria-label="電池を拾う"></button>
                 </div>
                 <div class="case-copy">
                     <p>自分から立ち上げ、3人でSteamストアを公開。AIの支援を使い、仕様は自分で決めました。変更を理解して共有するため、/quiz を導入しました。</p>
@@ -170,9 +165,6 @@
 
     <div class="gaze-shade" aria-hidden="true"></div>
     <div class="stage-curtain" aria-hidden="true"></div>
-    <div class="battery-hud" aria-live="polite"><i aria-hidden="true"></i><span><span class="battery-got">0</span> / <span class="battery-total">5</span></span></div>
-    <div class="escape-banner" role="status">脱出成功！ おもちゃの勝ち<small>電池がそろって、アヒルが逃げていきました</small></div>
-    <div class="escape-duck" aria-hidden="true"><img src="../assets/toy-or-not/duck.png" alt=""></div>
 
     <script src="../toy.js"></script>
 </body>

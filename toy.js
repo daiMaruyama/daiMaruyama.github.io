@@ -180,31 +180,6 @@ const isStill = () => document.body.classList.contains('still');
 })();
 
 
-// 演出D：電池集め。拾うと上の数が増え、全部そろうと脱出。
-(() => {
-    const bats = [...document.querySelectorAll('.battery')];
-    const hud = document.querySelector('.battery-hud');
-    const got = hud.querySelector('.battery-got');
-    hud.querySelector('.battery-total').textContent = bats.length;
-    const banner = document.querySelector('.escape-banner');
-    const runner = document.querySelector('.escape-duck');
-    let count = 0;
-    bats.forEach(b => b.addEventListener('click', () => {
-        if (b.classList.contains('is-taken')) return;
-        b.classList.add('is-taken');
-        count++;
-        got.textContent = count;
-        hud.classList.remove('is-bump'); void hud.offsetWidth; hud.classList.add('is-bump');
-        if (count === bats.length) {
-            banner.classList.add('is-on');
-            if (!isStill()) { runner.classList.remove('is-on'); void runner.offsetWidth; runner.classList.add('is-on'); }
-            setTimeout(() => banner.classList.remove('is-on'), 4200);
-        }
-    }));
-
-})();
-
-
 // 隠れるアヒル。ページの写真やカードの後ろを移り歩き、上の縁から顔を出す。
 // 0.3秒見つめると凍って置物になる（ゲームの凝視と同じ）。見られていない間だけ時間が進む。
 (() => {

@@ -427,7 +427,7 @@
     transition: transform .32s cubic-bezier(.16, .84, .3, 1);
 }
 
-.home-button:hover::before {
+.home-button:is(:hover, :focus-visible, :active)::before {
     transform: scaleX(1);
 }
 
@@ -1112,13 +1112,17 @@
     font-weight: 600;
 }
 
-.home-button--light {
-    color: var(--home-bg) !important;
-    background: var(--home-yellow);
+.home-form-actions .home-button {
+    color: var(--home-text);
+    background: var(--home-bg);
 }
 
-.home-button--light::before {
-    background: var(--home-text);
+.home-form-actions .home-button:is(:hover, :focus-visible, :active) {
+    color: var(--home-bg);
+}
+
+.home-form-actions .home-button::before {
+    background: var(--home-yellow);
 }
 
 /* 問い合わせフォーム。連絡セクションは背景がピンクなので、
@@ -1183,16 +1187,16 @@
 .home-form-actions {
     margin-top: 4px;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .home-form-actions .home-button {
-    width: min(9rem, calc(50% - 8px));
+    width: min(9rem, 100%);
     padding-inline: 8px;
     font-family: inherit;
-    border: 0;
+    border: 1px solid var(--home-text);
     cursor: pointer;
 }
 
@@ -1519,7 +1523,8 @@
     .home-portrait-frame img,
     .home-project-media img,
     .home-project-card,
-    .home-button {
+    .home-button,
+    .home-button::before {
         transition: none;
     }
 }

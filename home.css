@@ -1211,17 +1211,6 @@
     color: #ff8a99;
 }
 
-.home-socials {
-    margin-top: 28px;
-    display: flex;
-    gap: 22px;
-}
-
-.home-socials a {
-    font-size: .75rem;
-    font-weight: 700;
-}
-
 .home-trace {
     margin-top: 42px;
     padding-top: 13px;

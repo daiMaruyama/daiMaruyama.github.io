@@ -334,23 +334,6 @@
     letter-spacing: -.045em;
 }
 
-.home-hero h1 span {
-    position: relative;
-    z-index: 0;
-}
-
-.home-hero h1 span::after {
-    content: "";
-    position: absolute;
-    right: -.04em;
-    bottom: .05em;
-    left: -.03em;
-    z-index: -1;
-    height: .13em;
-    background: var(--home-red);
-    transform: rotate(-1.5deg);
-}
-
 /* H1の上に置くキッカー。職種を最初の一行で明示する。 */
 .home-role {
     margin: 0 0 16px;
@@ -1015,10 +998,11 @@
 }
 
 .home-timeline article {
-    padding: 27px 0;
+    padding: 14px 0;
     display: grid;
-    grid-template-columns: 130px minmax(0, 1fr);
-    gap: 36px;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: 18px;
     border-bottom: 1px solid var(--home-line);
 }
 
@@ -1506,8 +1490,8 @@
     }
 
     .home-timeline article {
-        grid-template-columns: 1fr;
-        gap: 5px;
+        grid-template-columns: 5.6rem minmax(0, 1fr);
+        gap: 10px;
     }
 
     .home-other-grid {

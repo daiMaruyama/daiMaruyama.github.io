@@ -1121,19 +1121,6 @@
     background: var(--home-text);
 }
 
-.home-button--contact-line {
-    color: var(--home-text);
-    box-shadow: inset 0 0 0 2.5px var(--home-text);
-}
-
-.home-button--contact-line::before {
-    background: var(--home-text);
-}
-
-.home-button--contact-line:hover {
-    color: var(--home-bg) !important;
-}
-
 /* 問い合わせフォーム。連絡セクションは背景がピンクなので、
    入力欄は黒地・白文字で抜く。 */
 .home-form {
@@ -1202,6 +1189,9 @@
 }
 
 .home-form-actions .home-button {
+    width: min(9rem, calc(50% - 8px));
+    padding-inline: 8px;
+    font-family: inherit;
     border: 0;
     cursor: pointer;
 }

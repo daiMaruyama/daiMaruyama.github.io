@@ -55,6 +55,13 @@
     box-shadow: 12px 12px 0 var(--home-red);
 }
 
+.toy-cover .home-project-preview {
+    inset: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border-radius: 3px;
+}
+
 /* ---------- 見出し ---------- */
 /* 見出しと説明は離さず、上下に並べて一続きで読ませる。 */
 .home-section-heading {
